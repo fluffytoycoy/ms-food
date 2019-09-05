@@ -1,8 +1,8 @@
 {
-  "name": "techLabs",
+  "name": "ms-food",
   "version": "1.0.0",
   "adonis-version": "1.0.0",
-  "description": "fake techLabs site",
+  "description": "fake restaurant site",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",

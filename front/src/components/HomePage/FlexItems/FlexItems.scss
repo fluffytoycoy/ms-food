@@ -1,0 +1,14 @@
+#grid{
+  flex-wrap: wrap;
+  .grid-item{
+    width: 33.33%;
+    background: grey;
+    padding: 26px 52px;
+    &:not(:nth-child(3n)){
+      border-right: solid black 2px;
+    }
+    &:nth-child(-n+3){
+      border-bottom: solid black 2px;
+    }
+  }
+}

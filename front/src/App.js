@@ -24,7 +24,7 @@ class App extends Component {
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
             <Route component={NotFound}/>
-				       </Switch>
+				  </Switch>
         <Footer/>
         </ScrollToTop>
       </Router>
