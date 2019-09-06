@@ -5,7 +5,7 @@ const Row = props => {
 
   const layoutStyle = {
     margin: '0 auto',
-    maxWidth: props.maxWidth ? props.maxWidth : '1600px'
+    maxWidth: props.maxWidth ? props.maxWidth : 'unset'
   };
 
   return (

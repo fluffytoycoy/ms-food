@@ -49,7 +49,7 @@ function Header(){
         <div onClick={handleMenuClick}className="menu-btn"><i className="fas fa-bars"></i></div>
         <div className="logo">
           <Link to="/" onClick={closeNav}>
-            <h3>techLabs</h3>
+            <img src="/img/Logos/nav-ms-grill.png"/>
           </Link>
         </div>
         <div className={`${menuOpen ? 'open' : ''} nav-wrapper`}>

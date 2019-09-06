@@ -4,32 +4,41 @@
   position: fixed;
   width: 100%;
   top: 0;
-  background: #1f1f1f;
+  background: url(/img/Backgrounds/diamond.png), linear-gradient(rgb(175, 16, 58), rgb(84, 7, 27));
   color: white;
   z-index: 4;
   left: 0;
   right: 0;
-  transition: height .5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+  background-position: center;
+  box-shadow: #000000a3 0px 9px 10px;
   .menu-btn {
     position: absolute;
-    right: 0;
-    margin: 14px;
-    top: 0;
+    right: 14px;
+    top: 14px;
     font-size: 1.5rem;
   }
 
   > div {
     align-items: center;
-    margin: 0 40px;
+    position: relative;
 
     .logo {
       margin-right: auto;
+      height: 60px;
       display: flex;
+      padding-right: 20px;
+      background: linear-gradient(#af103a, #54071b);
 
-      h3 {
-        font-size: 2rem;
-        padding: 10px 0;
-        font-weight: 100;
+      a {
+        align-items: center;
+        display: flex;
+      }
+
+      img {
+        height: 36px;
+        margin: 0 0 0 30px;
+        filter: drop-shadow(0px 4px 1px #1f1f1f);
       }
     }
 
@@ -38,6 +47,7 @@
       transition: all 0.5s ease-out;
       overflow: hidden;
       opacity: 0;
+      background: linear-gradient(rgb(175, 16, 58), rgb(84, 7, 27));
 
       &.open {
         max-height: 500px;
@@ -48,7 +58,7 @@
       .navigation {
         > li {
           &:first-child {
-            border-top: green solid 2px;
+            border-top: #f1f1f1 solid 2px;
           }
         }
 
@@ -59,7 +69,7 @@
           min-height: 40px;
           justify-content: center;
           font-weight: 200;
-          border-top: green solid 1px;
+          border-top: #f1f1f1 solid 1px;
           letter-spacing: 2px;
           cursor: pointer;
 
@@ -75,6 +85,7 @@
             p {
               margin-right: 20px;
               cursor: pointer;
+              padding: 5px;
 
               &:hover {
                 text-shadow: white 0 0;
@@ -84,7 +95,7 @@
             i {
               padding: 10px;
               cursor: pointer;
-              font-size: .5rem;
+              font-size: 0.5rem;
 
               &:hover {
                 text-shadow: white 0 0;
@@ -100,7 +111,7 @@
 
             &.open {
               height: 120px;
-              background: #171d16;
+              background: #1f1f1f;
               display: block;
 
               &.culture {
@@ -121,13 +132,16 @@
       .logo {
         h3 {}
       }
-      .menu-btn{
+
+      .menu-btn {
         display: none;
       }
+
       .nav-wrapper {
         opacity: 1;
         max-height: 500px;
         overflow: unset;
+        padding: 0 25px;
 
         .navigation {
           display: flex;
@@ -136,10 +150,15 @@
           > li {
             position: relative;
             padding: 10px 0;
+            ul{
+              background: linear-gradient(#54071b, #af103a );
+              border-bottom-left-radius: 4px;
+              border-bottom-right-radius: 4px;
+            }
             &:hover {
               ul {
                 height: 120px;
-                background: #171d16;
+
                 display: block !important;
 
                 &.culture {
@@ -152,8 +171,8 @@
               border-top: none;
             }
 
-            &:not(last-child) {
-              margin-right: 20px;
+            &:not(:last-child) {
+              margin-right: 14px;
             }
           }
 
@@ -181,9 +200,14 @@
               overflow: hidden;
               width: 300px;
               top: 60px;
-                position: fixed;
-              li {
-                border-top: green solid 1px;
+              position: fixed;
+
+              a {
+                &:not(:first-child) {
+                  li {
+                    border-top: #f1f1f1 solid 1px;
+                  }
+                }
               }
             }
           }

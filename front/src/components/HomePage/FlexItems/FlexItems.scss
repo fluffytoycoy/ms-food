@@ -1,6 +1,7 @@
 #grid {
   flex-wrap: wrap;
-
+  border-top: solid #af103a;
+  border-bottom: solid #af103a;
   .grid-item {
     width: 100%;
     background: #1f1f1f;
