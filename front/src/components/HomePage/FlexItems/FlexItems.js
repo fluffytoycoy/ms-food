@@ -1,9 +1,11 @@
 import React from 'react';
 import './FlexItems.scss';
+import FlexItem from './FlexItem/FlexItem';
 import {Link} from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 function FlexItems(){
+
   const flexItems = [
     {to: "/Menu", title: "Menu", img: "/img/Backgrounds/menu.jpg"},
     {to: "/The-Venue", title: "The Venue", img: "/img/Backgrounds/venue.jpg"},
@@ -27,25 +29,16 @@ function FlexItems(){
       zIndex: '-1'
     }
 
+    const enter = (e) =>{
+      console.log(e)
+    }
+
+    const exit = (e)=>{
+      console.log(e)
+    }
+
     return (
-        <Link  key={index}  className="grid-item" to={item.to} >
-          <div>
-            <div className="square">
-              <h3>{item.title}</h3>
-            </div>
-          </div>
-          <div>
-            <p>Order Now</p>
-          </div>
-          <div className="grid-btn">
-              <p>text</p>
-              <div>
-                <img src="/img/Icons/right-arrow.svg"/>
-              </div>
-          </div>
-          <span style={backgroundStyle}>
-          </span>
-        </Link>
+      <FlexItem item={item}/>
     )
   })
 
