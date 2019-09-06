@@ -5,22 +5,19 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 function FlexItems(){
   const flexItems = [
-    {to: "/Services/Cloud", title: "cloud"},
-    {to: "/Services/Data-Engineering", title: "data"},
-    {to: "/Services/Decision-Science", title: "decision"},
-    {to: "/Services/Cloud", title: "cloud"},
-    {to: "/Services/Data-Engineering", title: "data"},
-    {to: "/Services/Decision-Science", title: "decision"},
+    {to: "/Menu", title: "Menu"},
+    {to: "/The-Venue", title: "The Venue"},
+    {to: "/About-Us", title: "About Us"},
+    {to: "/Catering", title: "Catering"},
+    {to: "/Gift-Cards", title: "Gift Cards"},
+    {to: "/Gallery", title: "Gallery"},
   ]
 
   const renderedFlexItems = flexItems.map((item, index)=>{
     return (
-      <ScrollAnimation offset={50} key={index} animateOnce animateIn="fadeInUp" key={index} className="grid-item">
-        <Link to={item.to}><div className="clouds">
-          <h3>{item.title}</h3>
-          </div>
+        <Link  key={index}  className="grid-item" to={item.to}>
+            <h3>{item.title}</h3>
         </Link>
-      </ScrollAnimation>
     )
   })
 

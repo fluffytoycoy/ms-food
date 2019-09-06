@@ -1,14 +1,50 @@
 #grid{
   flex-wrap: wrap;
   .grid-item{
-    width: 33.33%;
+    width: 100%;
     background: grey;
     padding: 26px 52px;
-    &:not(:nth-child(3n)){
-      border-right: solid black 2px;
-    }
-    &:nth-child(-n+3){
-      border-bottom: solid black 2px;
+    border-bottom: solid black 1px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  #grid{
+    .grid-item{
+      width: 50%;
+      background: grey;
+      padding: 26px 52px;
+      border-bottom: unset;
+      &:not(:nth-child(even)){
+        border-right: solid black 2px;
+      }
+      &:nth-child(-n+4){
+        border-bottom: solid black 2px;
+      }
+
     }
   }
+}
+
+@media only screen and (min-width: 1000px){
+  #grid{
+    .grid-item{
+      width: 33.33%;
+      background: grey;
+      padding: 26px 52px;
+      &:not(:nth-child(even)){
+        border-right: unset;
+      }
+      &:nth-child(-n+4){
+        border-bottom: unset;
+      }
+      &:not(:nth-child(3n)){
+        border-right: solid black 2px;
+      }
+      &:nth-child(-n+3){
+        border-bottom: solid black 2px;
+      }
+    }
+  }
+
 }

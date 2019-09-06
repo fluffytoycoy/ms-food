@@ -44,8 +44,8 @@ function Header(){
     }
 
     return (
-      <div id="header">
-      <Row>
+      <Row id="header">
+      <div>
         <div onClick={handleMenuClick}className="menu-btn"><i className="fas fa-bars"></i></div>
         <div className="logo">
           <Link to="/" onClick={closeNav}>
@@ -105,8 +105,8 @@ function Header(){
             </li>
           </ul>
         </div>
-        </Row>
-      </div>
+        </div>
+      </Row>
 
     );
 }
