@@ -1,50 +1,125 @@
-#grid{
+#grid {
   flex-wrap: wrap;
-  .grid-item{
+
+  .grid-item {
     width: 100%;
-    background: grey;
-    padding: 26px 52px;
-    border-bottom: solid black 1px;
-  }
-}
+    background: #1f1f1f;
+    padding: 60px 52px;
+    border-bottom: solid #af103a 1px;
+    position: relative;
+    background: rgba(11, 11, 11, 0.9);
+    background-size: 1px 5px;
+    cursor: pointer;
+    transition: background 1s ease-in-out;
+    &:hover {
+      background: rgba(1, 1, 1, 0.7);
+      > div {
 
-@media only screen and (min-width: 768px){
-  #grid{
-    .grid-item{
-      width: 50%;
-      background: grey;
-      padding: 26px 52px;
-      border-bottom: unset;
-      &:not(:nth-child(even)){
-        border-right: solid black 2px;
+        .square {
+
+
+          h3 {
+
+          }
+        }
       }
-      &:nth-child(-n+4){
-        border-bottom: solid black 2px;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .square {
+        width: 220px;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: #af103a solid;
+
+        h3 {
+          font-size: 2rem;
+          text-align: center;
+          font-family: 'Cinzel Decorative', cursive;
+          text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+        }
       }
 
+      &:not(last-child) {
+        margin-bottom: 42px;
+      }
+    }
+
+    .grid-btn {
+      border-radius: 4px;
+      background: rgb(31, 31, 31);
+      width: 100%;
+      height: 60px;
+      justify-content: space-between;
+      overflow: hidden;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: rgb(180, 17, 59) 0 0 2px, #000000 0 0 8px;
+
+      p {
+        padding: 0 0 0 20px;
+        letter-spacing: 0.2rem;
+        font-weight: 100;
+              }
+
+      > div {
+        background: #b4113b;
+        padding: 0 20px;
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+        img {
+          width: 16px;
+        }
+      }
     }
   }
 }
+@media only screen and (min-width: 768px) {
+  #grid {
+    .grid-item {
+      width: 50%;
+      border-bottom: unset;
 
-@media only screen and (min-width: 1000px){
-  #grid{
-    .grid-item{
+      &:not(:nth-child(even)) {
+        border-right: solid #af103a 1px;
+      }
+
+      &:nth-child(-n+4) {
+        border-bottom: solid #af103a 1px;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1000px) {
+  #grid {
+    .grid-item {
       width: 33.33%;
-      background: grey;
-      padding: 26px 52px;
-      &:not(:nth-child(even)){
+
+      &:not(:nth-child(even)) {
         border-right: unset;
       }
-      &:nth-child(-n+4){
+
+      &:nth-child(-n+4) {
         border-bottom: unset;
       }
-      &:not(:nth-child(3n)){
-        border-right: solid black 2px;
+
+      &:not(:nth-child(3n)) {
+        border-right: solid #af103a 1px;
       }
-      &:nth-child(-n+3){
-        border-bottom: solid black 2px;
+
+      &:nth-child(-n+3) {
+        border-bottom: solid #af103a 1px;
       }
     }
   }
-
 }

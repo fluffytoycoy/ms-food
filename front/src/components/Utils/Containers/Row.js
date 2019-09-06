@@ -9,7 +9,7 @@ const Row = props => {
   };
 
   return (
-    <div style={layoutStyle} id={props.id}>
+    <div className="row" style={layoutStyle} id={props.id}>
       {props.children}
     </div>
   )

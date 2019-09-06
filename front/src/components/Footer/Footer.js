@@ -1,10 +1,11 @@
 import React from 'react';
 //import {Link} from 'react-router-dom';
+import Row from '../Utils/Containers/Row'
 import './Footer.scss';
 
 function Footer(){
     return (
-      <div id="footer">
+      <Row id="footer">
           <ul className="share-buttons">
             <li><a rel="noopener noreferrer" href="https://www.facebook.com" title="Share on Facebook" target="_blank"><i className="fab fa-facebook-square"></i></a></li>
             <li><a rel="noopener noreferrer" href="https://www.linkedin.com" title="Share on Facebook" target="_blank"><i className="fab fa-linkedin"></i></a></li>
@@ -13,7 +14,7 @@ function Footer(){
         <div className="copy">
           <p>©{new Date().getFullYear()} Retro Roulette & CoyCoding | All Rights Reserved</p>
         </div>
-     </div>
+     </Row>
     );
 }
 

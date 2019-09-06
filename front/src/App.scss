@@ -1,29 +1,32 @@
 @import 'sass/reset';
 @import 'sass/variables';
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,300,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
 
-html{
-  font-size: 100%
+html {
+  font-size: 100%;
 }
 
 body {
   padding: 52px 0 0;
-  background: linear-gradient(rgba(53, 0, 14, 0.7), rgba(255, 0, 63, 0.7)), url(/img/Backgrounds/diamond.png);
+  background: linear-gradient(rgba(53, 0, 14, 0.7), rgba(255, 0, 63, 0.7)), url("/img/Backgrounds/diamond.png");
   background-attachment: fixed;
   background-position: center;
 }
 
-#root-link{
+#root-link {
   min-height: 100vh;
 }
 
-#root, body, html {
-
+#root,
+body,
+html {
   color: $light-black;
+
   h1 {
-    font-family: 'Oswald', sans-serif;
     font-size: 3rem;
   }
+
   a {
     text-decoration: none;
     color: white;
@@ -47,9 +50,8 @@ body {
     }
   }
 }
-
-@media only screen and (min-width: 769px){
-  body{
+@media only screen and (min-width: 769px) {
+  body {
     padding: 60px 0 0;
   }
 }

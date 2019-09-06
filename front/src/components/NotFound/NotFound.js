@@ -1,15 +1,12 @@
 import React from 'react';
-
+import Row from '../Utils/Containers/Row';
 
 function NotFound(){
 
-
-
-
-
-
     return (
-      <h1>404</h1>
+      <Row >
+        <h1>404</h1>
+      </Row>
     );
 }
 
