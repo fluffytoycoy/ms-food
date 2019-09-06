@@ -24,7 +24,7 @@ function FlexItems(props){
     }
 
     return (
-        <div className={`grid-item ${active ? 'active' : ''}`} to={props.item.to} >
+        <div className={`grid-item ${active ? 'active' : ''}`} to={props.item.to}>
           <div>
             <div className="square">
               <h3>{props.item.title}</h3>

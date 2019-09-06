@@ -4,7 +4,7 @@ import FlexItem from './FlexItem/FlexItem';
 import {Link} from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-function FlexGrid(){
+function FlexGrid(props){
 
   const flexItems = [
     {to: "/Menu", title: "Menu", img: "/img/Backgrounds/menu.jpg"},
@@ -14,9 +14,11 @@ function FlexGrid(){
     {to: "/Gift-Cards", title: "Gift Cards", img: "/img/Backgrounds/gift_card.png"},
     {to: "/Gallery", title: "Gallery", img: "/img/Backgrounds/gallery.jpg"},
   ]
-  const style ={
+
+  const styles ={
     display: 'flex'
   }
+
   const renderedFlexItems = flexItems.map((item, index)=>{
     return (
       <FlexItem item={item}/>
@@ -24,7 +26,7 @@ function FlexGrid(){
   })
 
   return(
-    <section style={styles} id={props.id}>>
+    <section style={styles} id={props.id}>
       {renderedFlexItems}
     </section>
   )
