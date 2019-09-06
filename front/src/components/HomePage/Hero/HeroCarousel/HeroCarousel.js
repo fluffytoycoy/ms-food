@@ -10,7 +10,10 @@ function HeroCarousel(){
     showArrows: false,
     showStatus: false,
     showThumbs: false,
-    autoPlay: true
+    autoPlay: true,
+    transitionTime: 500,
+    interval: 5000,
+    infiniteLoop: true
     }
 
   const flexItems = [
