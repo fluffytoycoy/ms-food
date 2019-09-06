@@ -30,16 +30,16 @@ function FlexItems(props){
               <h3>{props.item.title}</h3>
             </div>
           </div>
-          <div>
-            <p>Order Now</p>
+          <div className="description" dangerouslySetInnerHTML={{ __html: props.item.subText}}>
+
           </div>
-          <Link to="test">
-            <div onMouseEnter={enter} onMouseLeave={exit} className="grid-btn">
-                <p>text</p>
+          <Link onMouseEnter={enter} onMouseLeave={exit} to="test" className="grid-btn">
+                <div>
+                  <p>{props.item.btnText}</p>
+                </div>
                 <div>
                   <img src="/img/Icons/right-arrow.svg"/>
                 </div>
-            </div>
             </Link>
           <span style={backgroundStyle}>
           </span>

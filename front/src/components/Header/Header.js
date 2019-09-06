@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Row from '../Utils/Containers/Row'
 import './Header.scss';
 
 function Header(){
@@ -44,7 +43,7 @@ function Header(){
     }
 
     return (
-      <Row id="header">
+      <section id="header">
       <div>
         <div onClick={handleMenuClick}className="menu-btn"><i className="fas fa-bars"></i></div>
         <div className="logo">
@@ -106,7 +105,7 @@ function Header(){
           </ul>
         </div>
         </div>
-      </Row>
+      </section>
 
     );
 }

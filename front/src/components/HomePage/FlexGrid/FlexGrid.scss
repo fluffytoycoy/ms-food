@@ -2,6 +2,7 @@
   flex-wrap: wrap;
   border-top: solid #af103a;
   border-bottom: solid #af103a;
+
   .grid-item {
     width: 100%;
     background: #1f1f1f;
@@ -12,16 +13,16 @@
     background-size: 1px 5px;
     transition: background 1s ease-in-out;
     color: white;
+    display: flex;
+    flex-direction: column;
     &.active {
       background: rgba(1, 1, 1, 0.7);
-      > div {
 
+      > div {
         .square {
           background: rgba(11, 11, 11, 0.7);
 
-          h3 {
-
-          }
+          h3 {}
         }
       }
     }
@@ -30,7 +31,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      &.description {
+       flex-direction: column;
+       text-align: center;
 
+       p {
+         margin-bottom: 20px;
+         font-weight: 100;
+         font-size: 1.2rem;
+       }
+     }
       .square {
         width: 220px;
         height: 220px;
@@ -39,13 +49,12 @@
         align-items: center;
         border: #af103a solid;
         transition: background 1s ease-in-out;
+
         h3 {
           font-size: 2rem;
           text-align: center;
           font-family: 'Cinzel Decorative', cursive;
-          text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+          text-shadow: 0 4px 3px rgba(0,0,0,0.4), 0 8px 13px rgba(0,0,0,0.1), 0 18px 23px rgba(0,0,0,0.1);
         }
       }
 
@@ -53,6 +62,7 @@
         margin-bottom: 42px;
       }
     }
+
 
     .grid-btn {
       border-radius: 4px;
@@ -65,20 +75,24 @@
       margin: 0 auto;
       box-shadow: rgb(180, 17, 59) 0 0 2px, #000000 0 0 8px;
       display: flex;
-      align-items: center;
       cursor: pointer;
+      margin-top: auto;
+
       p {
         padding: 0 0 0 20px;
         letter-spacing: 0.2rem;
         font-weight: 100;
-              }
+      }
 
       > div {
-        background: #b4113b;
         padding: 0 20px;
         display: flex;
         height: 100%;
         align-items: center;
+
+        &:nth-child(2) {
+          background: #b4113b;
+        }
 
         img {
           width: 16px;

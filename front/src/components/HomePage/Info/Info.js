@@ -6,46 +6,37 @@ function Info(){
   return(
     <section id="info">
       <div className="info-wrapper">
-        <div>
           <ScrollAnimation animateOnce animateIn="fadeInLeft">
-            <div className="icon">
-              <i className="fas fa-laptop-code"></i>
+          <div>
+            <h2>Happy Hour</h2>
+            <div className="times">
+              <p>3-5:30PM Monday-Thursday</p>
+              <p>9-10PM Friday and Saturday Night</p>
             </div>
+            <div className="featured-meals">
+              <p>1/2 Price Appetizers<span>* (Excludes Crab Dip, Crab Cakes and Pork Shanks)</span></p>
+              <p>$3 Wells</p>
+              <p>$2 Bud Light, Busch, Budweiser Drafts</p>
+              <p>$5 Select Cabernet and Chardonnay</p>
+              <p>Patio and Bar Only</p>
+            </div>
+          </div>
           </ScrollAnimation>
           <ScrollAnimation animateOnce  animateIn="fadeInRight">
             <div>
-              <h2>modern software</h2>
-              <p>We modernize legacy platforms and transform them to meet the demands of today's digital world.</p>
+              <h2>Brunch</h2>
+              <div className="times">
+                <p>Saturdays 11AM-2PM and Sundays 10AM-2PM</p>
+              </div>
+              <div className="featured-meals">
+                <p>$4 Biscuits & Gravy</p>
+                <p>$10 Breakfast Bowls</p>
+                <p>$10 Crêpes</p>
+                <p>$9 Pancakes & French Toast Meals</p>
+              </div>
             </div>
           </ScrollAnimation>
         </div>
-        <div>
-          <ScrollAnimation animateOnce animateIn="fadeInLeft">
-            <div className="icon">
-              <i className="fas fa-server">  </i>
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation animateOnce animateIn="fadeInRight">
-            <div>
-              <h2>data solutions</h2>
-              <p>We Leverage data and web technology to enhance and optimized user experiences.</p>
-            </div>
-          </ScrollAnimation>
-        </div>
-        <div>
-        <ScrollAnimation animateOnce animateIn="fadeInLeft">
-          <div className="icon">
-            <i className="far fa-lightbulb"></i>
-          </div>
-        </ScrollAnimation>
-          <ScrollAnimation animateOnce animateIn="fadeInRight">
-            <div>
-              <h2>Innovation</h2>
-              <p>Simply put we solve problems and save you money</p>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </div>
     </section>
   )
 }

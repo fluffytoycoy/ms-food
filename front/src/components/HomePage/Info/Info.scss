@@ -1,91 +1,98 @@
 #info {
-  display: flex;
-  background: linear-gradient(rgba(32, 35, 42, 0.95), rgba(32, 35, 42, 0.95)), url('/img/Backgrounds/stl.jpg');
+  background: linear-gradient(rgba(11, 11, 11, 0.9),rgba(11, 11, 11, 0.9)), url(/img/Backgrounds/info_bg.jpg);
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
   background-size: cover;
-  min-height: 500px;
-  justify-content: center;
-  overflow: hidden;
+  border-top: #cd1041 solid;
   .info-wrapper{
-    padding: 50px 0;
-    margin: 0 20px;
     display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    color: white;
     flex-direction: column;
-    justify-content: space-evenly;
-    > div{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      margin: 40px;
-      .icon{
-        min-width: 100px;
-        height: 100px;
-        align-items: center;
-        background: #0000002b;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-        box-shadow: 0 1px 3px 0 rgb(0, 0, 0), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgb(0, 0, 0);
-
-        i{
-          font-size: 5rem;
-          color: green;
-          text-shadow:  0 1px 3px rgb(0, 0, 0), 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px rgb(0, 0, 0);
-
-        }
+    align-items: center;
+    .animated{
+      max-width: 500px;
+      width: 100%;
+      padding: 50px 30px;
+      border-bottom: #af103a solid;
+      border-top: #af103a solid;
+      min-height: 366px;
+          background: rgba(11, 11, 11, 0.7);
+      &:first-child{
+        margin-bottom: 50px;
       }
-
       h2{
-        font-size: 2rem;
-        text-transform: capitalize;
-        color: white;
-        font-weight: 500;
-        margin-bottom: 10px;
-            text-shadow:  0 1px 3px rgb(0, 0, 0), 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px rgb(0, 0, 0);
+        font-size: 3rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #cd1041;
+        margin-bottom: 20px;
+        -webkit-text-stroke: white 2px;
+        text-align: center;
       }
-      p{
-        font-size: 1.2rem;
-        text-transform: capitalize;
-        color: white;
-        font-weight: 100;
+      .times{
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .featured-meals{
+            text-align: center;
+        p{
+          display: grid;
+          span{
+            color: #cd1041;
+            font-size: .6rem;
+            margin-top: 5px;
+          }
+          &:not(:last-child){
+            margin-bottom: 10px;
+          }
+        }
       }
     }
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   #home {
     #info {
       .info-wrapper{
-        > div{
-          flex-direction: row;
-          text-align: left;
-          justify-content: flex-start;
-          .icon{
-            margin-right: 50px;
-            margin-bottom: 0px;
+        justify-content: space-around;
+        padding: 100px 0;
+        flex-direction: row;
+        align-items: unset;
+        .animated{
+          max-width: 500px;
+          width: 100%;
+          padding: 30px 30px;
+          border: #af103a solid;
+          &:first-child{
+            margin-bottom: unset;
           }
-
           h2{
-            font-size: 2rem;
-            text-transform: capitalize;
-            color: white;
-            font-weight: 500;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #cd1041;
+            margin-bottom: 20px;
+            -webkit-text-stroke: white 2px;
+            text-align: center;
           }
-          p{
-            font-size: 1.2rem;
-            text-transform: capitalize;
-            color: white;
-            font-weight: 100;
+          .times{
+            text-align: center;
+            margin-bottom: 40px;
+          }
+          .featured-meals{
+                text-align: center;
+            p{
+              span{
+              }
+              &:not(:last-child){
+              }
+            }
           }
         }
       }
     }
-
-}
+  }
 }
