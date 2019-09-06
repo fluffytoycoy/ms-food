@@ -9,7 +9,8 @@ function HeroCarousel(){
   const options= {
     showArrows: false,
     showStatus: false,
-    showThumbs: false
+    showThumbs: false,
+    autoPlay: true
     }
 
   const flexItems = [
@@ -31,7 +32,7 @@ function HeroCarousel(){
         }
 
         return (
-          <div className="slide-img" style={bgStyles}>
+          <div className="slide-img" style={bgStyles} key={index}>
           </div>
         )
       })

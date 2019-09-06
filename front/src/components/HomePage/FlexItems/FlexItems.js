@@ -15,7 +15,7 @@ function FlexItems(){
 
   const renderedFlexItems = flexItems.map((item, index)=>{
     return (
-      <ScrollAnimation offset={50} animateOnce animateIn="fadeInUp" key={index} className="grid-item">
+      <ScrollAnimation offset={50} key={index} animateOnce animateIn="fadeInUp" key={index} className="grid-item">
         <Link to={item.to}><div className="clouds">
           <h3>{item.title}</h3>
           </div>

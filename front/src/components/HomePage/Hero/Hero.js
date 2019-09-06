@@ -9,7 +9,9 @@ function Hero(){
 
   return(
     <section id="hero">
-        <div> TEST Title</div>
+        <div className="hero-title">
+          <img src="/img/Logos/ms-grill.png"/>
+        </div>
         <HeroCarousel/>
     </section>
   )
