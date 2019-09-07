@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import LinkDuo from '../../../Utils/LinkDuo/LinkDuo'
 
 function FlexItems(props){
     const [active, setActive] = useState(false);
@@ -33,14 +33,14 @@ function FlexItems(props){
           <div className="description" dangerouslySetInnerHTML={{ __html: props.item.subText}}>
 
           </div>
-          <Link onMouseEnter={enter} onMouseLeave={exit} to="test" className="grid-btn">
+          <LinkDuo onMouseEnter={enter} onMouseLeave={exit} to={props.item.href} className="grid-btn">
                 <div>
                   <p>{props.item.btnText}</p>
                 </div>
                 <div>
                   <img src="/img/Icons/right-arrow.svg"/>
                 </div>
-            </Link>
+            </LinkDuo>
           <span style={backgroundStyle}>
           </span>
         </div>
