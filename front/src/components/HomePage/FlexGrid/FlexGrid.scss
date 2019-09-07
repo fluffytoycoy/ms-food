@@ -15,13 +15,14 @@
     color: white;
     display: flex;
     flex-direction: column;
+        box-shadow: inset black 0 0 4px;
     &.active {
       background: rgba(1, 1, 1, 0.7);
 
       > div {
         .square {
           background: rgba(11, 11, 11, 0.7);
-
+          box-shadow: inset black 0 0 6px;
           h3 {}
         }
       }
@@ -49,7 +50,7 @@
         align-items: center;
         border: #af103a solid;
         transition: background 1s ease-in-out;
-
+        box-shadow: inset black 0 0 6px;
         h3 {
           font-size: 2rem;
           text-align: center;

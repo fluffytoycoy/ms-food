@@ -6,10 +6,7 @@ function Footer(){
     return (
       <section id="footer">
         <div className="footer-grid">
-          <div className="logo">
-            <img src="/img/Logos/ms-grill.png"/>
-          </div>
-          <div>
+          <div className="hours">
             <h4>Hours</h4>
             <table>
             <tbody>
@@ -28,6 +25,9 @@ function Footer(){
               </tbody>
             </table>
           </div>
+          <div className="logo">
+            <img src="/img/Logos/ms-grill.png"/>
+          </div>
           <div className="contact">
             <h4>Contact</h4>
             <div>
@@ -37,6 +37,7 @@ function Footer(){
               <h5>Email:</h5>
               <p>info@mikeshannonsgrill.com</p>
             </div>
+
               <div>
                 <h5>Location:</h5>
                 <p>871 South Arbor Vitae</p>
