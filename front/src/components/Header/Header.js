@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import LinkDuo from '../Utils/LinkDuo/LinkDuo';
 import './Header.scss';
 
 function Header(){
@@ -47,59 +47,57 @@ function Header(){
       <div>
         <div onClick={handleMenuClick}className="menu-btn"><i className="fas fa-bars"></i></div>
         <div className="logo">
-          <Link to="/" onClick={closeNav}>
+          <LinkDuo to="/" onClick={closeNav}>
             <img src="/img/Logos/nav-ms-grill.png"/>
-          </Link>
+          </LinkDuo>
         </div>
         <div className={`${menuOpen ? 'open' : ''} nav-wrapper`}>
           <ul className="navigation">
             <li>
               <div className="dropdown-btn">
-                <Link to="/Services" onClick={closeNav}>
-                  <p>Services</p>
-                </Link>
+                <LinkDuo to="/Menu" onClick={closeNav}><p>Menu</p></LinkDuo>
                 <i onClick={handleServiceClick}className="fas fa-chevron-down"></i>
               </div>
-              <ul className={`${servicesOpen ? 'open' : ''}`}>
-                <Link to="/Services/Cloud" onClick={closeNav}>
-                  <li>Cloud Systems</li>
-                </Link>
-                <Link to="/Services/Data-Engineering" onClick={closeNav}><li>Data Engineering</li></Link>
-                <Link to="/Services/Decision-Science" onClick={closeNav}><li>Decision Science</li></Link>
+              <ul className={`menu-dropdown ${servicesOpen ? 'open' : ''}`}>
+                <LinkDuo to="/Menu/Food" onClick={closeNav}><li>Food</li></LinkDuo>
+                <LinkDuo to="/Menu/Drinks" onClick={closeNav}><li>Drinks</li></LinkDuo>
+                <LinkDuo to="/Menu/Dessert" onClick={closeNav}><li>Dessert</li></LinkDuo>
+                <LinkDuo to="/Menu/Kids" onClick={closeNav}><li>Kids</li></LinkDuo>
+                <LinkDuo to="http://mikeshannonsgrill.com/mobile/menus/Catering.pdf" onClick={closeNav}><li>Catering</li></LinkDuo>
               </ul>
             </li>
 
             <li>
               <div className="dropdown-btn">
-                <Link to="/Culture" onClick={closeNav}>
-                  <p>Culture</p>
-                </Link >
+                <LinkDuo to="/Culture" onClick={closeNav}>
+                  <p>About Us</p>
+                </LinkDuo >
                 <i onClick={handleCultureClick}className="fas fa-chevron-down"></i>
               </div>
-              <ul className={`${cultureOpen ? 'open' : ''}`}>
-                <Link to="/Culture/#core-beliefs" onClick={closeNav}>
-                  <li>Core Beliefs</li>
-                </Link>
-                <Link to="/Culture/Community" onClick={closeNav}>
-                  <li>Community</li>
-                </Link>
-                <Link to="/Blog">
-                  <li>Blog</li>
-                </Link>
+              <ul className={`about-us-dropdown ${cultureOpen ? 'open' : ''}`}>
+                <LinkDuo to="/Culture/#core-beliefs" onClick={closeNav}>
+                  <li>The Venue</li>
+                </LinkDuo>
+                <LinkDuo to="/Culture/Community" onClick={closeNav}>
+                  <li>Art Vandalae</li>
+                </LinkDuo>
+                <LinkDuo to="/Blog">
+                  <li>Mike Shannon</li>
+                </LinkDuo>
               </ul>
             </li>
             <li>
               <div className="dropdown-btn">
-                <Link to="/Work" onClick={closeNav}>
+                <LinkDuo to="/Work" onClick={closeNav}>
                   <p>Work</p>
-                </Link>
+                </LinkDuo>
               </div>
             </li>
             <li>
               <div className="dropdown-btn">
-                <Link to="/#contact" onClick={closeNav}>
+                <LinkDuo to="/#contact" onClick={closeNav}>
                   <p>Contact Us</p>
-                </Link>
+                </LinkDuo>
               </div>
             </li>
           </ul>

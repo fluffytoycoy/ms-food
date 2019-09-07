@@ -7,7 +7,7 @@ import Home from './components/HomePage/Home';
 import ScrollToTop from './components/Utils/Scroll/Scroll';
 import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
-
+import Menu from './components/MenuPage/Menu'
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class App extends Component {
 				<Header/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
+            <Route exact  path="/Menu" render={props => <Menu {...props} />}/>
             <Route component={NotFound}/>
 				  </Switch>
         <Footer/>

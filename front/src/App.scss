@@ -8,12 +8,16 @@ html {
 }
 
 body {
-  padding: 52px 0 0;
-
+  padding: 60px 0 0;
 }
 
-#root-link {
-  min-height: 100vh;
+#root {
+  >section{
+    &:nth-child(2){
+      min-height: calc(100vh - 52px);
+      background: #1f1f1f;
+    }
+  }
 }
 
 #root,
@@ -52,7 +56,17 @@ html {
     }
   }
 }
+
 @media only screen and (min-width: 769px) {
+  #root{
+    >section{
+      &:nth-child(2){
+        min-height: calc(100vh - 52px);
+        background: #1f1f1f;
+      }
+    }
+
+  }
   body {
     padding: 60px 0 0;
   }
