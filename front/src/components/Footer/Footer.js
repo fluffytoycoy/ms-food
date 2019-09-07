@@ -5,11 +5,46 @@ import './Footer.scss';
 function Footer(){
     return (
       <section id="footer">
-          <ul className="share-buttons">
-            <li><a rel="noopener noreferrer" href="https://www.facebook.com" title="Share on Facebook" target="_blank"><i className="fab fa-facebook-square"></i></a></li>
-            <li><a rel="noopener noreferrer" href="https://www.linkedin.com" title="Share on Facebook" target="_blank"><i className="fab fa-linkedin"></i></a></li>
-            <li><a rel="noopener noreferrer" href="https://twitter.com/" target="_blank" title="Tweet"><i className="fab fa-twitter-square"></i></a></li>
-          </ul>
+        <div className="footer-grid">
+          <div className="logo">
+            <img src="/img/Logos/ms-grill.png"/>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <table>
+            <tbody>
+              <tr>
+                <th>Monday - Thursday</th>
+                <td>11AM - 9PM</td>
+              </tr>
+              <tr>
+                <th>Friday - Saturday</th>
+                <td>11AM - 10PM</td>
+              </tr>
+              <tr>
+                <th>Sunday</th>
+                <td>10AM - 8PM</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="contact">
+            <h4>Contact</h4>
+            <div>
+            <div>
+              <h5>Phone:</h5>
+              <p>618-655-9911</p>
+              <h5>Email:</h5>
+              <p>info@mikeshannonsgrill.com</p>
+            </div>
+              <div>
+                <h5>Location:</h5>
+                <p>871 South Arbor Vitae</p>
+                <p>Edwardsville, IL 62025</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="copy">
           <p>©{new Date().getFullYear()} Retro Roulette & CoyCoding | All Rights Reserved</p>
         </div>

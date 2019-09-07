@@ -1,54 +1,115 @@
 @import '../../sass/variables';
 #footer {
-  background: #4ca54a;
-  padding: 25px 0 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  h1{
-    font-size: 3rem;
-  }
-  .share-buttons{
+  .footer-grid{
     display: flex;
-    margin-bottom: 25px;
-    text-align: center;
-    i{
-      font-size: 3rem;
-      margin: 0 10px;
-      color: $red;
-      text-shadow: 0 1px 3px #00000085, 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px transparent;
-      &:hover{
-        transform: scale(1.1);
+    flex-wrap: wrap;
+    min-height: 300px;
+    background: linear-gradient(-45deg, #54071b, #af103a, #54071b);
+    justify-content: center;
+    color: white;
+    > div{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      &.logo{
+        justify-content: center;
+      }
+      table{
+        border-spacing: 2rem 1rem;
+        border-collapse: separate;
+        th{
+          text-align: left;
+        }
+        tr{
+          &:not(last-child){
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      &:not(last-child){
+        margin-bottom: 25px;
+      }
+      &.contact{
+        align-self: center;
+      }
+      &.contact{
+        h4{
+        }
+        >div{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 1rem;
+          justify-content: center;
+          >div{
+
+            h5{
+              font-size: 1.5rem;
+              margin-bottom: 10px;
+            }
+            p{
+              margin-bottom: 5px;
+            }
+          }
+        }
       }
     }
   }
-  .copy{
-    width: 100%;
 
-    padding: 10px 0;
+}
+
+@media screen and (min-width: 767px) {
+  #footer {
+    .footer-grid{
+      > div{
+        width: 50%;
+        &.logo{
+          width: 100%;
+          margin-bottom: 50px;
+        }
+        &:not(last-child){
+          margin-bottom: 0px;
+        }
+        &.contact{
+          align-self: flex-start;
+        }
+        &.contact{
+          h4{
+            align-self: end;
+          }
+          >div{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            >div{
+              width: 50%;
+              h5{
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+              }
+              p{
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 1000px) {
   #footer {
-    .container {
-      > div {
-        flex-wrap: wrap;
+    .footer-grid{
+      > div{
+        width: 33.33% !important;
+        margin-bottom: 0px !important;
       }
     }
-    .row{
-      flex-basis: 100% !important;
-    }
-    .location {
-      margin-bottom: 50px !important;
-      img{
-        width: 100%;
-      min-width: 300px !important;
-      }
-    }
-    .social-media {
 
-    }
   }
 }

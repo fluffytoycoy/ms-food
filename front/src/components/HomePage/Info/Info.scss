@@ -4,9 +4,10 @@
   background-position: center;
   background-size: cover;
   border-top: #cd1041 solid;
+  overflow: hidden;
   .info-wrapper{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 50px 0;
     color: white;
     flex-direction: column;
@@ -18,7 +19,8 @@
       border-bottom: #af103a solid;
       border-top: #af103a solid;
       min-height: 366px;
-          background: rgba(11, 11, 11, 0.7);
+      background: rgba(11, 11, 11, 0.7);
+      margin: 0 25px;
       &:first-child{
         margin-bottom: 50px;
       }
@@ -57,7 +59,6 @@
   #home {
     #info {
       .info-wrapper{
-        justify-content: space-around;
         padding: 100px 0;
         flex-direction: row;
         align-items: unset;
@@ -70,13 +71,7 @@
             margin-bottom: unset;
           }
           h2{
-            font-size: 3rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: #cd1041;
             margin-bottom: 20px;
-            -webkit-text-stroke: white 2px;
-            text-align: center;
           }
           .times{
             text-align: center;
