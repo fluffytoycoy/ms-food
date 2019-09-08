@@ -15,7 +15,6 @@ body {
   >section{
     &:nth-child(2){
       min-height: calc(100vh - 52px);
-      background: #1f1f1f;
     }
   }
 }
@@ -62,7 +61,6 @@ html {
     >section{
       &:nth-child(2){
         min-height: calc(100vh - 52px);
-        background: #1f1f1f;
       }
     }
 

@@ -1,29 +1,77 @@
-#menu{
-  color: white;
-  .container{
+#menu {
+  color: #e4e4e4;
+  background: linear-gradient(rgba(175, 16, 58, .9), rgba(175, 16, 58, .9)),url(/img/Backgrounds/diamond.png);
+  .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 50px 20px;
-    .title-bar{
+    border-left: solid 1px #848484;
+    border-right: solid 1px #848484;
+    box-shadow: black 0 0 10px;
+    background: #1f1f1f;
+    min-height: inherit;
+    > div {
       display: flex;
-      align-items: flex-end;
-      flex-direction: column;
-      justify-content: space-between;
-      h3{
-        font-size: 3rem;
-        font-family: 'Cinzel Decorative', cursive;
-      }
-      > div{
-        a{
-          color: #ae1039;
-          font-weight: 600;
-          letter-spacing: 2px;
-          &:not(:last-child){
-            padding-right: 5px;
-            border-right: solid white 1px;
+      &.title-bar {
+        background: linear-gradient(rgba(11, 11, 11, 0.9),rgba(11, 11, 11, 0.9)), url(/img/Backgrounds/info_bg.jpg);
+        background-position: center;
+        height: 150px;
+        margin-bottom: 20px;
+        border-bottom: solid #e4e4e4;
+        >div{
+          align-items: flex-end;
+          justify-content: space-between;
+          display: flex;
+          width: 100%;
+          margin: 0 20px;
+
+          h3 {
+            font-size: 3rem;
+            font-family: 'Cinzel Decorative', cursive;
+            margin-bottom: -3px;
           }
-          &:not(:first-child){
-            padding-left: 5px;
+
+          .sidebar {
+            margin-bottom: 2px;
+            a {
+              color: #ae1039;
+              font-weight: 600;
+              letter-spacing: 2px;
+
+              &:not(:last-child) {
+                padding-right: 5px;
+                border-right: solid #e4e4e4 1px;
+              }
+
+              &:not(:first-child) {
+                padding-left: 5px;
+              }
+            }
+          }
+        }
+      }
+      &.menu-cols{
+        padding: 20px 0 40px;
+        .col-3 {
+          width: 33.33%;
+          margin: 0 20px;
+          h4 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            font-family: 'Cinzel Decorative', cursive;
+            border-bottom: #ad103a dotted 12px;
+          }
+          .food {
+            margin-bottom: 32px;
+            p{
+              margin-bottom: 20px;
+              font-size: .8rem;
+              font-weight: 100;
+              line-height: 1rem;
+              b{
+                font-weight: 600;
+                font-size: 1rem;
+              }
+            }
           }
         }
       }
