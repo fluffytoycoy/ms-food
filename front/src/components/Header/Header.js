@@ -69,19 +69,19 @@ function Header(){
 
             <li>
               <div className="dropdown-btn">
-                <LinkDuo to="/Culture" onClick={closeNav}>
+                <LinkDuo to="/About-Us" onClick={closeNav}>
                   <p>About Us</p>
                 </LinkDuo >
                 <i onClick={handleCultureClick}className="fas fa-chevron-down"></i>
               </div>
               <ul className={`about-us-dropdown ${cultureOpen ? 'open' : ''}`}>
-                <LinkDuo to="/Culture/#core-beliefs" onClick={closeNav}>
+                <LinkDuo to="/About-Us/The-Venue" onClick={closeNav}>
                   <li>The Venue</li>
                 </LinkDuo>
-                <LinkDuo to="/Culture/Community" onClick={closeNav}>
+                <LinkDuo to="/About-Us/Art" onClick={closeNav}>
                   <li>Art Vandalae</li>
                 </LinkDuo>
-                <LinkDuo to="/Blog">
+                <LinkDuo to="/About-Us/Mike">
                   <li>Mike Shannon</li>
                 </LinkDuo>
               </ul>
