@@ -61,7 +61,7 @@ function Header(){
               <ul className={`menu-dropdown ${servicesOpen ? 'open' : ''}`}>
                 <LinkDuo to="/Menu/Food" onClick={closeNav}><li>Food</li></LinkDuo>
                 <LinkDuo to="/Menu/Drinks" onClick={closeNav}><li>Drinks</li></LinkDuo>
-                <LinkDuo to="/Menu/Dessert" onClick={closeNav}><li>Dessert</li></LinkDuo>
+                <LinkDuo to="/Menu/Desserts" onClick={closeNav}><li>Dessert</li></LinkDuo>
                 <LinkDuo to="/Menu/Kids" onClick={closeNav}><li>Kids</li></LinkDuo>
                 <LinkDuo to="http://mikeshannonsgrill.com/mobile/menus/Catering.pdf" onClick={closeNav}><li>Catering</li></LinkDuo>
               </ul>

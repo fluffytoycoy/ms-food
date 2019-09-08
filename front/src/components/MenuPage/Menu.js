@@ -20,6 +20,8 @@ import Masonry from 'react-masonry-component';
                     this.menuItems('Cocktails'),
                     this.menuItems('Wine'),
                     this.menuItems('Beer'),
+                    this.menuItems('Kids'),
+                    this.menuItems('Desserts')
                   ],
         selectedMenu: this.props.match.params.category,
       }
@@ -80,8 +82,8 @@ import Masonry from 'react-masonry-component';
               <div className= "sidebar">
                 <p onClick={()=>{this.changeMenu('Food')}}>Food</p>
                 <p onClick={()=>{this.changeMenu('Drinks')}}>Drinks</p>
-                <p href="" href="Menu/Dessert">Dessert</p>
-                <p href="" href="Menu/Kids">Kids</p>
+                <p onClick={()=>{this.changeMenu('Desserts')}}>Desserts</p>
+                <p onClick={()=>{this.changeMenu('Kids')}} >Kids</p>
               </div>
             </div>
           </div>

@@ -892,4 +892,50 @@ export const menu = [
       },
     ]
   },
+  {
+    category: "Desserts",
+    title: "Desserts",
+    products: [
+      {
+        name: "Upside Down Apple Pie",
+        price: "$6",
+        ingredients: "Cinnamon, Walnuts, Brown Sugar, A La Mode"
+      },
+      {
+        name: "Cheesecake",
+        price: "$6",
+      },
+      {
+        name: "Bread Pudding",
+        price: "$6",
+      },
+    ]
+  },
+  {
+    category: "Kids",
+    title: "Kids",
+    products: [
+      {
+        name: "Filet 4 oz , Broccoli , Cheddar Cheese Mash Potato, Seasonal Fruit",
+        price: "$14",
+        ingredients: "Cinnamon, Walnuts, Brown Sugar, A La Mode"
+      },
+      {
+        name: "Fried Shrimp with Cocktail Sauce, Broccoli, Cheddar Mash Potato, Seasonal Fruit",
+        price: "$11",
+      },
+      {
+        name: "Chicken Tenders with Ranch Dressing, Broccoli, French Fries, Seasonal Fruit",
+        price: "$7",
+      },
+      {
+        name: "Grilled Cheese, Broccoli, French Fries, Seasonal Frui",
+        price: "$6",
+      },
+      {
+        name: "Mac & Cheese, Broccoli, Seasonal Fruit ",
+        price: "$6",
+      },
+    ]
+  }
 ]
