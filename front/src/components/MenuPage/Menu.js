@@ -1,15 +1,31 @@
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import {Link} from 'react-router-dom';
 import MenuItem from './MenuItem.js'
 import {menu} from './TmpData.js'
 import './Menu.scss';
 import Masonry from 'react-masonry-component';
 
-function Menu(props) {
-  const masonryOptions = {
-    transitionDuration: 1000
-  };
-  const menuItems = (category) => {
+  class Menu extends Component{
+    constructor(props){
+      super(props);
+      this.state={
+        masonryOptions: 1000,
+        menuItemArray: [
+                    this.menuItems('Starters'),
+                    this.menuItems('Entrees'),
+                    this.menuItems('Salads') ,
+                    this.menuItems('Sides'),
+                    this.menuItems('Burgers') ,
+                    this.menuItems('Sandwiches'),
+                    this.menuItems('Cocktails'),
+                    this.menuItems('Wine'),
+                    this.menuItems('Beer'),
+                  ],
+        selectedMenu: this.props.match.params.category,
+      }
+    }
+
+  menuItems(category){
     const menuIndex = menu.findIndex(menu => menu.title === category);
     if(menuIndex >= 0){
       const products = menu[menuIndex].products.map((item, index) => {
@@ -26,53 +42,61 @@ function Menu(props) {
     }
     return null
   }
-  const menuArr = [
-              menuItems('Starters'),
-              menuItems('Entrees'),
-              menuItems('Sides'),
-              menuItems('Burgers') ,
-              menuItems('Sandwiches'),
-              menuItems('Salads') ,
-              menuItems('Cocktails'),
-              menuItems('Wine'),
-              menuItems('Beer'),
-            ]
-  const [menuSections, setMenu] = useState(menuArr);
-  const [selectedMenu, setSelectedMenu] = useState('')
 
-  console.log(props.match.params)
-
-  const changeMenu = (category) =>{
-    const newMenu = menuArr.filter(menuDOM =>{
-      return menuDOM.props['data-category'] === category
+  setMenu(menu){
+    this.setState({
+      visableMenuItems: menu
     })
-    props.history.push(category)
-    setMenu(newMenu)
   }
-  return (
-    <section id= "menu" >
-      <div className= "container">
-        <div className= "title-bar">
-          <div>
-            <h3> Menu </h3>
-            <div className= "sidebar">
-              <p onClick={()=>{changeMenu('Food')}}>Food</p>
-              <p onClick={()=>{changeMenu('Drinks')}}>Drink</p>
-              <p href="" href="Menu/Dessert">Dessert</p>
-              <p href="" href="Menu/Kids">Kids</p>
+
+  changeMenu(category){
+    // const newMenu = this.state.menuArr.filter(menuDOM =>{
+    //   return menuDOM.props['data-category'] === category
+    // })
+    this.props.history.push(category)
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.match.params.category !== prevState.selectedMenu){
+      return {selectedMenu: nextProps.match.params.category}
+    }
+    return null;
+  }
+
+  selectedMenu(menuArray){
+      return menuArray.filter(menuDOM =>{
+        return !this.state.selectedMenu || menuDOM.props['data-category'] === this.state.selectedMenu
+      })
+  }
+
+  render(){
+    console.log(this.state.selectedMenu)
+    return (
+      <section id= "menu" >
+        <div className= "container">
+          <div className= "title-bar">
+            <div>
+              <h3> Menu </h3>
+              <div className= "sidebar">
+                <p onClick={()=>{this.changeMenu('Food')}}>Food</p>
+                <p onClick={()=>{this.changeMenu('Drinks')}}>Drinks</p>
+                <p href="" href="Menu/Dessert">Dessert</p>
+                <p href="" href="Menu/Kids">Kids</p>
+              </div>
             </div>
           </div>
+          <Masonry
+            options={this.masonryOptions}
+            className={'menu-cols'} // default ''
+            disableImagesLoaded={false} // default false
+            updateOnEachImageLoad={false}>
+              { this.selectedMenu(this.state.menuItemArray)}
+          </Masonry>
         </div>
-        <Masonry
-          options={masonryOptions}
-          className={'menu-cols'} // default ''
-          disableImagesLoaded={false} // default false
-          updateOnEachImageLoad={false}>
-            { menuSections }
-        </Masonry>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
+
 }
 
 export default Menu;
