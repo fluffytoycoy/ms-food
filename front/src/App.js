@@ -24,7 +24,7 @@ class App extends Component {
 				<Header/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
-            <Route exact  path="/Menu" render={props => <Menu {...props} />}/>
+            <Route exact  path="/Menu/" render={props => <Menu {...props} />}/>
             <Route exact  path="/Menu/:category" render={props => <Menu {...props} />}/>
             <Route exact path="/About-Us/" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/About-Us/:category" render={props => <AboutUs {...props}/>}/>

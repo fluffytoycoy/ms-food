@@ -52,10 +52,7 @@ import Masonry from 'react-masonry-component';
   }
 
   changeMenu(category){
-    // const newMenu = this.state.menuArr.filter(menuDOM =>{
-    //   return menuDOM.props['data-category'] === category
-    // })
-    this.props.history.push(category)
+    this.props.history.push(`/Menu/${category}`)
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
