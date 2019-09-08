@@ -9,8 +9,10 @@
     box-shadow: black 0 0 10px;
     background: #1f1f1f;
     min-height: inherit;
+    overflow: hidden;
     > div {
       display: flex;
+      flex-wrap: wrap;
       &.title-bar {
         background: linear-gradient(rgba(11, 11, 11, 0.9),rgba(11, 11, 11, 0.9)), url(/img/Backgrounds/info_bg.jpg);
         background-position: center;
@@ -32,10 +34,11 @@
 
           .sidebar {
             margin-bottom: 2px;
-            a {
+            > p {
               color: #ae1039;
               font-weight: 600;
               letter-spacing: 2px;
+                  display: inline;
 
               &:not(:last-child) {
                 padding-right: 5px;
@@ -51,30 +54,49 @@
       }
       &.menu-cols{
         padding: 20px 0 40px;
-        .col-3 {
-          width: 33.33%;
-          margin: 0 20px;
+        .category-col {
+          width: 100%;
+              padding: 0 20px;
           h4 {
             font-size: 2rem;
             margin-bottom: 16px;
             font-family: 'Cinzel Decorative', cursive;
             border-bottom: #ad103a dotted 12px;
           }
-          .food {
-            margin-bottom: 32px;
+          div {
+            margin-bottom: 20px;
+            h6{
+              font-weight: 600;
+              font-size: 1rem;
+            }
             p{
-              margin-bottom: 20px;
+              margin-bottom: 5px;
               font-size: .8rem;
               font-weight: 100;
               line-height: 1rem;
-              b{
-                font-weight: 600;
-                font-size: 1rem;
-              }
             }
           }
         }
       }
     }
   }
+}
+
+@media only screen and (min-width: 768px){
+  .menu-cols{
+    padding: 20px 0 40px;
+    .category-col {
+      width: 50% !important;
+          padding: 0 20px;
+      }
+    }
+}
+@media only screen and (min-width: 1025px){
+  .menu-cols{
+    padding: 20px 0 40px;
+    .category-col {
+      width: 33.33% !important;
+          padding: 0 20px;
+      }
+    }
 }

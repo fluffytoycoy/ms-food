@@ -561,7 +561,7 @@ export const menu = [
     ]
   },
   {
-    category: "Drinks",
+      category: "Drinks",
       title: "Beer",
       products: [{
           subType: "draft",
@@ -735,7 +735,7 @@ export const menu = [
     ],
   },
   {
-    category: "Drink",
+    category: "Drinks",
     title: "Wine",
     products: [
       {

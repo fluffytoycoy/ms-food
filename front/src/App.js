@@ -24,6 +24,7 @@ class App extends Component {
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
             <Route exact  path="/Menu" render={props => <Menu {...props} />}/>
+            <Route exact  path="/Menu/:category" render={props => <Menu {...props} />}/>
             <Route component={NotFound}/>
 				  </Switch>
         <Footer/>
