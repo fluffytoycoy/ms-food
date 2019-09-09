@@ -38,8 +38,11 @@
               color: #ae1039;
               font-weight: 600;
               letter-spacing: 2px;
-                  display: inline;
-
+              display: inline;
+              cursor: pointer;
+              &.selected{
+                color: #e4e4e4;
+              }
               &:not(:last-child) {
                 padding-right: 5px;
                 border-right: solid #e4e4e4 1px;

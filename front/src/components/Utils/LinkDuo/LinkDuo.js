@@ -7,7 +7,6 @@ import isExternal from 'is-url-external';
  */
 export default class LinkDuo extends Component {
   render() {
-      console.log(isExternal("/https://onelink.quickgifts.com/merchant/mike-shannons-grill-edwardsville/"))
     return isExternal(this.props.to) ?
       <a
         href={this.props.to}

@@ -13,6 +13,7 @@ import "./AboutUs.scss";
         masonryOptions: 1000,
         menuArray: [ <TheVenue data-category="The-Venue"/>, <Mike data-category="Mike"/>, <Justin data-category="Justin"/>],
         selectedMenu: this.props.match.params.category,
+        avalibleSections: ["The-Venue", "Mike", "Justin"]
       }
     }
 
@@ -22,16 +23,30 @@ import "./AboutUs.scss";
 
   static getDerivedStateFromProps(nextProps, prevState){
     //same as code in Menu page should make a comp and inherit from that
-    if(nextProps.match.params.category !== prevState.selectedMenu){
-      return {selectedMenu: nextProps.match.params.category}
+    const newCategory = nextProps.match.params.category;
+    let newState = null;
+
+    if(!newCategory || isNotValidSection(newCategory)){
+      if(newCategory !== prevState.selectedMenu){
+        newState = {selectedMenu: newCategory}
+      }
+      return newState;
+    } else{
+      nextProps.history.push('/404')
     }
-    return null;
+
+    function isNotValidSection(category){
+      const index = prevState.avalibleSections.findIndex(section=>(
+        section ===category
+      ))
+      return (index >= 0)
+    }
   }
+
 
   selectedMenu(menuArray){
     //same as code in Menu page should make a comp and inherit from that
       return menuArray.filter(menuDOM =>{
-        console.log(menuDOM)
         return !this.state.selectedMenu || menuDOM.props['data-category'] === this.state.selectedMenu
       })
   }
@@ -45,9 +60,10 @@ import "./AboutUs.scss";
             <div>
               <h3> About Us </h3>
               <div className= "sidebar">
-                <p onClick={()=>{this.changeMenu('The-Venue')}}>The Venue</p>
-                <p onClick={()=>{this.changeMenu('Justin')}}>Justin</p>
-                <p onClick={()=>{this.changeMenu('Mike')}}>Mike</p>
+                <p className={`${this.state.selectedMenu === undefined ? 'selected' : ''}`} onClick={()=>{this.changeMenu('')}}>All</p>
+                <p className={`${this.state.selectedMenu === 'The-Venue' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('The-Venue')}}>The Venue</p>
+                <p className={`${this.state.selectedMenu === 'Justin' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Justin')}}>Justin</p>
+                <p className={`${this.state.selectedMenu === 'Mike' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Mike')}}>Mike</p>
               </div>
             </div>
           </div>
