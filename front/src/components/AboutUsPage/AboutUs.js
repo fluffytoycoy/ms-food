@@ -4,9 +4,10 @@ import Masonry from 'react-masonry-component';
 import TheVenue from './Sections/TheVenue';
 import Justin from './Sections/Justin';
 import Mike from './Sections/Mike';
+import TabPage from '../Templates/TabPage';
 
 import "./AboutUs.scss";
-  class AboutUs extends Component{
+  class AboutUs extends TabPage{
     constructor(props){
       super(props);
       this.state={
@@ -19,36 +20,6 @@ import "./AboutUs.scss";
 
   changeMenu(category){
     this.props.history.push(`/About-Us/${category}`)
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState){
-    //same as code in Menu page should make a comp and inherit from that
-    const newCategory = nextProps.match.params.category;
-    let newState = null;
-
-    if(!newCategory || isNotValidSection(newCategory)){
-      if(newCategory !== prevState.selectedMenu){
-        newState = {selectedMenu: newCategory}
-      }
-      return newState;
-    } else{
-      nextProps.history.push('/404')
-    }
-
-    function isNotValidSection(category){
-      const index = prevState.avalibleSections.findIndex(section=>(
-        section ===category
-      ))
-      return (index >= 0)
-    }
-  }
-
-
-  selectedMenu(menuArray){
-    //same as code in Menu page should make a comp and inherit from that
-      return menuArray.filter(menuDOM =>{
-        return !this.state.selectedMenu || menuDOM.props['data-category'] === this.state.selectedMenu
-      })
   }
 
   render(){

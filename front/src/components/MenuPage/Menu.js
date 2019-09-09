@@ -4,8 +4,9 @@ import MenuItem from './MenuItem.js'
 import {menu} from './TmpData.js'
 import './Menu.scss';
 import Masonry from 'react-masonry-component';
+import TabPage from '../Templates/TabPage';
 
-  class Menu extends Component{
+  class Menu extends TabPage{
     constructor(props){
       super(props);
       this.state={
@@ -51,43 +52,8 @@ import Masonry from 'react-masonry-component';
     return null
   }
 
-  setMenu(menu){
-    this.setState({
-      visableMenuItems: menu
-    })
-  }
-
   changeMenu(category){
     this.props.history.push(`/Menu/${category}`)
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState){
-    //same as code in Menu page should make a comp and inherit from that
-    const newCategory = nextProps.match.params.category;
-    let newState = null;
-
-    if(!newCategory || isNotValidSection(newCategory)){
-      if(newCategory !== prevState.selectedMenu){
-        newState = {selectedMenu: newCategory}
-      }
-      return newState;
-    } else{
-      nextProps.history.push('/404')
-    }
-
-    function isNotValidSection(category){
-      console.log(category)
-      const index = prevState.avalibleSections.findIndex(section=>(
-        section === category
-      ))
-      return (index >= 0)
-    }
-  }
-
-  selectedMenu(menuArray){
-      return menuArray.filter(menuDOM =>{
-        return !this.state.selectedMenu || menuDOM.props['data-category'] === this.state.selectedMenu
-      })
   }
 
   render(){
