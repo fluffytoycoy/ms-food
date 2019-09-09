@@ -17,12 +17,11 @@ function HeroCarousel(){
     }
 
   const flexItems = [
-        {img: "https://mikeshannonsgrill.com/bgimages/venue01.jpg?img=1567718978766"},
-        {img: "https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage160059037-33-SITC-Desktop.jpg"},
-        {img: "https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage160059047-62-SP-YA-By-The-Slice-2019.jpg"},
-        {img: "https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage160059037-33-SITC-Desktop.jpg"},
-        {img: "https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage160059050-50-BSK-Sharing-Desserts-1800px.jpg"},
-        {img: "https://mikeshannonsgrill.com/bgimages/venue01.jpg?img=1567718978766"},
+        {img: "/img/Backgrounds/bar_large.jpg"},
+        {img: "/img/Backgrounds/ice_cream_hero.jpg"},
+        {img: "/img/Backgrounds/baseballs_large.jpg"},
+        {img: "/img/Backgrounds/steak_large.jpg"},
+        {img: "/img/Backgrounds/booth_large.jpg"},
       ]
 
   const renderedFlexItems = flexItems.map((item, index)=>{

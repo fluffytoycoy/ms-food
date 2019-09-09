@@ -86,6 +86,13 @@ function Header(props){
                 </LinkDuo>
               </ul>
             </li>
+            <li>
+              <div className="dropdown-btn">
+                <LinkDuo to="/Gallery" onClick={closeNav}>
+                  <p>Gallery</p>
+                </LinkDuo>
+              </div>
+            </li>
           </ul>
         </div>
         </div>
