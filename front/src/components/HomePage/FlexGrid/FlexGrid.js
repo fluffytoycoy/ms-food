@@ -21,7 +21,7 @@ function FlexGrid(props){
 
   const renderedFlexItems = flexItems.map((item, index)=>{
     return (
-      <FlexItem item={item}/>
+      <FlexItem item={item} key={index}/>
     )
   })
 

@@ -18,10 +18,11 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <Router>
       <ScrollToTop >
-				<Header/>
+				<Header {...this.props}/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
             <Route exact  path="/Menu/" render={props => <Menu {...props} />}/>

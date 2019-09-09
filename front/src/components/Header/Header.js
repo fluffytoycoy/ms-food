@@ -2,7 +2,7 @@ import React from 'react';
 import LinkDuo from '../Utils/LinkDuo/LinkDuo';
 import './Header.scss';
 
-function Header(){
+function Header(props){
   const[menuOpen, toggleNavMenu] = React.useState(false)
   const[servicesOpen, toggleServicesMenu] = React.useState(false)
   const[cultureOpen, toggleCultureMenu] = React.useState(false)
@@ -41,7 +41,7 @@ function Header(){
       closeAllMenusExcept()
       toggleNavMenu(false)
     }
-
+    console.log(props)
     return (
       <section id="header">
       <div>
@@ -85,20 +85,6 @@ function Header(){
                   <li>Mike Shannon</li>
                 </LinkDuo>
               </ul>
-            </li>
-            <li>
-              <div className="dropdown-btn">
-                <LinkDuo to="/Work" onClick={closeNav}>
-                  <p>Work</p>
-                </LinkDuo>
-              </div>
-            </li>
-            <li>
-              <div className="dropdown-btn">
-                <LinkDuo to="/#contact" onClick={closeNav}>
-                  <p>Contact Us</p>
-                </LinkDuo>
-              </div>
             </li>
           </ul>
         </div>
