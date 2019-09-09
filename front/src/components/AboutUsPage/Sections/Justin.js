@@ -1,9 +1,9 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 
-function Art(){
+function Justin(){
     return (
-      <>
+      <div data-category="Justin" className="row-wrapper">
         <h4>Justin Vanmatre</h4>
         <Masonry options={{masonryOptions: 0}} className={'menu-cols'} updateOnEachImageLoad={false}>
           <div className="about-col tri">
@@ -36,8 +36,8 @@ function Art(){
             </ul>
           </div>
         </Masonry>
-      </>
+      </div>
     );
 }
 
-export default Art;
+export default Justin;

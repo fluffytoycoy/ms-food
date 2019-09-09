@@ -78,8 +78,8 @@ function Header(){
                 <LinkDuo to="/About-Us/The-Venue" onClick={closeNav}>
                   <li>The Venue</li>
                 </LinkDuo>
-                <LinkDuo to="/About-Us/Art" onClick={closeNav}>
-                  <li>Art Vandalae</li>
+                <LinkDuo to="/About-Us/Justin" onClick={closeNav}>
+                  <li>Justin Vandalae</li>
                 </LinkDuo>
                 <LinkDuo to="/About-Us/Mike">
                   <li>Mike Shannon</li>

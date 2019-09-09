@@ -2,7 +2,7 @@ import React, {Component, useState} from 'react';
 import {Link} from 'react-router-dom';
 import Masonry from 'react-masonry-component';
 import TheVenue from './Sections/TheVenue';
-import Art from './Sections/Art';
+import Justin from './Sections/Justin';
 import Mike from './Sections/Mike';
 
 import "./AboutUs.scss";
@@ -11,44 +11,29 @@ import "./AboutUs.scss";
       super(props);
       this.state={
         masonryOptions: 1000,
-
+        menuArray: [ <TheVenue data-category="The-Venue"/>, <Mike data-category="Mike"/>, <Justin data-category="Justin"/>],
         selectedMenu: this.props.match.params.category,
       }
     }
 
   changeMenu(category){
-    this.props.history.push(category)
+    this.props.history.push(`/About-Us/${category}`)
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
-    // if(nextProps.match.params.category !== prevState.selectedMenu){
-    //   return {selectedMenu: nextProps.match.params.category}
-    // }
+    //same as code in Menu page should make a comp and inherit from that
+    if(nextProps.match.params.category !== prevState.selectedMenu){
+      return {selectedMenu: nextProps.match.params.category}
+    }
     return null;
   }
 
   selectedMenu(menuArray){
-      // return menuArray.filter(menuDOM =>{
-      //   return !this.state.selectedMenu || menuDOM.props['data-category'] === this.state.selectedMenu
-      // })
-  }
-
-  aboutItems(category){
-    // const menuIndex = menu.findIndex(menu => menu.title === category);
-    // if(menuIndex >= 0){
-    //   const products = menu[menuIndex].products.map((item, index) => {
-    //     return (
-    //       <MenuItem item={item} data-category={menu[menuIndex].category}key={index}/>
-    //     )
-    //   })
-    //   return (
-    //     <div className="category-col" key={category} data-category={products[0].props['data-category']}>
-    //        <h4 >{category}</h4>
-    //        {products}
-    //     </div>
-    //   )
-    // }
-    // return null
+    //same as code in Menu page should make a comp and inherit from that
+      return menuArray.filter(menuDOM =>{
+        console.log(menuDOM)
+        return !this.state.selectedMenu || menuDOM.props['data-category'] === this.state.selectedMenu
+      })
   }
 
   render(){
@@ -61,7 +46,7 @@ import "./AboutUs.scss";
               <h3> About Us </h3>
               <div className= "sidebar">
                 <p onClick={()=>{this.changeMenu('The-Venue')}}>The Venue</p>
-                <p onClick={()=>{this.changeMenu('Art')}}>Art</p>
+                <p onClick={()=>{this.changeMenu('Justin')}}>Justin</p>
                 <p onClick={()=>{this.changeMenu('Mike')}}>Mike</p>
               </div>
             </div>
@@ -71,9 +56,7 @@ import "./AboutUs.scss";
             className={'about-row'}
             updateOnEachImageLoad={false}>
             <>
-              <TheVenue/>
-              <Mike/>
-              <Art/>
+              {this.selectedMenu(this.state.menuArray)}
             </>
           </Masonry>
         </div>

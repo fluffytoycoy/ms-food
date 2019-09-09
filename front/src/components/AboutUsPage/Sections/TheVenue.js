@@ -3,7 +3,7 @@ import React from 'react';
 
 function TheVenue(){
     return (
-      <>
+      <div data-category="The-Venue" className="row-wrapper">
         <h4>The Venue</h4>
         <div className='menu-cols' >
           <div className="about-col">
@@ -30,7 +30,7 @@ function TheVenue(){
             </h5>
           </div>
         </div>
-      </>
+      </div>
     );
 }
 

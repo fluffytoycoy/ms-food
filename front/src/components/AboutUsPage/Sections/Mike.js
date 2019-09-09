@@ -3,7 +3,7 @@ import Masonry from 'react-masonry-component';
 
 function Mike(){
     return (
-      <>
+      <div data-category="Mike" className="row-wrapper">
         <h4>Mike Shannon</h4>
         <Masonry options={{masonryOptions: 0}} className={'menu-cols'} updateOnEachImageLoad={false}>
           <div className="about-col tri">
@@ -100,7 +100,7 @@ function Mike(){
             </div>
           </div>
         </Masonry>
-      </>
+      </div>
     );
 }
 
