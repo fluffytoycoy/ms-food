@@ -7,6 +7,9 @@ class MenuItem extends Model {
   category(){
     return this.belongsTo('App/Models/MenuCategory');
   }
+  mealType(){
+    return this.belongsTo('App/Models/MealType');
+  }
 }
 
 module.exports = MenuItem
