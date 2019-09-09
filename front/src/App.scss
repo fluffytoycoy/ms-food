@@ -12,6 +12,8 @@ body {
 }
 
 #root {
+  display: flex;
+flex-direction: column;
   >section{
     &:nth-child(2){
       min-height: calc(100vh - 52px);
