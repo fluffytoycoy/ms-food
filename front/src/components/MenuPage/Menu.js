@@ -35,7 +35,7 @@ import TabPage from '../Templates/TabPage';
     }
 
   menuItems(category){
-    const menuIndex = menu.findIndex(menu => menu.title === category);
+    const menuIndex = menu.findIndex(menu => menu.type === category);
     if(menuIndex >= 0){
       const products = menu[menuIndex].products.map((item, index) => {
         return (

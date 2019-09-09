@@ -1,7 +1,7 @@
 export const menu = [
   {
     category: "Food",
-    title: "Starters",
+    type: "Starters",
     products: [
       {
         name: "Soup of the Day",
@@ -107,7 +107,7 @@ export const menu = [
   },
   {
     category: "Food",
-    title: "Salads",
+    type: "Salads",
     products: [{
         name: "House",
         price: "$4.95/$9.95",
@@ -162,7 +162,7 @@ export const menu = [
   },
   {
     category: "Food",
-    title: "Entrees",
+    type: "Entrees",
     products: [{
         name: "8 oz. Filet",
         price: "$29.95",
@@ -248,7 +248,7 @@ export const menu = [
   },
   {
     category: "Food",
-    title: "Sides",
+    type: "Sides",
     products: [{
         name: "House Cut Fries",
         price: "$2.95",
@@ -294,7 +294,7 @@ export const menu = [
   },
   {
     category: "Food",
-    title: "Burgers",
+    type: "Burgers",
     products: [{
         name: "Shannon’s",
         price: "$9.95",
@@ -321,7 +321,7 @@ export const menu = [
   },
   {
     category: "Food",
-    title: "Sandwiches",
+    type: "Sandwiches",
     products: [{
         name: "Chicken Caesar Wrap",
         price: "$9.95",
@@ -395,7 +395,7 @@ export const menu = [
   },
   {
     category: "Drinks",
-    title: "Cocktails",
+    type: "Cocktails",
     products: [
       {
         subType: "classic",
@@ -562,7 +562,7 @@ export const menu = [
   },
   {
       category: "Drinks",
-      title: "Beer",
+      type: "Beer",
       products: [{
           subType: "draft",
           name: "Blue Point Toasted Lager",
@@ -736,7 +736,7 @@ export const menu = [
   },
   {
     category: "Drinks",
-    title: "Wine",
+    type: "Wine",
     products: [
       {
         subType: "Sparkling & White",
@@ -894,7 +894,7 @@ export const menu = [
   },
   {
     category: "Desserts",
-    title: "Desserts",
+    type: "Desserts",
     products: [
       {
         name: "Upside Down Apple Pie",
@@ -913,7 +913,7 @@ export const menu = [
   },
   {
     category: "Kids",
-    title: "Kids",
+    type: "Kids",
     products: [
       {
         name: "Filet 4 oz , Broccoli , Cheddar Cheese Mash Potato, Seasonal Fruit",

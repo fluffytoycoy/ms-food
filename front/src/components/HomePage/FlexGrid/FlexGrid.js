@@ -6,7 +6,8 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 function FlexGrid(props){
 
-  const flexItems = [
+  const flexItems =
+  [
     {to: "/Menu", title: "Menu", img: "/img/Backgrounds/menu.jpg", btnText: "See the Menu", subText: "<p>Food, drinks and dessert</p><h4>What You Want</h4>", href: "/Menu/"},
     {to: "/The-Venue", title: "The Venue", img: "/img/Backgrounds/venue.jpg", btnText: "Read More", subText: "<p>Vintage athletic club look</p><h4>Upscale-casual eatery</h4>", href: "/About-Us/The-Venue"},
     {to: "/About-Us/Mike", title: "About Us", img: "/img/Backgrounds/about_us.jpg", btnText: "Read More", subText: "<p>We like sports</p><h4>Meet Mike</h4>", href: "/About-Us/Mike"},
