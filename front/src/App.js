@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
 import Menu from './components/MenuPage/Menu';
 import AboutUs from './components/AboutUsPage/AboutUs';
+import ImgGallery from './components/Gallery/ImgGallery';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <Router>
       <ScrollToTop >
@@ -29,6 +29,7 @@ class App extends Component {
             <Route exact  path="/Menu/:category" render={props => <Menu {...props} />}/>
             <Route exact path="/About-Us/" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/About-Us/:category" render={props => <AboutUs {...props}/>}/>
+            <Route exact path="/Gallery" render={props => <ImgGallery {...props}/>}/>
             <Route component={NotFound}/>
 				  </Switch>
         <Footer/>
