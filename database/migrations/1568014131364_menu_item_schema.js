@@ -11,8 +11,8 @@ class MenuItemSchema extends Schema {
       table.string('price')
       table.string('ingredients')
       table.string('subType')
-      table.string('type')
       table.string('served')
+      table.integer('type_id').notNullable().unsigned().references('id').inTable('menu_type')
       table.integer('category_id').notNullable().unsigned().references('id').inTable('menu_categories')
       table.timestamps()
 

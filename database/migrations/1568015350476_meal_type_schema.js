@@ -7,6 +7,7 @@ class MealTypeSchema extends Schema {
   up () {
     this.create('meal_types', (table) => {
       table.increments()
+      table.string('name').notNullable()
       table.timestamps()
     })
   }
