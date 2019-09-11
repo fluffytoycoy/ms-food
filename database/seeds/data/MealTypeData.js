@@ -1,0 +1,13 @@
+module.exports=[
+  "Salads",
+  "Starters",
+  "Entrees",
+  "Sides",
+  "Burgers",
+  "Sandwiches",
+  "Cocktails",
+  "Beer",
+  "Wine",
+  "Desserts",
+  "Kids",
+]
