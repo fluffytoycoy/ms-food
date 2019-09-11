@@ -11,10 +11,17 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-const Factory = use('Factory')
+const Factory = use('Factory');
+const Database = use('Database');
+const MealType = use('App/Models/MealType');
+const mealTypes = require('./data/MealTypeData');
+
 
 class MealTypeSeeder {
   async run () {
+    const trx = await Database.beginTransaction()
+    await MealType.createMany(mealTypes, trx)
+    trx.commit();
   }
 }
 
