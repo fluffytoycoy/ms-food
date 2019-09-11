@@ -7,7 +7,7 @@ class MenuCategorySchema extends Schema {
   up () {
     this.create('menu_categories', (table) => {
       table.increments()
-      table.string('category').notNullable()
+      table.string('name').notNullable()
       table.timestamps()
     })
   }

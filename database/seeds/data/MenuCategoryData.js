@@ -1,6 +1,6 @@
 module.exports=[
-  "Food",
-  "Drinks",
-  "Desserts",
-  "Kids",
+  {name:"Food"},
+  {name:"Drinks"},
+  {name:"Desserts"},
+  {name:"Kids"},
 ]

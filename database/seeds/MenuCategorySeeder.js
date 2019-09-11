@@ -14,7 +14,7 @@
 const Factory = use('Factory')
 const Database = use('Database');
 const MenuCategory = use('App/Models/MenuCategory');
-const menuData = require('./data/MenuCategoryeData');
+const menuData = require('./data/MenuCategoryData');
 
 class MenuCategorySeeder {
   async run () {
