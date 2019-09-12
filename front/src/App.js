@@ -10,6 +10,8 @@ import NotFound from './components/NotFound/NotFound';
 import Menu from './components/MenuPage/Menu';
 import AboutUs from './components/AboutUsPage/AboutUs';
 import ImgGallery from './components/Gallery/ImgGallery';
+import { getMenu } from './actions/actions';
+import { connect } from 'react-redux'
 
 class App extends Component {
   constructor(props) {
@@ -18,11 +20,15 @@ class App extends Component {
     };
   };
 
+  componentDidMount(){
+    console.log(this.props)
+  }
+
   render() {
     return (
       <Router>
       <ScrollToTop >
-				<Header {...this.props}/>
+				<Header/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
             <Route exact  path="/Menu/" render={props => <Menu {...props} />}/>
@@ -39,4 +45,11 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapStateToProps = state =>{
+  return state;
+}
+export default connect(
+    mapStateToProps,
+    { getMenu }
+)(App)

@@ -2,7 +2,7 @@ import {
     GET_MENU_START,
     GET_MENU_SUCCESS,
     GET_MENU_FAILURE,
-} from '../actions'
+} from '../actions/actions'
 
 const initialState = {
     error: '',
@@ -39,3 +39,5 @@ const menuReducer = (state = initialState, action) => {
             return state
     }
 }
+
+export default menuReducer;
