@@ -5,6 +5,7 @@ import {menu} from './TmpData.js'
 import './Menu.scss';
 import Masonry from 'react-masonry-component';
 import TabPage from '../Templates/TabPage';
+import { connect } from 'react-redux'
 
   class Menu extends TabPage{
     constructor(props){
@@ -34,6 +35,9 @@ import TabPage from '../Templates/TabPage';
       }
     }
 
+  componentDidMount(){
+    console.log(this.props)
+  }
   menuItems(category){
     const menuIndex = menu.findIndex(menu => menu.type === category);
     if(menuIndex >= 0){
@@ -57,7 +61,6 @@ import TabPage from '../Templates/TabPage';
   }
 
   render(){
-    console.log(this.state.selectedMenu)
     return (
       <section id= "menu" >
         <div className= "container">
@@ -87,4 +90,9 @@ import TabPage from '../Templates/TabPage';
 
 }
 
-export default Menu;
+const mapStateToProps = state =>{
+  return state;
+}
+export default connect(
+    mapStateToProps
+)(Menu)

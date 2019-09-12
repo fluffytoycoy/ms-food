@@ -25,7 +25,7 @@ import "./AboutUs.scss";
   render(){
     console.log(this.state.selectedMenu)
     return (
-      <section id= "menu" >
+      <section id= "menu" className="body">
         <div className= "container">
           <div className= "title-bar">
             <div>

@@ -7,10 +7,6 @@ html {
   font-size: 100%;
 }
 
-body {
-  padding: 60px 0 0;
-}
-
 #root {
   display: flex;
 flex-direction: column;
@@ -64,10 +60,11 @@ html {
       &:nth-child(2){
         min-height: calc(100vh - 52px);
       }
+      &.body{
+        margin-top: 60px;
+      }
     }
 
   }
-  body {
-    padding: 60px 0 0;
-  }
+
 }

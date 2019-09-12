@@ -10,6 +10,7 @@ import NotFound from './components/NotFound/NotFound';
 import Menu from './components/MenuPage/Menu';
 import AboutUs from './components/AboutUsPage/AboutUs';
 import ImgGallery from './components/Gallery/ImgGallery';
+import Loading from './components/Loading/Loading';
 import { getMenu } from './actions/actions';
 import { connect } from 'react-redux'
 
@@ -21,12 +22,14 @@ class App extends Component {
   };
 
   componentDidMount(){
-    console.log(this.props)
+    this.props.getMenu();
   }
 
   render() {
     return (
+
       <Router>
+      { this.props.menuExists ?
       <ScrollToTop >
 				<Header/>
 					<Switch>
@@ -40,7 +43,9 @@ class App extends Component {
 				  </Switch>
         <Footer/>
         </ScrollToTop>
+          : <Loading/> }
       </Router>
+
     );
   }
 }

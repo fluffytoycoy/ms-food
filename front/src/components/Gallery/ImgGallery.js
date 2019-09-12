@@ -116,7 +116,7 @@ function ImgGallery(){
     ]
 
   return(
-    <section id="gallery">
+    <section className="body" id="gallery">
       <div className="container">
       <div className= "title-bar">
         <div>

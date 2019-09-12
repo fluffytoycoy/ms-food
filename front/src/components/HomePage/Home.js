@@ -8,7 +8,7 @@ import './Home.scss';
 
 function Home(props){
     return (
-      <section id="home">
+      <section className="body" id="home">
         <Hero/>
         <Info/>
         <FlexGrid id="grid"/>
