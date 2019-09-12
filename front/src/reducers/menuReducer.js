@@ -2,6 +2,7 @@ import {
     GET_MENU_START,
     GET_MENU_SUCCESS,
     GET_MENU_FAILURE,
+    SET_LOADING_SCREEN,
 } from '../actions/actions'
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
     fetchingMenu: false,
     menu: undefined,
     menuExists: false,
+    loadingFinished: false,
 }
 
 const menuReducer = (state = initialState, action) => {
@@ -24,7 +26,7 @@ const menuReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetchingMenu: false,
-                menu: action.payload.data,
+                menu: action.payload,
                 menuExists: true,
                 error: "",
             }
@@ -35,6 +37,11 @@ const menuReducer = (state = initialState, action) => {
                 menuExists: false,
                 error: "FAILED to get Menu from server",
             }
+        case SET_LOADING_SCREEN:
+        return{
+          ...state,
+          loadingFinished: action.payload
+        }
         default:
             return state
     }

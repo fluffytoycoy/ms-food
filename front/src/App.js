@@ -25,13 +25,22 @@ class App extends Component {
     this.props.getMenu();
   }
 
-  render() {
-    return (
+  pageReady(){
+    if(this.props.menuExists && this.props.loadingFinished){
+      document.body.style.position = 'relative';
+      return true;
+    }
+    return false;
+  }
 
+  render() {
+    console.log(this.pageReady())
+    return (
       <Router>
-      { this.props.menuExists ?
+
       <ScrollToTop >
 				<Header/>
+        { false ? '' : <Loading/> }
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
             <Route exact  path="/Menu/" render={props => <Menu {...props} />}/>
@@ -43,7 +52,7 @@ class App extends Component {
 				  </Switch>
         <Footer/>
         </ScrollToTop>
-          : <Loading/> }
+
       </Router>
 
     );
