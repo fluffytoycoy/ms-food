@@ -1,65 +1,79 @@
 import React, {Component, useState} from 'react';
 import {Link} from 'react-router-dom';
 import MenuItem from './MenuItem.js'
-import {menu} from './TmpData.js'
-import './Menu.scss';
 import Masonry from 'react-masonry-component';
 import TabPage from '../Templates/TabPage';
 import { connect } from 'react-redux'
+import './Menu.scss';
 
-  class Menu extends TabPage{
+  class Menu extends Component{
     constructor(props){
       super(props);
       this.state={
         masonryOptions: 1000,
-        menuItemArray: [
-
-                  ],
-        avalibleSections: [
-                            'Food',
-                            'Drinks',
-                            'Kids',
-                            'Desserts'
-                          ],
+        menuItems: undefined,
+        avalibleSections: ['Food', 'Drinks', 'Kids', 'Desserts'],
         selectedMenu: this.props.match.params.category,
       }
     }
-  testing(){
-    const menuCategories = Object.keys(this.props.menu);
-    const categorizedMenuItems = menuCategories.map((category)=>{
-      return this.props.menu[category]
-    })
-    console.log(categorizedMenuItems)
-  }
-  menuItems(category){
-    //const newMenu = Object.keys(this.props.menu);
-    const menuCategories = Object.keys(this.props.menu);
-    console.log(menuCategories)
-    const menuIndex = menu.findIndex(menu => menu.type === category);
-    if(menuIndex >= 0){
-      const products = menu[menuIndex].products.map((item, index) => {
-        return (
-          <MenuItem item={item} data-category={menu[menuIndex].category}key={index}/>
-        )
-      })
-      return (
-        <div className="category-col" key={category} data-category={products[0].props['data-category']}>
-           <h4 >{category}</h4>
-           {products}
-        </div>
-      )
+
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    //same as code in Menu page should make a comp and inherit from that
+    const newCategory = nextProps.match.params.category;
+    let newState = null;
+    if(nextProps.menuExists && !prevState.menuItems){
+      return {menuItems: buildMenu(nextProps.menu)}
     }
-    return null
+    if(!newCategory || isNotValidSection(newCategory)){
+      if(newCategory !== prevState.selectedMenu){
+        newState = {selectedMenu: newCategory}
+        console.log(newCategory)
+      }
+      return newState;
+    } else{
+      nextProps.history.push('/404')
+    }
+
+    function isNotValidSection(category){
+      const index = prevState.avalibleSections.findIndex(section=>(
+        section ===category
+      ))
+      return (index >= 0)
+    }
+
+    function buildMenu(menu){
+      const menuCategories = Object.keys(menu);
+      let categorizedMenuItems = {};
+      menuCategories.forEach((category)=>{
+        const categoryTypes = Object.keys(menu[category]);
+        const menuItems = categoryTypes.map((type)=>{
+          const item = menu[category][type].map((menuItem, index)=>{
+            return <MenuItem item={menuItem} data-category={type} key={index}/>
+          })
+          return (
+            <div className="category-col" key={type} data-category={category}>
+               <h4 >{type}</h4>
+               {item}
+            </div>
+          )
+        })
+        categorizedMenuItems[category] = [...menuItems]
+      })
+      return categorizedMenuItems
+    }
   }
 
   changeMenu(category){
     this.props.history.push(`/Menu/${category}`)
   }
 
+  selectedMenu(){
+    //same as code in Menu page should make a comp and inherit from that
+      return !this.state.selectedMenu ? Object.values(this.state.menuItems) : this.state.menuItems[this.state.selectedMenu]
+  }
+
   render(){
-    if(this.props.menuExists){
-      this.testing();
-    }
     return (
       <>
         { this.props.menuExists ?
@@ -82,7 +96,7 @@ import { connect } from 'react-redux'
               className={'menu-cols'} // default ''
               disableImagesLoaded={false} // default false
               updateOnEachImageLoad={false}>
-                { this.selectedMenu(this.state.menuItemArray)}
+                {this.selectedMenu()}
             </Masonry>
           </div>
         </section>

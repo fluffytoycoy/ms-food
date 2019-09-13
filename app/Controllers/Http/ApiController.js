@@ -11,12 +11,12 @@ class ApiController {
       const menu = await Database
       .select('*',
               'menu_items.name as name',
+              'menu_items.id as id',
               'menu_categories.name as category',
               'meal_types.name as type')
       .from('menu_items')
       .innerJoin('meal_types', 'menu_items.type_id', 'meal_types.id')
       .innerJoin('menu_categories', 'menu_items.category_id', 'menu_categories.id');
-
       return formatMenu(menu)
     } catch (e){
       console.log(e)
