@@ -15,7 +15,7 @@
   .menu-btn {
     position: absolute;
     right: 30px;
-    top: 18px;
+    top: 12px;
     font-size: 1.5rem;
   }
 
@@ -25,9 +25,8 @@
 
     .logo {
       margin-right: auto;
-      height: 60px;
+      padding: 6px 0;
       display: flex;
-      background: linear-gradient(#af103a, #54071b);
 
       a {
         align-items: center;
@@ -46,7 +45,6 @@
       transition: all 0.5s ease-out;
       overflow: hidden;
       opacity: 0;
-      background: linear-gradient(rgb(175, 16, 58), rgb(84, 7, 27));
 
       &.open {
         max-height: 500px;
@@ -149,7 +147,6 @@
 
           > li {
             position: relative;
-            padding: 10px 0;
             ul{
               background: linear-gradient(#54071b, #af103a );
               border-bottom-left-radius: 4px;
@@ -209,7 +206,7 @@
               position: absolute;
               overflow: hidden;
               width: 300px;
-              top: 60px;
+              top: 48px;
               position: fixed;
 
               a {
