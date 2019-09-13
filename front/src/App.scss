@@ -11,8 +11,8 @@ html {
   display: flex;
 flex-direction: column;
   >section{
-    &:nth-child(2){
-      min-height: calc(100vh - 52px);
+    &:nth-child(3){
+      min-height: calc(100vh);
     }
   }
 }
@@ -23,6 +23,7 @@ body{
 body,
 html {
   color: $light-black;
+  width: 100%;
 
   h1 {
     font-size: 3rem;
@@ -59,8 +60,8 @@ html {
 @media only screen and (min-width: 769px) {
   #root{
     >section{
-      &:nth-child(2){
-        min-height: calc(100vh - 52px);
+      &:nth-child(3){
+        min-height: calc(100vh);
       }
       &.body{
         margin-top: 60px;

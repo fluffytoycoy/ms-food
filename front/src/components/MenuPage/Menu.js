@@ -13,17 +13,7 @@ import { connect } from 'react-redux'
       this.state={
         masonryOptions: 1000,
         menuItemArray: [
-                    this.menuItems('Starters'),
-                    this.menuItems('Entrees'),
-                    this.menuItems('Salads') ,
-                    this.menuItems('Sides'),
-                    this.menuItems('Burgers') ,
-                    this.menuItems('Sandwiches'),
-                    this.menuItems('Cocktails'),
-                    this.menuItems('Wine'),
-                    this.menuItems('Beer'),
-                    this.menuItems('Kids'),
-                    this.menuItems('Desserts')
+
                   ],
         avalibleSections: [
                             'Food',
@@ -34,11 +24,17 @@ import { connect } from 'react-redux'
         selectedMenu: this.props.match.params.category,
       }
     }
-
-  componentDidMount(){
-    console.log(this.props)
+  testing(){
+    const menuCategories = Object.keys(this.props.menu);
+    const categorizedMenuItems = menuCategories.map((category)=>{
+      return this.props.menu[category]
+    })
+    console.log(categorizedMenuItems)
   }
   menuItems(category){
+    //const newMenu = Object.keys(this.props.menu);
+    const menuCategories = Object.keys(this.props.menu);
+    console.log(menuCategories)
     const menuIndex = menu.findIndex(menu => menu.type === category);
     if(menuIndex >= 0){
       const products = menu[menuIndex].products.map((item, index) => {
@@ -61,30 +57,37 @@ import { connect } from 'react-redux'
   }
 
   render(){
+    if(this.props.menuExists){
+      this.testing();
+    }
     return (
-      <section id= "menu" >
-        <div className= "container">
-          <div className= "title-bar">
-            <div>
-              <h3> Menu </h3>
-              <div className= "sidebar">
-                <p className={`${this.state.selectedMenu === undefined ? 'selected' : ''}`} onClick={()=>{this.changeMenu('')}}>All</p>
-                <p className={`${this.state.selectedMenu === 'Food' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Food')}}>Food</p>
-                <p className={`${this.state.selectedMenu === 'Drinks' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Drinks')}}>Drinks</p>
-                <p className={`${this.state.selectedMenu === 'Desserts' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Desserts')}}>Desserts</p>
-                <p className={`${this.state.selectedMenu === 'Kids' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Kids')}} >Kids</p>
+      <>
+        { this.props.menuExists ?
+        <section id="menu" className="body">
+          <div className= "container">
+            <div className= "title-bar">
+              <div>
+                <h3> Menu </h3>
+                <div className= "sidebar">
+                  <p className={`${this.state.selectedMenu === undefined ? 'selected' : ''}`} onClick={()=>{this.changeMenu('')}}>All</p>
+                  <p className={`${this.state.selectedMenu === 'Food' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Food')}}>Food</p>
+                  <p className={`${this.state.selectedMenu === 'Drinks' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Drinks')}}>Drinks</p>
+                  <p className={`${this.state.selectedMenu === 'Desserts' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Desserts')}}>Desserts</p>
+                  <p className={`${this.state.selectedMenu === 'Kids' ? 'selected' : ''}`} onClick={()=>{this.changeMenu('Kids')}} >Kids</p>
+                </div>
               </div>
             </div>
+            <Masonry
+              options={this.masonryOptions}
+              className={'menu-cols'} // default ''
+              disableImagesLoaded={false} // default false
+              updateOnEachImageLoad={false}>
+                { this.selectedMenu(this.state.menuItemArray)}
+            </Masonry>
           </div>
-          <Masonry
-            options={this.masonryOptions}
-            className={'menu-cols'} // default ''
-            disableImagesLoaded={false} // default false
-            updateOnEachImageLoad={false}>
-              { this.selectedMenu(this.state.menuItemArray)}
-          </Masonry>
-        </div>
-      </section>
+        </section>
+        : ''}
+      </>
     );
   }
 

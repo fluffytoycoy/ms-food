@@ -34,13 +34,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.pageReady())
+    this.pageReady();
     return (
       <Router>
-
       <ScrollToTop >
 				<Header/>
-        { false ? '' : <Loading/> }
+        <Loading/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
             <Route exact  path="/Menu/" render={props => <Menu {...props} />}/>

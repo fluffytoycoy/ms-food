@@ -9,6 +9,7 @@ function Loading(props){
   function loadingFinished(){
     props.setLoading(true)
   }
+
     return (
       <section id="loading" className={`${props.loadingFinished && props.menuExists ? 'loaded' : ''}`}>
         <div>

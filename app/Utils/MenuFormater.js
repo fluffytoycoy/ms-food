@@ -3,8 +3,8 @@
 // {
 //   category1:
 //   {
-//       type1:{products:[]}
-//       type2:{products:[]}
+//       type1:[menuItem1, ..ect]
+//       type2:[menuItem1, ..ect]
 //   }
 //   ...ect
 // }
@@ -14,13 +14,13 @@ module.exports = function(menu){
   menu.forEach(menuItem=>{
     if(formatedMenu[menuItem.category]){
       if(formatedMenu[menuItem.category][menuItem.type]){
-        formatedMenu[menuItem.category][menuItem.type].products.push(menuItem)
+        formatedMenu[menuItem.category][menuItem.type].push(menuItem);
       }else{
-        formatedMenu[menuItem.category][menuItem.type]= {products: [menuItem]};
+        formatedMenu[menuItem.category][menuItem.type] = [menuItem];
       }
     }else{
       formatedMenu[menuItem.category] ={};
-      formatedMenu[menuItem.category][menuItem.type] ={products: [menuItem]};
+      formatedMenu[menuItem.category][menuItem.type] = [menuItem];
     }
   })
   return formatedMenu;

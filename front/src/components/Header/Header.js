@@ -41,7 +41,6 @@ function Header(props){
       closeAllMenusExcept()
       toggleNavMenu(false)
     }
-    console.log(props)
     return (
       <section id="header">
       <div>

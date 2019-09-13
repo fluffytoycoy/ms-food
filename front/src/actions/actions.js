@@ -10,7 +10,6 @@ export const getMenu = () => dispatch => {
     axios
         .get('/api/getMenu')
         .then(res => {
-          console.log(res)
             dispatch({ type: GET_MENU_SUCCESS, payload: res.data })
         })
         .catch(err => {

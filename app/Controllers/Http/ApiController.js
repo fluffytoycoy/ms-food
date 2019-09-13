@@ -16,7 +16,7 @@ class ApiController {
       .from('menu_items')
       .innerJoin('meal_types', 'menu_items.type_id', 'meal_types.id')
       .innerJoin('menu_categories', 'menu_items.category_id', 'menu_categories.id');
-      
+
       return formatMenu(menu)
     } catch (e){
       console.log(e)
