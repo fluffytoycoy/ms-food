@@ -11,6 +11,7 @@ import Menu from './components/MenuPage/Menu';
 import AboutUs from './components/AboutUsPage/AboutUs';
 import ImgGallery from './components/Gallery/ImgGallery';
 import Loading from './components/Loading/Loading';
+import Phone from './components/Phone/Phone'
 import { getMenu } from './actions/actions';
 import { connect } from 'react-redux'
 
@@ -39,6 +40,7 @@ class App extends Component {
       <Router>
       <ScrollToTop >
 				<Header/>
+        <Phone/>
         <Loading/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>

@@ -27,6 +27,9 @@
           text-align: left;
         }
         tr{
+          td{
+            font-weight: 100;
+          }
           &:not(last-child){
             margin-bottom: 10px;
           }
@@ -37,9 +40,12 @@
         h4{
         }
         >div{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
+          align-items: center;
+          justify-items: center;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          width: 100%;
+          text-align: center;
           >div{
             display: inline-block;
             vertical-align: top;
@@ -50,7 +56,7 @@
             }
             p{
               margin-bottom: 5px;
-              font-size: .8rem;
+              font-weight: 100;
             }
           }
         }
@@ -83,15 +89,6 @@
         &:not(last-child){
           margin-bottom: 0px;
         }
-        &.contact{
-          padding: 50px 0;
-          >div{
-            display: flex;
-            flex-wrap: wrap;
-            >div{
-            }
-          }
-        }
         &.hours{
           padding: 50px 0;
         }
@@ -110,6 +107,7 @@
         &.logo{
           order: 0;
         }
+
       }
     }
 

@@ -31,13 +31,14 @@ function Footer(){
           <div className="contact">
             <h4>Contact</h4>
             <div>
-            <div>
-              <h5>Phone:</h5>
-              <p>618-655-9911</p>
-              <h5>Email:</h5>
-              <p>info@mikeshannonsgrill.com</p>
-            </div>
-
+              <div>
+                <h5>Phone:</h5>
+                <p>618-655-9911</p>
+              </div>
+              <div>
+                <h5>Email:</h5>
+                <p>info@mikeshannonsgrill.com</p>
+              </div>
               <div>
                 <h5>Location:</h5>
                 <p>871 South Arbor Vitae</p>

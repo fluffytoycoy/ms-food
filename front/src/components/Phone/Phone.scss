@@ -1,0 +1,42 @@
+#phone {
+  position: fixed;
+  top: 68px;
+  right: 20px;
+  background: #1f1f1f;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 2px 6px 0px, inset rgba(64, 120, 249, 0.5) 0px 0 7px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s ease-in-out;
+  z-index: 3;
+  &.active{
+    box-shadow: rgb(0, 0, 0) 0 2px 6px 0px, inset rgba(64, 120, 249, 0.5) 0px 0 0px;
+    p{
+      width: 160px;
+    }
+  }
+
+  i {
+        color: #9494f3;
+            padding: 15px;
+            cursor: pointer;
+  }
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 0;
+    padding-bottom: 5px;
+    color: #e4e4e4;
+    position: relative;
+    left: 10px;
+    border-bottom: solid #616196;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+        font-weight: 700;
+  }
+}

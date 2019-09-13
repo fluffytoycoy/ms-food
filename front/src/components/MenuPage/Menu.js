@@ -12,7 +12,7 @@ import './Menu.scss';
       this.state={
         masonryOptions: 1000,
         menuItems: undefined,
-        avalibleCategories: ['Food', 'Desserts'],
+        avalibleCategories: undefined,
         selectedMenu: this.props.match.params.category,
       }
     }
