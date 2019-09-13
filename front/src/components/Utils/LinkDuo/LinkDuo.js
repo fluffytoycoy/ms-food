@@ -8,7 +8,7 @@ import isExternal from 'is-url-external';
 export default class LinkDuo extends Component {
   render() {
     return isExternal(this.props.to) ?
-      <a
+      <a target="_blank"
         href={this.props.to}
         {...this.props}
       />
