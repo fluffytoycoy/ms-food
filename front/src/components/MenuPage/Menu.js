@@ -12,7 +12,7 @@ import './Menu.scss';
       this.state={
         masonryOptions: 1000,
         menuItems: undefined,
-        avalibleSections: ['Food', 'Drinks', 'Kids', 'Desserts'],
+        avalibleCategories: ['Food', 'Desserts'],
         selectedMenu: this.props.match.params.category,
       }
     }
@@ -20,29 +20,39 @@ import './Menu.scss';
 
   static getDerivedStateFromProps(nextProps, prevState){
     //same as code in Menu page should make a comp and inherit from that
-    const newCategory = nextProps.match.params.category;
+    //Tab Template made needs cleaned up
+
+    const newMenuURL = nextProps.match.params.category;
     let newState = null;
-    if(nextProps.menuExists && !prevState.menuItems){
-      return {menuItems: buildMenu(nextProps.menu)}
-    }
-    if(!newCategory || isNotValidSection(newCategory)){
-      if(newCategory !== prevState.selectedMenu){
-        newState = {selectedMenu: newCategory}
-        console.log(newCategory)
+
+    //DerivedState only triggered if menuExists
+    if(nextProps.menuExists){
+      //If menuState hasn't been set return Intial comp state it.
+      if(!prevState.menuItems){
+        return {...initialState(nextProps.menu)}
       }
-      return newState;
-    } else{
-      nextProps.history.push('/404')
+
+      //Handles URL changes <--> Buttons
+      if (!newMenuURL || isNotValidSection(newMenuURL)) {
+        if (newMenuURL !== prevState.selectedMenu) {
+          newState = {
+            selectedMenu: newMenuURL
+          }
+        }
+        return newState;
+      } else {
+        nextProps.history.push('/404')
+      }
     }
 
-    function isNotValidSection(category){
-      const index = prevState.avalibleSections.findIndex(section=>(
-        section ===category
+    function isNotValidSection(category) {
+      const index = prevState.avalibleCategories.findIndex(section => (
+        section === category
       ))
       return (index >= 0)
     }
 
-    function buildMenu(menu){
+    function initialState(menu){
       const menuCategories = Object.keys(menu);
       let categorizedMenuItems = {};
       menuCategories.forEach((category)=>{
@@ -60,17 +70,19 @@ import './Menu.scss';
         })
         categorizedMenuItems[category] = [...menuItems]
       })
-      return categorizedMenuItems
+      return {selectedMenu: newMenuURL, menuItems:categorizedMenuItems, avalibleCategories: menuCategories}
     }
+
   }
 
   changeMenu(category){
     this.props.history.push(`/Menu/${category}`)
   }
 
-  selectedMenu(){
-    //same as code in Menu page should make a comp and inherit from that
-      return !this.state.selectedMenu ? Object.values(this.state.menuItems) : this.state.menuItems[this.state.selectedMenu]
+  selectedMenuItems(){
+      //same as code in Menu page should make a comp and inherit from that
+      //same as getDerivedState Tab section needs work
+      return this.state.selectedMenu ? this.state.menuItems[this.state.selectedMenu] : Object.values(this.state.menuItems)
   }
 
   render(){
@@ -96,7 +108,7 @@ import './Menu.scss';
               className={'menu-cols'} // default ''
               disableImagesLoaded={false} // default false
               updateOnEachImageLoad={false}>
-                {this.selectedMenu()}
+                {this.selectedMenuItems()}
             </Masonry>
           </div>
         </section>

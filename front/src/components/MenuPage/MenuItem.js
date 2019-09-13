@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {menu} from './TmpData.js'
 import './Menu.scss';
 
 function MenuItem(props) {
