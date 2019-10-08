@@ -9,107 +9,108 @@ function ImgGallery(){
         src: "/img/Backgrounds/gallery.jpg",
         thumbnail: "/img/Backgrounds/gallery.jpg",
         thumbnailHeight: 500,
+        thumbnailWidth: 1000
       },
       {
         src: "/img/Backgrounds/venue.jpg",
         thumbnail: "/img/Backgrounds/venue.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
 
       {
         src: "/img/Gallery/baseballs.jpg",
         thumbnail: "/img/Gallery/baseballs.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/bacon_wrap.jpg",
         thumbnail: "/img/Gallery/bacon_wrap.jpg",
         thumbnailHeight: 500,
-        caption: "Bacon Wraps",
+        caption: "Bacon Wraps",thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/bar_nuts.jpg",
         thumbnail: "/img/Gallery/bar_nuts.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/beef_mushrooms.jpg",
         thumbnail: "/img/Gallery/beef_mushrooms.jpg",
         thumbnailHeight: 500,
-        caption: "Mushroom Steak",
+        caption: "Mushroom Steak",thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/booths.jpg",
         thumbnail: "/img/Gallery/booths.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/buffalo_whiskey.jpg",
         thumbnail: "/img/Gallery/buffalo_whiskey.jpg",
         thumbnailHeight: 500,
-        caption: "buffalo ol' Fashioned",
+        caption: "buffalo ol' Fashioned",thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/chocolate_dessert.jpg",
         thumbnail: "/img/Gallery/chocolate_dessert.jpg",
         thumbnailHeight: 500,
-        caption: "crème glacée au chocolat",
+        caption: "crème glacée au chocolat",thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/eggs.jpg",
         thumbnail: "/img/Gallery/eggs.jpg",
         thumbnailHeight: 500,
-        caption: "oeufs farcis",
+        caption: "oeufs farcis",thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/fruit_drink.jpg",
         thumbnail: "/img/Gallery/fruit_drink.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/lemon_meringue.jpg",
         thumbnail: "/img/Gallery/lemon_meringue.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/Mojito.jpg",
         thumbnail: "/img/Gallery/beef_mushrooms.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/Mojito.jpg",
         thumbnail: "/img/Gallery/beef_mushrooms.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/pork.jpg",
         thumbnail: "/img/Gallery/pork.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/ranch_burger.jpg",
         thumbnail: "/img/Gallery/ranch_burger.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/samon.jpg",
         thumbnail: "/img/Gallery/samon.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/sports_rack.jpg",
         thumbnail: "/img/Gallery/sports_rack.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/steak.jpg",
         thumbnail: "/img/Gallery/steak.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
       {
         src: "/img/Gallery/strawberry.jpg",
         thumbnail: "/img/Gallery/strawberry.jpg",
-        thumbnailHeight: 500,
+        thumbnailHeight: 500,thumbnailWidth: 1000
       },
 
     ]

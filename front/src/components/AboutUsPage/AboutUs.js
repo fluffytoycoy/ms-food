@@ -11,7 +11,7 @@ import "./AboutUs.scss";
       super(props);
       this.state={
         masonryOptions: 1000,
-        menuArray: [ <TheVenue data-category="The-Venue"/>, <Mike data-category="Mike"/>, <Justin data-category="Justin"/>],
+        menuArray: [ <TheVenue key='venue' data-category="The-Venue"/>, <Mike key='mike' data-category="Mike"/>, <Justin key='justin' data-category="Justin"/>],
         selectedMenu: this.props.match.params.category,
         avalibleSections: ["The-Venue", "Mike", "Justin"]
       }
@@ -22,7 +22,6 @@ import "./AboutUs.scss";
   }
 
   render(){
-    console.log(this.state.selectedMenu)
     return (
       <section id= "menu" className="body">
         <div className= "container">

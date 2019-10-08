@@ -12,8 +12,8 @@ export default class LinkDuo extends Component {
         rel="noopener noreferrer"
         href={this.props.to}
         {...this.props}
-      />
+      >{this.props.children}</a>
       :
-      <Link alt="test" {...this.props}/>
+      <Link alt="test" {...this.props}>{this.props.children}</Link>
   }
 }
