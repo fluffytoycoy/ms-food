@@ -2,8 +2,6 @@ import React from 'react';
 import './FlexGrid.scss';
 import FlexItem from './FlexItem/FlexItem';
 
-import ScrollAnimation from 'react-animate-on-scroll';
-
 function FlexGrid(props){
 
   const flexItems =

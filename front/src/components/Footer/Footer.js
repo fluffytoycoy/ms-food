@@ -26,7 +26,7 @@ function Footer(){
             </table>
           </div>
           <div className="logo">
-            <img src="/img/Logos/ms-grill.png"/>
+            <img alt="mike shannons grill"src="/img/Logos/ms-grill.png"/>
           </div>
           <div className="contact">
             <h4>Contact</h4>

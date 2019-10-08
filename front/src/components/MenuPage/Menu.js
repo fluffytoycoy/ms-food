@@ -1,8 +1,6 @@
-import React, {Component, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, {Component} from 'react';
 import MenuItem from './MenuItem.js'
 import Masonry from 'react-masonry-component';
-import TabPage from '../Templates/TabPage';
 import { connect } from 'react-redux'
 import './Menu.scss';
 
@@ -43,6 +41,7 @@ import './Menu.scss';
       } else {
         nextProps.history.push('/404')
       }
+      return null;
     }
 
     function isNotValidSection(category) {

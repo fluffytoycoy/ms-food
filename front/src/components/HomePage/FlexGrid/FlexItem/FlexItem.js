@@ -38,7 +38,7 @@ function FlexItems(props){
                   <p>{props.item.btnText}</p>
                 </div>
                 <div>
-                  <img src="/img/Icons/right-arrow.svg"/>
+                  <img alt="up arrow"src="/img/Icons/right-arrow.svg"/>
                 </div>
             </LinkDuo>
           <span style={backgroundStyle}>

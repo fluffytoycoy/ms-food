@@ -47,7 +47,7 @@ function Header(props){
         <div onClick={handleMenuClick}className="menu-btn"><i className="fas fa-bars"></i></div>
         <div className="logo">
           <LinkDuo to="/" onClick={closeNav}>
-            <img src="/img/Logos/nav-ms-grill.png"/>
+            <img alt="mike shannons grill" src="/img/Logos/nav-ms-grill.png"/>
           </LinkDuo>
         </div>
         <div className={`${menuOpen ? 'open' : ''} nav-wrapper`}>

@@ -13,7 +13,7 @@ function Loading(props){
     return (
       <section id="loading" className={`${props.loadingFinished && props.menuExists ? 'loaded' : ''}`}>
         <div>
-          <img src="/img/Logos/ms-grill.png"/>
+          <img alt="mike shannons grill"src="/img/Logos/ms-grill.png"/>
           <div className="circle"></div>
         </div>
       </section>

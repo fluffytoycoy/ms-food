@@ -1,5 +1,4 @@
-import React, {Component, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
 import Masonry from 'react-masonry-component';
 import TheVenue from './Sections/TheVenue';
 import Justin from './Sections/Justin';

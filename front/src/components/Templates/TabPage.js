@@ -1,6 +1,4 @@
-import React, {Component, useState} from 'react';
-import {Link} from 'react-router-dom';
-import Masonry from 'react-masonry-component';
+import {Component} from 'react';
 
   class TabPage extends Component{
     constructor(props){

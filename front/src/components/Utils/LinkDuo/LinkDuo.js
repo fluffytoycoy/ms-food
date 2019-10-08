@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import isExternal from 'is-url-external';
 
@@ -9,10 +9,11 @@ export default class LinkDuo extends Component {
   render() {
     return isExternal(this.props.to) ?
       <a target="_blank"
+        rel="noopener noreferrer"
         href={this.props.to}
         {...this.props}
       />
       :
-      <Link {...this.props} />
+      <Link alt="test" {...this.props}/>
   }
 }
