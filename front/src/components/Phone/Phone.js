@@ -7,7 +7,6 @@ function Phone(props){
     function handleMenuClick(){
       toggleIcon(!iconOpen)
     }
-
     return (
       <div id="phone" className={`${iconOpen ? 'active' : ''}`}>
         <i onClick={handleMenuClick} className="fa fa-phone" aria-hidden="true"></i>

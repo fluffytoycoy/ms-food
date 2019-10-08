@@ -79,8 +79,6 @@ import './Menu.scss';
   }
 
   selectedMenuItems(){
-      //same as code in Menu page should make a comp and inherit from that
-      //same as getDerivedState Tab section needs work
       return this.state.selectedMenu ? this.state.menuItems[this.state.selectedMenu] : Object.values(this.state.menuItems)
   }
 

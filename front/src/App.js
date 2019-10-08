@@ -12,6 +12,7 @@ import AboutUs from './components/AboutUsPage/AboutUs';
 import ImgGallery from './components/Gallery/ImgGallery';
 import Loading from './components/Loading/Loading';
 import Phone from './components/Phone/Phone'
+import Dashboard from './components/Dashboard/Dashboard'
 import { getMenu } from './actions/actions';
 import { connect } from 'react-redux'
 
@@ -40,7 +41,7 @@ class App extends Component {
       <Router>
       <ScrollToTop >
 				<Header/>
-        <Phone/>
+        <Route render={props => <Phone {...props}/>}/>
         <Loading/>
 					<Switch>
 						<Route exact  path="/" render={props => <Home {...props} />}/>
@@ -49,9 +50,12 @@ class App extends Component {
             <Route exact path="/About-Us/" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/About-Us/:category" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/Gallery" render={props => <ImgGallery {...props}/>}/>
+            <Route exact path="/Dashboard" render={props => <Dashboard {...props}/>}/>
+            <Route exact path="/Dashboard/Edit/:id" render={props => <Dashboard {...props}/>}/>
+            <Route exact path="/Dashboard/Create/" render={props => <Dashboard {...props}/>}/>
             <Route component={NotFound}/>
 				  </Switch>
-        <Footer/>
+        <Route render={props => <Footer {...props}/>}/>
         </ScrollToTop>
 
       </Router>
