@@ -51,6 +51,7 @@ class App extends Component {
             <Route exact path="/About-Us/:category" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/Gallery" render={props => <ImgGallery {...props}/>}/>
             <Route exact path="/Dashboard" render={props => <Dashboard {...props}/>}/>
+            <Route exact path="/Dashboard/Page/:pageNumber" render={props => <Dashboard {...props}/>}/>
             <Route exact path="/Dashboard/Edit/:id" render={props => <Dashboard {...props}/>}/>
             <Route exact path="/Dashboard/Create/" render={props => <Dashboard {...props}/>}/>
             <Route component={NotFound}/>

@@ -9,7 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 const EnhancedToolbar = (props) => {
 
 
-
+console.log(props)
   return (
     <Toolbar className="toolbar-me">
           <Typography variant="h6" id="tableTitle">

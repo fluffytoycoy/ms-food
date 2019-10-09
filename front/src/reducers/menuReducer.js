@@ -8,6 +8,7 @@ import {
 const initialState = {
     error: '',
     fetchingMenu: false,
+    updatingMenu: false,
     menu: undefined,
     menuExists: false,
     loadingFinished: false,

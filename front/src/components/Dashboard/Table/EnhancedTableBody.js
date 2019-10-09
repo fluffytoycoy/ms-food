@@ -1,8 +1,8 @@
 import React from 'react';
 //import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
 import EnhancedTableHead from './EnhancedTableHead';
 import EnhancedToolbar from './EnhancedToolbar';
+
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,6 +10,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
 function stableSort(array, cmp) {
   const stabilizedThis = array.map((el, index) => [el, index]);
@@ -71,8 +72,8 @@ function EnhancedTableBody(props) {
   const [orderBy, setOrderBy] = React.useState("name");
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   let menu = props.menu;
-  const page = getSelectedPage(props.page);
-
+  const page = getSelectedPage(props.match.params.pageNumber);
+  console.log(props)
   function getSelectedPage(number){
     let pageNumber = parseInt(number);
     let maxPages = getMaxPages();
@@ -96,12 +97,12 @@ function EnhancedTableBody(props) {
 
   function handleChangePage(event, newPage) {
     console.log(newPage)
-    props.history.push(`/Dashboard/Game/Page/${newPage+1}/${props.match.params.filter ? props.match.params.filter : ''}`)
+    props.history.push(`/Dashboard/Page/${newPage+1}/${props.match.params.filter ? props.match.params.filter : ''}`)
   }
 
   function handleChangeRowsPerPage(event) {
     setRowsPerPage(+event.target.value);
-    props.history.push(`/Dashboard/Game/Page/1`)
+    props.history.push(`/Dashboard/Page/1`)
   }
 
   const emptyRows =
@@ -113,16 +114,13 @@ function EnhancedTableBody(props) {
   }
 
 
-
+  console.log('test')
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <EnhancedToolbar {...props} setModalOpen={props.toggleMenu}/>
         <div className={classes.tableWrapper}>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-          >
+          <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
               classes={classes}
               order={order}
@@ -137,9 +135,10 @@ function EnhancedTableBody(props) {
                   return (
                     <TableRow hover tabIndex={-1} key={row.id}>
                       <TableCell component="th">{row.name}</TableCell>
-                      <TableCell align="left">{row.img_url ? 'true' : 'false'}</TableCell>
-                      <TableCell align="left">{row.console}</TableCell>
-                      <TableCell align="left">{row.genre}</TableCell>
+                      <TableCell align="left">{row.category}</TableCell>
+                      <TableCell align="left">{row.price}</TableCell>
+                      <TableCell align="left">{row.type}</TableCell>
+                      <TableCell align="left">{row.ingredients}</TableCell>
                       <TableCell align="center"><Button onClick={()=>{editGame(row)}} variant="outlined" color="primary">EDIT</Button></TableCell>
                     </TableRow>
                   );
@@ -158,16 +157,11 @@ function EnhancedTableBody(props) {
           count={menu.length}
           rowsPerPage={rowsPerPage}
           page={(page)}
-          backIconButtonProps={{
-            "aria-label": "previous page"
-          }}
-          nextIconButtonProps={{
-            "aria-label": "next page"
-          }}
+          backIconButtonProps={{"aria-label": "previous page"}}
+          nextIconButtonProps={{"aria-label": "next page"}}
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
-        <div onClick={()=>{console.log('test')}}>test</div>
       </Paper>
     </div>
   );
