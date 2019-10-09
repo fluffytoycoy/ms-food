@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import EnhancedTableBody from './Table/EnhancedToolbar';
 //import './Dashboard.scss';
 
 class Dashboard extends React.Component{
@@ -11,10 +12,9 @@ class Dashboard extends React.Component{
   }
 
   render(){
-    console.log(this.props)
     return (
       <section className="body">
-        <h1>this is the dashboard</h1>
+        <EnhancedTableBody menu={[{name: 'test'}]}/>
       </section>
     );
   }
