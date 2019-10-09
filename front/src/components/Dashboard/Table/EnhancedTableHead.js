@@ -12,6 +12,7 @@ const headRows = [
   { id: "category", numeric: false, disablePadding: false, label: "Category" },
   { id: "price", numeric: false, disablePadding: false, label: "Price" },
   { id: "type", numeric: false, disablePadding: false, label: "Type" },
+  { id: "ingredients", numeric: false, disablePadding: false, label: "Ingredients" },
 ];
 
 function EnhancedTableHead(props) {

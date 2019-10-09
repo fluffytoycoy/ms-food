@@ -3,7 +3,10 @@ import {
     GET_MENU_SUCCESS,
     GET_MENU_FAILURE,
     SET_LOADING_SCREEN,
+    SET_DASHBOARD_MENU,
 } from '../actions/actions'
+
+import {parseMenu} from './Util/MenuParser';
 
 const initialState = {
     error: '',
@@ -12,6 +15,8 @@ const initialState = {
     menu: undefined,
     menuExists: false,
     loadingFinished: false,
+    dashboardMenu: undefined,
+    filteredDashboardMenu: undefined,
 }
 
 const menuReducer = (state = initialState, action) => {
@@ -29,6 +34,8 @@ const menuReducer = (state = initialState, action) => {
                 fetchingMenu: false,
                 menu: action.payload,
                 menuExists: true,
+                filteredDashboardMenu: parseMenu(action.payload),
+                dashboardMenu: parseMenu(action.payload),
                 error: "",
             }
         case GET_MENU_FAILURE:
@@ -38,6 +45,12 @@ const menuReducer = (state = initialState, action) => {
                 menuExists: false,
                 error: "FAILED to get Menu from server",
             }
+        case SET_DASHBOARD_MENU:
+        return{
+          ...state,
+          dashboardMenu: action.payload,
+          filteredDashboardMenu: action.payload
+        }
         case SET_LOADING_SCREEN:
         return{
           ...state,

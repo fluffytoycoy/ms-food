@@ -41,7 +41,7 @@ function desc(a, b, orderBy) {
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
-    marginTop: theme.spacing(3)
+    padding: '20px'
   },
   paper: {
     width: "100%",
@@ -85,6 +85,7 @@ function EnhancedTableBody(props) {
     return pageNumber -1;
 
     function getMaxPages(){
+      console.log(menu)
       return Math.ceil(menu.length / rowsPerPage);
     }
   }
@@ -117,7 +118,6 @@ function EnhancedTableBody(props) {
   console.log('test')
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
         <EnhancedToolbar {...props} setModalOpen={props.toggleMenu}/>
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
@@ -139,7 +139,12 @@ function EnhancedTableBody(props) {
                       <TableCell align="left">{row.price}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="left">{row.ingredients}</TableCell>
-                      <TableCell align="center"><Button onClick={()=>{editGame(row)}} variant="outlined" color="primary">EDIT</Button></TableCell>
+                      <TableCell  align="center">
+                        <div className="button-row">
+                          <Button onClick={()=>{editGame(row)}} variant="outlined" className='edit-btn'>EDIT</Button>
+                          <Button onClick={()=>{editGame(row)}} variant="outlined" className='delete-btn'>DELETE</Button>
+                        </div>
+                      </TableCell>
                     </TableRow>
                   );
                 })}
@@ -162,7 +167,6 @@ function EnhancedTableBody(props) {
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
-      </Paper>
     </div>
   );
 }

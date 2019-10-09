@@ -18,6 +18,8 @@ export const UPDATE_MENU_ITEM_START = "UPDATE_MENU_ITEM_START"
 export const UPDATE_MENU_ITEM_SUCCESS = "UPDATE_MENU_ITEM_SUCCESS"
 export const UPDATE_MENU_ITEM_FAILURE = "UPDATE_MENU_ITEM_FAILURE"
 
+export const SET_DASHBOARD_MENU = "SET_DASHBOARD_MENU"
+
 export const getMenu = () => dispatch => {
     dispatch({
       type: GET_MENU_START
@@ -52,6 +54,10 @@ export const addMenuItem = (menuItem) => dispatch => {
       .catch(err => {
         dispatch({type: ADD_MENU_ITEM_FAILURE, payload: err})
       })
+}
+
+export const setDashboardMenu = (menu) => dispatch => {
+  dispatch({type: SET_DASHBOARD_MENU, payload:menu})
 }
 
 export const updateMenuItem = (menuItem) => dispatch => {
