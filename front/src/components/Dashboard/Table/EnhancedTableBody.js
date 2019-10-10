@@ -29,10 +29,10 @@ function getSorting(order, orderBy) {
 }
 
 function desc(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
+  if (b[orderBy] === null || b[orderBy] < a[orderBy]) {
     return -1;
   }
-  if (b[orderBy] > a[orderBy]) {
+  if ( a[orderBy] === null || b[orderBy] > a[orderBy] ) {
     return 1;
   }
   return 0;
@@ -70,7 +70,7 @@ function EnhancedTableBody(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("name");
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(15);
   let menu = props.menu;
   const page = getSelectedPage(props.match.params.pageNumber);
   console.log(props)
@@ -134,11 +134,11 @@ function EnhancedTableBody(props) {
                 .map((row, index) => {
                   return (
                     <TableRow hover tabIndex={-1} key={row.id}>
-                      <TableCell component="th">{row.name}</TableCell>
+                      <TableCell align="left" className="dashboard-name">{row.name}</TableCell>
                       <TableCell align="left">{row.category}</TableCell>
                       <TableCell align="left">{row.price}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
-                      <TableCell align="left">{row.ingredients}</TableCell>
+                      <TableCell align="left" className="dashboard-ingredients">{row.ingredients}</TableCell>
                       <TableCell  align="center">
                         <div className="button-row">
                           <Button onClick={()=>{editGame(row)}} variant="outlined" className='edit-btn'>EDIT</Button>
@@ -157,7 +157,7 @@ function EnhancedTableBody(props) {
           </Table>
         </div>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 15, 25]}
           component="div"
           count={menu.length}
           rowsPerPage={rowsPerPage}

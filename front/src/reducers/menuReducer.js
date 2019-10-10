@@ -48,7 +48,6 @@ const menuReducer = (state = initialState, action) => {
         case SET_DASHBOARD_MENU:
         return{
           ...state,
-          dashboardMenu: action.payload,
           filteredDashboardMenu: action.payload
         }
         case SET_LOADING_SCREEN:

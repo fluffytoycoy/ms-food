@@ -1,8 +1,9 @@
 import React from 'react';
+import {setDashboardMenu} from '../../actions/actions'
 import { connect } from 'react-redux'
 import EnhancedTableBody from './Table/EnhancedTableBody';
 import './Dashboard.scss';
-import {setDashboardMenu} from '../../actions/actions'
+
 
 class Dashboard extends React.Component{
   constructor(props){
