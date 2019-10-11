@@ -1,13 +1,22 @@
 //Creates an object of
 //
 export function parseMenu(menu){
-  const menuCategories = Object.keys(menu);
-  let menuTypes = {}
+  const categoryKeys = Object.keys(menu);
+  let menuTypes = {};
+  let menuCategories = {};
   let menuItems = [];
-  menuCategories.forEach((category)=>{
-    menuTypes = Object.keys(menu[category]);
-    menuTypes.forEach((type)=>{
+
+  categoryKeys.forEach((category)=>{
+    console.log(menu)
+    const typeKeys = Object.keys(menu[category]);
+    typeKeys.forEach((type)=>{
       //push each meal array onto flat menu list
+      if(!menuCategories[category]){
+        menuCategories[category] = menu[category][type][0].category_id;
+      }
+      if(!menuTypes[type]){
+        menuTypes[type] = menu[category][type][0].type_id;
+      }
       menuItems.push(...menu[category][type])
     })
   })

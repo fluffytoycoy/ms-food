@@ -29,7 +29,6 @@ const menuReducer = (state = initialState, action) => {
                 error: "",
             }
         case GET_MENU_SUCCESS:
-        console.log(action.payload)
             return {
                 ...state,
                 fetchingMenu: false,

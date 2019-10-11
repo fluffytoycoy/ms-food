@@ -41,7 +41,9 @@ class EditMenuItem extends React.Component{
   }
 
   render(){
-    console.log(this.props)
+    console.log(this.props.categories)
+    console.log(this.props.types)
+    console.log(this.props.selectedMenuItem)
     return (
       <section className="body">
           {this.props.selectedMenuItem ?
