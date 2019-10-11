@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {parseMenu} from './Util/MenuParser';
 //Actions for getting menu from database
 export const GET_MENU_START = "GET_MENU_START"
 export const GET_MENU_SUCCESS = "GET_MENU_SUCCESS"
@@ -31,7 +31,7 @@ export const getMenu = () => dispatch => {
       .then(res => {
         dispatch({
           type: GET_MENU_SUCCESS,
-          payload: res.data
+          payload: parseMenu(res.data)
         })
       })
       .catch(err => {

@@ -7,8 +7,6 @@ import {
     SET_SELECTED_MENUITEM,
 } from '../actions/actions'
 
-import {parseMenu} from './Util/MenuParser';
-
 const initialState = {
     error: '',
     fetchingMenu: false,
@@ -31,13 +29,16 @@ const menuReducer = (state = initialState, action) => {
                 error: "",
             }
         case GET_MENU_SUCCESS:
+        console.log(action.payload)
             return {
                 ...state,
                 fetchingMenu: false,
-                menu: action.payload,
+                menu: action.payload.menu,
                 menuExists: true,
-                filteredDashboardMenu: parseMenu(action.payload),
-                dashboardMenu: parseMenu(action.payload),
+                filteredDashboardMenu: action.payload.menu,
+                dashboardMenu: action.payload.menu,
+                categories: action.payload.categories,
+                types: action.payload.types,
                 error: "",
             }
         case GET_MENU_FAILURE:
