@@ -4,6 +4,7 @@ import {
     GET_MENU_FAILURE,
     SET_LOADING_SCREEN,
     SET_DASHBOARD_MENU,
+    SET_SELECTED_MENUITEM,
 } from '../actions/actions'
 
 import {parseMenu} from './Util/MenuParser';
@@ -17,6 +18,7 @@ const initialState = {
     loadingFinished: false,
     dashboardMenu: undefined,
     filteredDashboardMenu: undefined,
+    selectedMenuItem: undefined,
 }
 
 const menuReducer = (state = initialState, action) => {
@@ -49,6 +51,11 @@ const menuReducer = (state = initialState, action) => {
         return{
           ...state,
           filteredDashboardMenu: action.payload
+        }
+        case SET_SELECTED_MENUITEM:
+        return{
+          ...state,
+          selectedMenuItem: action.payload
         }
         case SET_LOADING_SCREEN:
         return{

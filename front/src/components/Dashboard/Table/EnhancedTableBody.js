@@ -10,6 +10,8 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import {setSelectedMenuItem} from '../../../actions/actions';
+import { connect } from 'react-redux';
 import { makeStyles } from "@material-ui/core/styles";
 
 function stableSort(array, cmp) {
@@ -71,7 +73,8 @@ function EnhancedTableBody(props) {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("name");
   const [rowsPerPage, setRowsPerPage] = React.useState(15);
-  let menu = props.menu;
+  let menu = props.filteredDashboardMenu;
+
   const page = getSelectedPage(props.match.params.pageNumber);
   console.log(props)
   function getSelectedPage(number){
@@ -109,13 +112,12 @@ function EnhancedTableBody(props) {
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, menu.length - page * rowsPerPage);
 
-  function editGame(game){
-    props.setSelectedGame(game);
-    props.history.push(`/Dashboard/Game/Edit/${game.id}`)
+  function editMenuItem(menuItem){
+    props.setSelectedMenuItem(menuItem)
+    props.history.push(`/Dashboard/Edit/${menuItem.id}`)
   }
 
 
-  console.log('test')
   return (
     <div className={classes.root}>
         <EnhancedToolbar {...props} setModalOpen={props.toggleMenu}/>
@@ -141,8 +143,8 @@ function EnhancedTableBody(props) {
                       <TableCell align="left" className="dashboard-ingredients">{row.ingredients}</TableCell>
                       <TableCell  align="center">
                         <div className="button-row">
-                          <Button onClick={()=>{editGame(row)}} variant="outlined" className='edit-btn'>EDIT</Button>
-                          <Button onClick={()=>{editGame(row)}} variant="outlined" className='delete-btn'>DELETE</Button>
+                          <Button onClick={()=>{editMenuItem(row)}} variant="outlined" className='edit-btn'>EDIT</Button>
+                          <Button onClick={()=>{editMenuItem(row)}} variant="outlined" className='delete-btn'>DELETE</Button>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -171,4 +173,11 @@ function EnhancedTableBody(props) {
   );
 }
 
-export default EnhancedTableBody;
+const mapStateToProps = state =>{
+  return state;
+}
+
+export default connect(
+    mapStateToProps,
+    {setSelectedMenuItem}
+)(EnhancedTableBody)

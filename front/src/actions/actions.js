@@ -20,6 +20,8 @@ export const UPDATE_MENU_ITEM_FAILURE = "UPDATE_MENU_ITEM_FAILURE"
 
 export const SET_DASHBOARD_MENU = "SET_DASHBOARD_MENU"
 
+export const SET_SELECTED_MENUITEM = "SET_SELECTED_MENUITEM"
+
 export const getMenu = () => dispatch => {
     dispatch({
       type: GET_MENU_START
@@ -58,6 +60,10 @@ export const addMenuItem = (menuItem) => dispatch => {
 
 export const setDashboardMenu = (menu) => dispatch => {
   dispatch({type: SET_DASHBOARD_MENU, payload:menu})
+}
+
+export const setSelectedMenuItem = (game) => dispatch => {
+  dispatch({type: SET_SELECTED_MENUITEM, payload:game})
 }
 
 export const updateMenuItem = (menuItem) => dispatch => {

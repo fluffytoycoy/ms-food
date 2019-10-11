@@ -7,7 +7,7 @@ class FilterForm extends React.Component {
     super(props);
     this.state = {
       textValue: '',
-      selectValue: 'name'
+      selectValue: 'price'
   };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);

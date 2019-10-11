@@ -13,6 +13,8 @@ import ImgGallery from './components/Gallery/ImgGallery';
 import Loading from './components/Loading/Loading';
 import Phone from './components/Phone/Phone'
 import Dashboard from './components/Dashboard/Dashboard'
+import EditMenuItem from './components/Dashboard/MenuItemPage/EditMenuItem'
+import AddMenuItem from './components/Dashboard/MenuItemPage/AddMenuItem'
 import { getMenu } from './actions/actions';
 import { connect } from 'react-redux'
 
@@ -52,8 +54,8 @@ class App extends Component {
             <Route exact path="/Gallery" render={props => <ImgGallery {...props}/>}/>
             <Route exact path="/Dashboard" render={props => <Dashboard {...props}/>}/>
             <Route exact path="/Dashboard/Page/:pageNumber" render={props => <Dashboard {...props}/>}/>
-            <Route exact path="/Dashboard/Edit/:id" render={props => <Dashboard {...props}/>}/>
-            <Route exact path="/Dashboard/Create/" render={props => <Dashboard {...props}/>}/>
+            <Route exact path="/Dashboard/Edit/:id" render={props => <EditMenuItem {...props}/>}/>
+            <Route exact path="/Dashboard/Create/" render={props => <AddMenuItem {...props}/>}/>
             <Route component={NotFound}/>
 				  </Switch>
         <Route render={props => <Footer {...props}/>}/>

@@ -1,8 +1,6 @@
 import React from 'react';
-import {setDashboardMenu} from '../../actions/actions'
+import {setDashboardMenu} from '../../../actions/actions'
 import { connect } from 'react-redux'
-import EnhancedTableBody from './Table/EnhancedTableBody';
-import './Dashboard.scss';
 
 
 class Dashboard extends React.Component{
@@ -13,18 +11,14 @@ class Dashboard extends React.Component{
     }
   }
 
-  setFilterMenu(menu){
-    this.setState({
-      filteredMenu: menu
-    })
-  }
 
   render(){
     return (
       <>
       {this.props.filteredDashboardMenu ?
           <section className="body">
-            <EnhancedTableBody {...this.props}/>
+            this is the add menu item page
+
           </section>
         :
           <></>

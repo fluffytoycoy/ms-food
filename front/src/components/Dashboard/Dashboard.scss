@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     align-self: flex-end;
+    flex-wrap: wrap;
     width: 100%;
     button{
         padding: 8px;
@@ -45,6 +46,7 @@
         padding: 0 5px;
         border: none;
          outline-width: 0;
+             color: #757575;
       }
       input{
         height: 100%;
