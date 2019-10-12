@@ -40,10 +40,7 @@ function MenuItemForm(props){
       )
   }
 
-  const submit = (event)=> {
-    const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
-    console.log(newMenuItem)
-  }
+
 
   const initialValues = () => {
     if(props.menuItem){
@@ -52,14 +49,14 @@ function MenuItemForm(props){
     }
     return {name: '', category_id: '', type_id: '', price: '', served: '', subtype: '',ingredients: ''}
   }
-
+  console.log(props)
   return(
     <section id="game-page">
       <div>
         <div className="col">
           <FormContainer
             initialValues={initialValues()}
-            onSubmit={submit}
+            onSubmit={props.submit}
             render={gameForm}/>
         </div>
       </div>

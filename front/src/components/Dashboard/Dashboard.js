@@ -13,12 +13,6 @@ class Dashboard extends React.Component{
     }
   }
 
-  setFilterMenu(menu){
-    this.setState({
-      filteredMenu: menu
-    })
-  }
-
   render(){
     return (
       <>
