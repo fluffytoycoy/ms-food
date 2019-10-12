@@ -1,4 +1,7 @@
 import React from 'react';
+import { FormContainer, Form, Field} from 'ui-form-field';
+import Button from "@material-ui/core/Button";
+import MenuItemForm from './Form/MenuItemForm'
 import {setSelectedMenuItem} from '../../../actions/actions'
 import { connect } from 'react-redux'
 
@@ -34,20 +37,11 @@ class EditMenuItem extends React.Component{
     }
   }
 
-  setFilterMenu(menu){
-    this.setState({
-      filteredMenu: menu
-    })
-  }
-
   render(){
-    console.log(this.props.categories)
-    console.log(this.props.types)
-    console.log(this.props.selectedMenuItem)
     return (
       <section className="body">
           {this.props.selectedMenuItem ?
-            this.props.match.params.id
+            <MenuItemForm menuItem={this.props.selectedMenuItem} history={this.props.history}/>
             :
             <>loading</>
           }
@@ -55,8 +49,6 @@ class EditMenuItem extends React.Component{
     );
   }
 }
-
-
 
 
 const mapStateToProps = state =>{

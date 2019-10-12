@@ -1,9 +1,10 @@
 import React from 'react';
+import MenuItemForm from './Form/MenuItemForm'
 import {setDashboardMenu} from '../../../actions/actions'
 import { connect } from 'react-redux'
 
 
-class Dashboard extends React.Component{
+class AddMenuPage extends React.Component{
   constructor(props){
     super(props);
       this.state ={
@@ -11,14 +12,12 @@ class Dashboard extends React.Component{
     }
   }
 
-
   render(){
-    console.log(this.props)
     return (
       <>
       {this.props.filteredDashboardMenu ?
           <section className="body">
-            this is the add menu item page
+            <MenuItemForm />
 
           </section>
         :
@@ -30,8 +29,6 @@ class Dashboard extends React.Component{
 }
 
 
-
-
 const mapStateToProps = state =>{
   return state;
 }
@@ -39,4 +36,4 @@ const mapStateToProps = state =>{
 export default connect(
     mapStateToProps,
     {setDashboardMenu}
-)(Dashboard)
+  )(AddMenuPage)

@@ -7,7 +7,6 @@ export function parseMenu(menu){
   let menuItems = [];
 
   categoryKeys.forEach((category)=>{
-    console.log(menu)
     const typeKeys = Object.keys(menu[category]);
     typeKeys.forEach((type)=>{
       //push each meal array onto flat menu list
