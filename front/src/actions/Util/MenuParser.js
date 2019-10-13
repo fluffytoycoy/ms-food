@@ -19,5 +19,5 @@ export function parseMenu(menu){
       menuItems.push(...menu[category][type])
     })
   })
-  return {menu: menuItems, categories: menuCategories, types: menuTypes};
+  return {rawMenu: menu, menu: menuItems, categories: menuCategories, types: menuTypes};
 }

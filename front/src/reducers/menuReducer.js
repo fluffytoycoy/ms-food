@@ -32,7 +32,7 @@ const menuReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetchingMenu: false,
-                menu: action.payload.menu,
+                menu: action.payload.rawMenu,
                 menuExists: true,
                 filteredDashboardMenu: action.payload.menu,
                 dashboardMenu: action.payload.menu,

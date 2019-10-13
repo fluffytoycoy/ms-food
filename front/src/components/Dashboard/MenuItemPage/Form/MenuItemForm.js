@@ -20,15 +20,20 @@ function MenuItemForm(props){
     props.history.goBack();
   }
 
+  const formchange =(event)=>{
+    console.log(event.target.name)
+    console.log(event.target)
+  }
+
   const gameForm = () =>{
     const categoryOptions = [{value: '', label: 'Select a category'}, ...getSelectOptions('categories')]
     const typeOptions = [{value: '', label: 'Select a type'}, ...getSelectOptions('types')]
     return(
-      <Form>
+<div>      <Form onChange={formchange}>
         <Field required  name='name'/>
         <Field required select  options={categoryOptions} name='category'/>
         <Field required select options={typeOptions} name="type"/>
-        <Field name="price"/>
+        <Field onKeyUp={formchange} name="price"/>
         <Field name="served"/>
         <Field name="subtype"/>
         <Field name="ingredients"/>
@@ -37,6 +42,14 @@ function MenuItemForm(props){
           <Button variant="contained" color="primary" className='submit' type="submit">SAVE</Button>
         </div>
       </Form>
+      <div class="menu-cols" data-category="Drinks">
+        <h4>Cocktails</h4>
+        <div data-category="Drinks">
+        <h6>Bloody Mary $8 </h6>
+        <p>-Served Tall in Soda Glass-</p>
+        <p>Ménage à Trois Vodka, Tres Agaves Bloody Mary Mix, Dash Mike Shannon's Steak Sauce, Salt</p>
+        </div>
+        </div></div>
       )
   }
 

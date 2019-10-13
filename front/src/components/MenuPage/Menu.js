@@ -52,6 +52,7 @@ import './Menu.scss';
     }
 
     function initialState(menu){
+      console.log(menu)
       const menuCategories = Object.keys(menu);
       let categorizedMenuItems = {};
       menuCategories.forEach((category)=>{
