@@ -6,12 +6,6 @@ import { connect } from 'react-redux'
 
 
 function MenuItemForm(props){
-  const [name, setName] = useState(props.selectedMenuItem ? props.selectedMenuItem.name : '')
-  const [type, setType] = useState(props.selectedMenuItem ? props.selectedMenuItem.type : '')
-  const [price, setPrice] = useState(props.selectedMenuItem ? props.selectedMenuItem.price : '')
-  const [served, setServed] = useState(props.selectedMenuItem ? props.selectedMenuItem.served : '')
-  const [subtype, setSubtype] = useState(props.selectedMenuItem ? props.selectedMenuItem.subtype : '')
-  const [ingredients, setIngredients] = useState(props.selectedMenuItem ? props.selectedMenuItem.ingredients : '')
 
   const getSelectOptions = (property) => {
     const keys = Object.entries(props[property]);
@@ -22,46 +16,28 @@ function MenuItemForm(props){
     return options;
   }
 
-  const cancel =()=>{
-    props.history.goBack();
+  const initialValues = () => {
+    let menuItem = {};
+    if(props.selectedMenuItem){
+      const {name, category_id, type_id, price, served, subType, ingredients} = props.selectedMenuItem;
+      menuItem = {name: name ? name : '', category: category_id, type: type_id, price: price ? price : '', served: served ? served : '', subtype: subType ? subType : '' ,ingredients: ingredients ? ingredients : ''}
+      console.log(menuItem)
+      return menuItem
+    }else{
+      return {name: '', category_id: '', type_id: '', price: '', served: '', subtype: '',ingredients: ''}
+    }
+
   }
 
-  const formchange =(event)=>{
-    switch(event.target.name){
-      case 'type':
-        const typeOptions = props['types'];
-        setType(getStringifiedKeyFromValue(typeOptions, event.target.value));
-        break;
-      case 'name':
-        setName(event.target.value);
-        break;
-      case 'price':
-        setPrice(event.target.value);
-        break;
-      case 'served':
-        setServed(event.target.value);
-        break;
-      case 'subtype':
-        setSubtype(event.target.value);
-        break;
-      case 'ingredients':
-        setIngredients(event.target.value)
-        break;
-      default:
-        break;
-    }
-
-    function getStringifiedKeyFromValue(object, value){
-      return Object.keys(object).filter(key => object[key] == value)[0];
-    }
+  const cancel = () =>{
+    props.history.goBack();
   }
 
   const gameForm = () =>{
     const categoryOptions = [{value: '', label: 'Select a category'}, ...getSelectOptions('categories')]
     const typeOptions = [{value: '', label: 'Select a type'}, ...getSelectOptions('types')]
     return(
-      <div>
-        <Form onChange={formchange}>
+        <Form onChange={props.formChange}>
           <Field required  name='name'/>
           <Field required select  options={categoryOptions} name='category'/>
           <Field required select options={typeOptions} name="type"/>
@@ -74,29 +50,7 @@ function MenuItemForm(props){
             <Button variant="contained" color="primary" className='submit' type="submit">SAVE</Button>
           </div>
         </Form>
-        <div class="menu-cols" data-category="Drinks">
-          <h4>{type}</h4>
-          <div data-category="Drinks">
-            <h6>{name} {price}</h6>
-            {served ? <p>{served}</p> : <></>}
-            {ingredients ? <p>{ingredients}</p> : <></>}
-          </div>
-        </div>
-      </div>
     )
-  }
-
-  function initialValues(){
-    let menuItem = {};
-    if(props.selectedMenuItem){
-      const {name, category_id, type_id, price, served, subtype, ingredients} = props.selectedMenuItem;
-      menuItem = {name: name ? name : '', category: category_id, type: type_id, price: price ? price : '', served: served ? served : '', subtype: subtype ? subtype : '' ,ingredients: ingredients ? ingredients : ''}
-      console.log(menuItem)
-      return menuItem
-    }else{
-      return {name: '', category_id: '', type_id: '', price: '', served: '', subtype: '',ingredients: ''}
-    }
-
   }
 
   return(
@@ -111,7 +65,6 @@ function MenuItemForm(props){
       </div>
     </section>
   )
-
 }
 
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MenuItemForm from './Form/MenuItemForm'
 import MenuItemPageHOC from './MenuItemPageHoc'
+import MenuItemDisplay from './MenuItemDisplay'
 import {setSelectedMenuItem} from '../../../actions/actions'
 import { connect } from 'react-redux'
 
@@ -11,36 +12,85 @@ class EditMenuPage extends Component{
     this.state={
 
     }
+    this.submit = this.submit.bind(this)
+    this.formChange = this.formChange.bind(this)
   }
 
   componentDidMount(){
-    const menuItemId = Number(this.props.match.params.id)
-    if(!menuItemId){
-      this.props.history.push('/Dashboard')
-    }else if(this.props.selectedMenuItem){
-      if(this.props.selectedMenuItem.id !== menuItemId){
-        const menuItem = this.props.filteredDashboardMenu.filter(menuItem =>{
-          return menuItem.id === menuItemId
-        })[0];
-        this.props.setSelectedMenuItem(menuItem);
-      }
-    }else{
-      const menuItem = this.props.filteredDashboardMenu.filter(menuItem =>{
-        return menuItem.id === menuItemId
-      })[0];
-      if(menuItem){
-        this.props.setSelectedMenuItem(menuItem);
+    //
+    // checks that id is a number or exists
+    // checks that menuItem exists with selected id
+    // sets selectedMenuItem one does not already exist
+    // routes back to dashboard on error
+    //
+    try{
+      const menuItemId = Number(this.props.match.params.id)
+      if(!menuItemId){
+        throw new Error('incorrect id');
+      }else if(this.props.selectedMenuItem){
+        const menuItem = findMenuItemById(this.props.filteredDashboardMenu, menuItemId);
+        setMenuItem(this, menuItem);
       }else{
-        this.props.history.push('/Dashboard')
+        const menuItem = findMenuItemById(this.props.filteredDashboardMenu, menuItemId);
+        setMenuItem(this, menuItem);
       }
+    } catch (e){
+      this.props.history.push('/Dashboard')
     }
 
-    //this.props.setSelectedMenuItem()
+    function findMenuItemById(menuList, menuItemId){
+      return menuList.filter(menuItem =>{
+        return menuItem.id === menuItemId
+      })[0];
+    }
+
+    function setMenuItem(component, menuItem) {
+      if (menuItem) {
+        component.props.setSelectedMenuItem(menuItem);
+        component.setState({
+          menuItemDisplay: {
+            name: menuItem.name,
+            type: menuItem.type,
+            price: menuItem.price,
+            served: menuItem.served,
+            subtype: menuItem.subType,
+            ingredients: menuItem.ingredients,
+          }
+        })
+      } else {
+        throw new Error('invalid Id');
+      }
+    }
+  }
+
+  formChange(event){
+    switch(event.target.name){
+        case 'type':
+          const typeOptions = this.props['types'];
+          this.setState({
+            menuItemDisplay: {
+              ...this.state.menuItemDisplay,
+              [event.target.name]: getStringifiedKeyFromValue(typeOptions, event.target.value),
+
+            }
+          });
+          break;
+        default:
+          this.setState({
+            menuItemDisplay: {
+              ...this.state.menuItemDisplay,
+            [event.target.name]: event.target.value,
+          }
+          })
+    }
+    function getStringifiedKeyFromValue(object, value){
+      return Object.keys(object).filter(key => object[key] == value)[0];
+    }
   }
 
   submit(event){
     const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
-    console.log(newMenuItem)
+    console.log(this.state)
   }
 
   render(){
@@ -48,7 +98,10 @@ class EditMenuPage extends Component{
       <section className="body">
       {
         this.props.selectedMenuItem ?
-        <MenuItemForm submit={this.submit} history={this.props.history}/>
+        <>
+          <MenuItemForm submit={this.submit} formChange={this.formChange} history={this.props.history}/>
+          <MenuItemDisplay menuItemDisplay={this.state.menuItemDisplay}/>
+        </>
         :
         <></>
       }
