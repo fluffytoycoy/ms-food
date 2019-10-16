@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 
 function MenuItemForm(props){
-  const [type, setType] = useState(props.menuItem ? props.menuItem.type : 'none')
+  const [type, setType] = useState(props.selectedMenuItem ? props.selectedMenuItem.type : '')
 
   const getSelectOptions = (property) => {
     const keys = Object.entries(props[property]);
@@ -54,23 +54,24 @@ function MenuItemForm(props){
           <p>-Served Tall in Soda Glass-</p>
           <p>Ménage à Trois Vodka, Tres Agaves Bloody Mary Mix, Dash Mike Shannon's Steak Sauce, Salt</p>
           </div>
-          </div>
+        </div>
       </div>
     )
   }
 
-  const initialValues = () => {
+  function initialValues(){
     let menuItem = {};
     if(props.selectedMenuItem){
       const {name, category_id, type_id, price, served, subtype, ingredients} = props.selectedMenuItem;
       menuItem = {name: name ? name : '', category: category_id, type: type_id, price: price ? price : '', served: served ? served : '', subtype: subtype ? subtype : '' ,ingredients: ingredients ? ingredients : ''}
       console.log(menuItem)
       return menuItem
+    }else{
+      return {name: '', category_id: '', type_id: '', price: '', served: '', subtype: '',ingredients: ''}
     }
-    return {name: '', category_id: '', type_id: '', price: '', served: '', subtype: '',ingredients: ''}
+
   }
 
-  console.log(props)
   return(
     <section id="game-page">
       <div>

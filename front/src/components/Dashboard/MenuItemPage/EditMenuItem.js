@@ -46,7 +46,12 @@ class EditMenuPage extends Component{
   render(){
     return(
       <section className="body">
-          <MenuItemForm submit={this.submit} history={this.props.history}/>
+      {
+        this.props.selectedMenuItem ?
+        <MenuItemForm submit={this.submit} history={this.props.history}/>
+        :
+        <></>
+      }
       </section>
     )
   }

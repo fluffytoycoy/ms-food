@@ -6,8 +6,6 @@ const MenuItemPageHOC = ComponentToDebug => props => (
     <ComponentToDebug {...props}/>
     :
     <></>
-
-
 );
 
 export default MenuItemPageHOC;
