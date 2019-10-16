@@ -62,8 +62,8 @@ export const setDashboardMenu = (menu) => dispatch => {
   dispatch({type: SET_DASHBOARD_MENU, payload:menu})
 }
 
-export const setSelectedMenuItem = (game) => dispatch => {
-  dispatch({type: SET_SELECTED_MENUITEM, payload:game})
+export const setSelectedMenuItem = (menuItem) => dispatch => {
+  dispatch({type: SET_SELECTED_MENUITEM, payload: menuItem})
 }
 
 export const updateMenuItem = (menuItem) => dispatch => {
