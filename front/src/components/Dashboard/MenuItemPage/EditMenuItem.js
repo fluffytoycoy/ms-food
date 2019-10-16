@@ -96,15 +96,19 @@ class EditMenuPage extends Component{
   render(){
     return(
       <section className="body">
-      {
-        this.props.selectedMenuItem ?
-        <>
-          <MenuItemForm submit={this.submit} formChange={this.formChange} history={this.props.history}/>
-          <MenuItemDisplay menuItemDisplay={this.state.menuItemDisplay}/>
-        </>
-        :
-        <></>
-      }
+        <div className="menu-item-wrapper">
+          <div className="menu-item-row">
+            {
+              this.props.selectedMenuItem ?
+              <>
+                <MenuItemForm submit={this.submit} formChange={this.formChange} history={this.props.history}/>
+                <MenuItemDisplay menuItemDisplay={this.state.menuItemDisplay}/>
+              </>
+              :
+              <></>
+            }
+          </div>
+        </div>
       </section>
     )
   }

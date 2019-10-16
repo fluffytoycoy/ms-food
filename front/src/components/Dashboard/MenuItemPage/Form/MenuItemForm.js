@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { FormContainer, Form, Field} from 'ui-form-field';
 import Button from "@material-ui/core/Button";
+import './MenuItemForm.scss'
 import {setSelectedMenuItem} from '../../../../actions/actions'
 import { connect } from 'react-redux'
 
@@ -37,33 +38,31 @@ function MenuItemForm(props){
     const categoryOptions = [{value: '', label: 'Select a category'}, ...getSelectOptions('categories')]
     const typeOptions = [{value: '', label: 'Select a type'}, ...getSelectOptions('types')]
     return(
-        <Form onChange={props.formChange}>
-          <Field required  name='name'/>
-          <Field required select  options={categoryOptions} name='category'/>
-          <Field required select options={typeOptions} name="type"/>
-          <Field  name="price"/>
-          <Field name="served"/>
-          <Field name="subtype"/>
-          <Field name="ingredients"/>
-          <div className='btn-bar'>
-            <Button variant="contained" className='cancel'onClick={()=>{cancel()}}>Cancel</Button>
-            <Button variant="contained" color="primary" className='submit' type="submit">SAVE</Button>
+        <Form className="form" onChange={props.formChange}>
+          <div className="form-wrapper">
+            <Field required  name='name'/>
+            <Field required select  options={categoryOptions} name='category'/>
+            <Field required select options={typeOptions} name="type"/>
+            <Field  name="price"/>
+            <Field name="served"/>
+            <Field name="subtype"/>
+            <Field textarea name="ingredients"/>
+            <div className='btn-bar'>
+              <Button variant="contained" className='cancel'onClick={()=>{cancel()}}>Cancel</Button>
+              <Button variant="contained" color="primary" className='submit' type="submit">SAVE</Button>
+            </div>
           </div>
         </Form>
     )
   }
 
   return(
-    <section id="game-page">
-      <div>
         <div className="col">
           <FormContainer
             initialValues={initialValues()}
             onSubmit={props.submit}
             render={gameForm}/>
         </div>
-      </div>
-    </section>
   )
 }
 

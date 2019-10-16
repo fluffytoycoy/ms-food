@@ -1,0 +1,33 @@
+.menu-item-wrapper{
+  min-height: inherit;
+  max-width: 1400px;
+  margin: auto;
+  .menu-item-row{
+    display: flex;
+    min-height: inherit;
+    margin: 0 10px;
+        padding: 20px 0;
+    .col{
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .form{
+        margin: 0 10px;
+        max-width: 465px;
+        width: 100%;
+        padding: 20px 20px;
+        border-radius: 4px;
+        background: #f3f3f3;
+        box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
+        &.menu-cols{
+          color:white;
+          background: #1f1f1f;
+        }
+        h4{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
