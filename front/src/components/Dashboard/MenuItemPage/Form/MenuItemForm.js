@@ -46,7 +46,7 @@ function MenuItemForm(props){
             <Field  name="price"/>
             <Field name="served"/>
             <Field name="subtype"/>
-            <Field textarea name="ingredients"/>
+            <Field className="textarea" textarea name="ingredients"/>
             <div className='btn-bar'>
               <Button variant="contained" className='cancel'onClick={()=>{cancel()}}>Cancel</Button>
               <Button variant="contained" color="primary" className='submit' type="submit">SAVE</Button>

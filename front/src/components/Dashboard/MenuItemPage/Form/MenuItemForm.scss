@@ -1,27 +1,40 @@
+form {
+  .form-wrapper {
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
 
-  form{
-    .form-wrapper{
-      >div{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        &:not(:first-child){
-          margin-top: 20px;
-        }
-
+      &:not(:first-child) {
+        margin-top: 20px;
       }
-      textarea {
-        height: 150px;
-        padding: 5px 5px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f8f8f8;
-        resize: none;
-      }
-      .ui-help{
-        width: 100%;
+      &.textarea{
+        
       }
     }
+    label{
+      font-weight: 500;
+    }
+    input, select, textarea{
+      max-width: 300px;
+      width:  100%;
+      padding: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+    }
+    textarea {
+      height: 150px;
+      resize: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .ui-help {
+      width: 100%;
+    }
   }
+}
