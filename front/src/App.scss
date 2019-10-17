@@ -58,20 +58,6 @@ html {
       box-shadow: none;
       background: rgba(0, 128, 0, 0.9);
     }
-    &.edit-btn{
-      margin-right: 10px;
-          background: #0202a7;
-      &:hover{
-        background: #4444cc;
-      }
-    }
-    &.delete-btn{
-
-          background: #c50539;
-      &:hover{
-        background: #ff0539;
-      }
-    }
   }
 }
 
@@ -79,7 +65,7 @@ html {
   #root{
     >section{
       &:nth-child(3){
-        
+
       }
     }
 

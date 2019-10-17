@@ -1,29 +1,33 @@
 form {
+  width: 100%;
   .form-wrapper {
     > div {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-
+      flex-direction: column;
       &:not(:first-child) {
         margin-top: 20px;
       }
       &.textarea{
-        
+
       }
+    }
+    form{
+
     }
     label{
       font-weight: 500;
+      margin-bottom: 10px;
     }
     input, select, textarea{
-      max-width: 300px;
       width:  100%;
       padding: 5px;
       box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 4px;
       background-color: #f8f8f8;
+      outline: none;
     }
     textarea {
       height: 150px;
@@ -35,6 +39,43 @@ form {
 
     .ui-help {
       width: 100%;
+    }
+    .btn-bar{
+      flex-direction: row;
+      button{
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 480px){
+  form {
+    .form-wrapper {
+      > div {
+        flex-direction: row;
+        align-items: center;
+        &:not(:first-child) {
+        }
+        &.textarea{
+
+        }
+      }
+      label{
+      }
+      input, select, textarea{
+      }
+      textarea {
+
+      }
+      .btn-bar{
+        justify-content: flex-end;
+        button{
+          &:first-child{
+            margin-right: 20px;
+          }
+        }
+      }
     }
   }
 }
