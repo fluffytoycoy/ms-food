@@ -7,12 +7,16 @@ import Tooltip from "@material-ui/core/Tooltip";
 import {setDashboardMenu} from '../../../actions/actions'
 import { FormContainer, Form, Field} from 'ui-form-field';
 import { connect } from 'react-redux'
+import {setPreviousPage} from '../../../actions/actions';
 import FilterForm from './FilterForm';
 
 const EnhancedToolbar = (props) => {
 
+  function addMenuItem(){
+    props.setPreviousPage(props.history.location.pathname);
+    props.history.push('/Dashboard/Create')
+  }
 
-console.log(props)
   return (
     <Toolbar className="toolbar-me">
           <Typography variant="h1" id="tableTitle">
@@ -20,7 +24,7 @@ console.log(props)
           </Typography>
           <div className="toolbar">
             <Tooltip title="Add New Menu Item">
-                <IconButton onClick={()=>props.history.push('/Dashboard/Create')} aria-label="filter list">
+                <IconButton onClick={addMenuItem} aria-label="filter list">
                     <i className="fas fa-plus"></i>
                   </IconButton>
             </Tooltip>
@@ -36,5 +40,5 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setDashboardMenu}
+    {setDashboardMenu, setPreviousPage}
 )(EnhancedToolbar)

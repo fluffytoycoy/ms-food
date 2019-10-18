@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import {setSelectedMenuItem} from '../../../actions/actions';
+import {setPreviousPage} from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -114,6 +115,7 @@ function EnhancedTableBody(props) {
 
   function editMenuItem(menuItem){
     props.setSelectedMenuItem(menuItem)
+    props.setPreviousPage(props.history.location.pathname);
     props.history.push(`/Dashboard/Edit/${menuItem.id}`)
   }
 
@@ -179,5 +181,5 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setSelectedMenuItem}
+    {setPreviousPage, setSelectedMenuItem}
 )(EnhancedTableBody)

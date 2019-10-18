@@ -8,6 +8,7 @@ import {
     ADD_MENU_ITEM_START,
     ADD_MENU_ITEM_SUCCESS,
     ADD_MENU_ITEM_FAILURE,
+    SET_PREV_PAGE,
 } from '../actions/actions'
 
 const initialState = {
@@ -51,20 +52,20 @@ const menuReducer = (state = initialState, action) => {
                 error: "FAILED to get Menu from server",
             }
         case SET_DASHBOARD_MENU:
-        return{
-          ...state,
-          filteredDashboardMenu: action.payload
-        }
+          return{
+            ...state,
+            filteredDashboardMenu: action.payload
+          }
         case SET_SELECTED_MENUITEM:
-        return{
-          ...state,
-          selectedMenuItem: action.payload
-        }
+          return{
+            ...state,
+            selectedMenuItem: action.payload
+          }
         case SET_LOADING_SCREEN:
-        return{
-          ...state,
-          loadingFinished: action.payload
-        }
+          return{
+            ...state,
+            loadingFinished: action.payload
+          }
         case ADD_MENU_ITEM_START:
             return {
                 ...state,
@@ -83,6 +84,11 @@ const menuReducer = (state = initialState, action) => {
                 fetchingMenu: false,
                 menuExists: true,
                 error: "FAILED to add Menu Item from server",
+            }
+        case SET_PREV_PAGE:
+              return {
+                  ...state,
+                  prevPage: action.payload,
             }
         default:
             return state

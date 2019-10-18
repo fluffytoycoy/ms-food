@@ -7,7 +7,7 @@ function MenuItemDisplay(props){
   return(
     <div className="col">
     {props.menuItemDisplay ?
-        <div class="menu-cols form">
+        <div className="menu-cols form">
             <h4>{props.menuItemDisplay.type}</h4>
             <div>
               <h6>{props.menuItemDisplay.name} {props.menuItemDisplay.price}</h6>

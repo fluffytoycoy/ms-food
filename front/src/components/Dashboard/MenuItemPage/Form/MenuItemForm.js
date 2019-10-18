@@ -30,7 +30,11 @@ function MenuItemForm(props){
   }
 
   const cancel = () =>{
-    props.history.goBack();
+    if(props.prevPage){
+      props.history.goBack();
+    }else{
+      props.history.push('/Dashboard')
+    }
   }
 
   const gameForm = () =>{

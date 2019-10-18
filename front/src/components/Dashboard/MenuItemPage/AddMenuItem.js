@@ -60,20 +60,19 @@ class AddMenuPage extends Component{
     }
   }
 
-  getDerivedStateFromProps(nextProps, prevState){
-    console.log(nextProps)
-    return null
-  }
-
   submit(event){
     const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
     const test = this.props.addMenuItem(newMenuItem)
   }
 
-  checkSubmitStatus(){
+  componentDidUpdate(){
     if(this.props.error === 'it worked'){
       this.props.history.goBack();
     }
+  }
+
+  checkSubmitStatus(){
+
   }
 
   render(){

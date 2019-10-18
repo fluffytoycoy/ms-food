@@ -18,9 +18,12 @@ export const UPDATE_MENU_ITEM_START = "UPDATE_MENU_ITEM_START"
 export const UPDATE_MENU_ITEM_SUCCESS = "UPDATE_MENU_ITEM_SUCCESS"
 export const UPDATE_MENU_ITEM_FAILURE = "UPDATE_MENU_ITEM_FAILURE"
 
+//Util Actions
 export const SET_DASHBOARD_MENU = "SET_DASHBOARD_MENU"
 
 export const SET_SELECTED_MENUITEM = "SET_SELECTED_MENUITEM"
+
+export const SET_PREV_PAGE = "SET_PREV_PAGE"
 
 export const getMenu = () => dispatch => {
     dispatch({
@@ -52,11 +55,9 @@ export const addMenuItem = (menuItem) => dispatch => {
       })
       .then(res =>{
         dispatch({ type: ADD_MENU_ITEM_SUCCESS, payload: res.data})
-        return Promise.resolve('test');
       })
       .catch(err => {
         dispatch({type: ADD_MENU_ITEM_FAILURE, payload: err})
-        return 'no'
       })
 }
 
@@ -87,3 +88,7 @@ export const updateMenuItem = (menuItem) => dispatch => {
 export const setLoading = (bool) => dispatch =>{
     dispatch({type: SET_LOADING_SCREEN, payload: bool});
   }
+
+export const setPreviousPage = (string) => dispatch => {
+    dispatch({type: SET_PREV_PAGE, payload: string});
+}
