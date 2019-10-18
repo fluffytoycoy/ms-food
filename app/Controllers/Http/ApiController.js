@@ -22,8 +22,14 @@ class ApiController {
       console.log(e)
     }
   }
-  async test(){
 
+  async createMenuItem({request, response, auth}){
+      try{
+        console.log(request.all())
+      }catch(e){
+        console.log(e)
+        return response.status(500).send()
+      }
   }
 }
 

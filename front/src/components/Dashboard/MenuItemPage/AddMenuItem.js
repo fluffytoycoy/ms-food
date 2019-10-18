@@ -1,24 +1,94 @@
-import React from 'react';
+import React, {Component} from 'react';
 import MenuItemForm from './Form/MenuItemForm'
-import {setDashboardMenu} from '../../../actions/actions'
+import MenuItemPageHOC from './MenuItemPageHoc'
+import MenuItemDisplay from './MenuItemDisplay'
+import {addMenuItem} from '../../../actions/actions'
 import { connect } from 'react-redux'
 
 
-function AddMenuPage(props){
-  const submit = (event) => {
-    const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
-    console.log(newMenuItem)
+class AddMenuPage extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+
+    }
+    this.submit = this.submit.bind(this)
+    this.formChange = this.formChange.bind(this)
   }
+
+  componentDidMount(){
+    //
+    // checks that id is a number or exists
+    // checks that menuItem exists with selected id
+    // sets selectedMenuItem one does not already exist
+    // routes back to dashboard on error
+    //
+    this.setState({
+      menuItemDisplay: {
+        name: '',
+        type: 'Type',
+        price: '',
+        served: '',
+        subtype: '',
+        ingredients: '',
+      }
+    })
+  }
+
+  formChange(event){
+    switch(event.target.name){
+        case 'type':
+          const typeOptions = this.props['types'];
+          this.setState({
+            menuItemDisplay: {
+              ...this.state.menuItemDisplay,
+              [event.target.name]: getStringifiedKeyFromValue(typeOptions, event.target.value),
+
+            }
+          });
+          break;
+        default:
+          this.setState({
+            menuItemDisplay: {
+              ...this.state.menuItemDisplay,
+            [event.target.name]: event.target.value,
+          }
+          })
+    }
+    function getStringifiedKeyFromValue(object, value){
+      return Object.keys(object).filter(key => object[key] == value)[0];
+    }
+  }
+
+  getDerivedStateFromProps(nextProps, prevState){
+    console.log(nextProps)
+    return null
+  }
+
+  submit(event){
+    const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
+    const test = this.props.addMenuItem(newMenuItem)
+  }
+
+  checkSubmitStatus(){
+    if(this.props.error === 'it worked'){
+      this.props.history.goBack();
+    }
+  }
+
+  render(){
+    this.checkSubmitStatus();
     return(
       <section className="body">
-          {
-            props.filteredDashboardMenu ?
-              <MenuItemForm submit={submit} history={props.history}/>
-            :
-              <></>
-          }
+        <div className="menu-item-wrapper">
+          <div className="menu-item-row">
+                <MenuItemForm submit={this.submit} formChange={this.formChange} history={this.props.history}/>
+                <MenuItemDisplay menuItemDisplay={this.state.menuItemDisplay}/>
+          </div>
+        </div>
       </section>
     )
+  }
 
 }
 
@@ -29,5 +99,5 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setDashboardMenu}
-  )(AddMenuPage)
+    {addMenuItem}
+  )(MenuItemPageHOC(AddMenuPage))

@@ -5,6 +5,9 @@ import {
     SET_LOADING_SCREEN,
     SET_DASHBOARD_MENU,
     SET_SELECTED_MENUITEM,
+    ADD_MENU_ITEM_START,
+    ADD_MENU_ITEM_SUCCESS,
+    ADD_MENU_ITEM_FAILURE,
 } from '../actions/actions'
 
 const initialState = {
@@ -62,6 +65,25 @@ const menuReducer = (state = initialState, action) => {
           ...state,
           loadingFinished: action.payload
         }
+        case ADD_MENU_ITEM_START:
+            return {
+                ...state,
+                fetchingMenu: true,
+                error: "starting",
+            }
+        case ADD_MENU_ITEM_SUCCESS:
+            return {
+                ...state,
+                fetchingMenu: false,
+                error: "it worked",
+            }
+        case ADD_MENU_ITEM_FAILURE:
+            return {
+                ...state,
+                fetchingMenu: false,
+                menuExists: true,
+                error: "FAILED to add Menu Item from server",
+            }
         default:
             return state
     }

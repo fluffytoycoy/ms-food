@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { FormContainer, Form, Field} from 'ui-form-field';
 import Button from "@material-ui/core/Button";
 import './MenuItemForm.scss'
-import {setSelectedMenuItem} from '../../../../actions/actions'
 import { connect } from 'react-redux'
 
 
@@ -73,5 +72,4 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setSelectedMenuItem}
   )(MenuItemForm)

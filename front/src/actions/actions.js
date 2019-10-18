@@ -45,16 +45,18 @@ export const getMenu = () => dispatch => {
 export const addMenuItem = (menuItem) => dispatch => {
   dispatch({type: ADD_MENU_ITEM_START})
   axios
-    .post('/api/addMenuItem', menuItem, {
+    .post('/api/createMenuItem', menuItem, {
         headers: {
           "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
         }
       })
       .then(res =>{
         dispatch({ type: ADD_MENU_ITEM_SUCCESS, payload: res.data})
+        return Promise.resolve('test');
       })
       .catch(err => {
         dispatch({type: ADD_MENU_ITEM_FAILURE, payload: err})
+        return 'no'
       })
 }
 

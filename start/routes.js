@@ -20,6 +20,7 @@ const Helpers = use('Helpers');
 
 Route.group(() => {
   Route.get('/getMenu', 'ApiController.getMenu')
+  Route.post('/createMenuItem', 'ApiController.createMenuItem')
 }).prefix('api/');
 
 Route.any('*', ({ response }) => {
