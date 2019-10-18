@@ -4,6 +4,7 @@ import MenuItemPageHOC from './MenuItemPageHoc'
 import MenuItemDisplay from './MenuItemDisplay'
 import {setSelectedMenuItem} from '../../../actions/actions'
 import { connect } from 'react-redux'
+import { getStringifiedKeyFromValue } from '../../Utils/MapFunctions/MapFunctions'
 
 
 class EditMenuPage extends Component{
@@ -89,8 +90,15 @@ class EditMenuPage extends Component{
   }
 
   submit(event){
-    const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
-    console.log(this.state)
+    const newMenuItem = {
+      name: event.name,
+      category_id: event.category,
+      type_id: event.type,
+      price: event.price,
+      served: event.served,
+      subtype: event.subtype,
+      ingredients: event.ingredients
+    }
   }
 
   render(){

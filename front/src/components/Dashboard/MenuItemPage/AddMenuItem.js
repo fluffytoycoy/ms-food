@@ -4,6 +4,7 @@ import MenuItemPageHOC from './MenuItemPageHoc'
 import MenuItemDisplay from './MenuItemDisplay'
 import {addMenuItem} from '../../../actions/actions'
 import { connect } from 'react-redux'
+import { getStringifiedKeyFromValue } from '../../Utils/MapFunctions/MapFunctions'
 
 
 class AddMenuPage extends Component{
@@ -55,28 +56,29 @@ class AddMenuPage extends Component{
           }
           })
     }
-    function getStringifiedKeyFromValue(object, value){
-      return Object.keys(object).filter(key => object[key] == value)[0];
-    }
   }
 
   submit(event){
-    const newMenuItem = {name: event.name, category_id: event.category, type_id: event.type, price: event.price, served: event.served, subtype: event.subtype, ingredients: event.ingredients}
-    const test = this.props.addMenuItem(newMenuItem)
+    const newMenuItem = {
+      name: event.name,
+      category_id: Number(event.category),
+      type_id: Number(event.type),
+      price: event.price,
+      served: event.served,
+      subType: event.subtype,
+      ingredients: event.ingredients,
+      category: getStringifiedKeyFromValue(this.props.categories, event.category),
+      type: getStringifiedKeyFromValue(this.props.types, event.type),
+    }
+    this.props.addMenuItem(newMenuItem)
   }
 
   componentDidUpdate(){
     if(this.props.error === 'it worked'){
-      this.props.history.goBack();
     }
   }
 
-  checkSubmitStatus(){
-
-  }
-
   render(){
-    this.checkSubmitStatus();
     return(
       <section className="body">
         <div className="menu-item-wrapper">

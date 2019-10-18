@@ -73,17 +73,18 @@ const menuReducer = (state = initialState, action) => {
                 error: "starting",
             }
         case ADD_MENU_ITEM_SUCCESS:
+        state.dashboardMenu.push(action.payload);
             return {
                 ...state,
                 fetchingMenu: false,
+                dashboardMenu: state.dashboardMenu,
                 error: "it worked",
             }
         case ADD_MENU_ITEM_FAILURE:
             return {
                 ...state,
                 fetchingMenu: false,
-                menuExists: true,
-                error: "FAILED to add Menu Item from server",
+                error: "FAILED to add Menu Item to server",
             }
         case SET_PREV_PAGE:
               return {

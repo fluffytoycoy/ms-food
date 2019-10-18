@@ -4,6 +4,7 @@ const MealType = use('App/Models/MealType');
 const MenuItem = use('App/Models/MenuItem');
 const MenuCategory = use('App/Models/MenuCategory');
 const formatMenu = require('../../Utils/MenuFormater');
+const formatMenuItem = require('../../Utils/MenuItemFormater');
 
 class ApiController {
   async getMenu(){
@@ -25,7 +26,8 @@ class ApiController {
 
   async createMenuItem({request, response, auth}){
       try{
-        console.log(request.all())
+        const menuItem = await MenuItem.create(request.all())
+        response.send(menuItem)
       }catch(e){
         console.log(e)
         return response.status(500).send()

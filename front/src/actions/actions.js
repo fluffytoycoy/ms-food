@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {parseMenu} from './Util/MenuParser';
+import {parseMenuItem} from './Util/MenuItemParser';
 //Actions for getting menu from database
 export const GET_MENU_START = "GET_MENU_START"
 export const GET_MENU_SUCCESS = "GET_MENU_SUCCESS"
@@ -48,13 +49,17 @@ export const getMenu = () => dispatch => {
 export const addMenuItem = (menuItem) => dispatch => {
   dispatch({type: ADD_MENU_ITEM_START})
   axios
-    .post('/api/createMenuItem', menuItem, {
+    .post('/api/createMenuItem', parseMenuItem(menuItem), {
         headers: {
           "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
         }
       })
       .then(res =>{
-        dispatch({ type: ADD_MENU_ITEM_SUCCESS, payload: res.data})
+          console.log(res)
+          dispatch({
+            type: ADD_MENU_ITEM_SUCCESS,
+            payload: res.data
+          })
       })
       .catch(err => {
         dispatch({type: ADD_MENU_ITEM_FAILURE, payload: err})
