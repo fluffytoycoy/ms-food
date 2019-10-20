@@ -33,6 +33,20 @@ class ApiController {
         return response.status(500).send()
       }
   }
+
+  async deleteMenuItem({request, response, auth}){
+      try{
+        const { id } = request.all()
+          const gameConsole = await MenuItem.find(id)
+          if(gameConsole){
+            await gameConsole.delete()
+            return response.status(200).send()
+          }
+      }catch(e){
+        console.log(e)
+        return response.status(500).send()
+      }
+  }
 }
 
 module.exports = ApiController;

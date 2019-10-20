@@ -75,9 +75,9 @@ function EnhancedTableBody(props) {
   const [orderBy, setOrderBy] = React.useState("name");
   const [rowsPerPage, setRowsPerPage] = React.useState(15);
   let menu = props.filteredDashboardMenu;
-
   const page = getSelectedPage(props.match.params.pageNumber);
-  console.log(props)
+
+
   function getSelectedPage(number){
     let pageNumber = parseInt(number);
     let maxPages = getMaxPages();
@@ -110,8 +110,7 @@ function EnhancedTableBody(props) {
     props.history.push(`/Dashboard/Page/1`)
   }
 
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, menu.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, menu.length - page * rowsPerPage);
 
   function editMenuItem(menuItem){
     props.setSelectedMenuItem(menuItem)
@@ -119,6 +118,48 @@ function EnhancedTableBody(props) {
     props.history.push(`/Dashboard/Edit/${menuItem.id}`)
   }
 
+  function deleteMenuItem(row){
+    const index = findIndexById(props.dashboardMenu, row.id);
+    let test = 1;
+    let test2 = test;
+    test2 = 3;
+    console.log(test)
+
+    function addToDisplayMenu(menu, item){
+      let test = 1;
+      let test2 = test;
+      test2 = 3;
+      console.log(test2)
+      let menuList = menu[item.category][item.type];
+      const newMenuList = addItem(menuList, item);
+
+
+    }
+
+    function editDisplayMenuItem(menu, item){
+
+    }
+
+    function removeFromDisplayMenu(menu, item){
+      let menuList = menu[item.category][item.type];
+    }
+
+    function parseDisplayMenu(menu, item){
+
+    }
+
+    function findIndexById(itemList, id){
+        return itemList.findIndex(item => item.id === id)
+    }
+
+    function removeAtIndex(itemList, index){
+        return [...itemList.slice(0, index), ...itemList.slice(index + 1)]
+    }
+
+    function addItem(itemList, item){
+        return Object.assign({}, itemList[index], item)
+    }
+  }
 
   return (
     <div className={classes.root}>
@@ -146,7 +187,7 @@ function EnhancedTableBody(props) {
                       <TableCell  align="center">
                         <div className="button-row">
                           <Button onClick={()=>{editMenuItem(row)}} variant="outlined" className='edit-btn'>EDIT</Button>
-                          <Button onClick={()=>{editMenuItem(row)}} variant="outlined" className='delete-btn'>DELETE</Button>
+                          <Button onClick={()=>{deleteMenuItem(row)}} variant="outlined" className='delete-btn'>DELETE</Button>
                         </div>
                       </TableCell>
                     </TableRow>

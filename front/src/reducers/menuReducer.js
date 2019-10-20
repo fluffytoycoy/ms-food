@@ -9,6 +9,9 @@ import {
     ADD_MENU_ITEM_SUCCESS,
     ADD_MENU_ITEM_FAILURE,
     SET_PREV_PAGE,
+    DELETE_MENU_ITEM_START,
+    DELETE_MENU_ITEM_SUCCESS,
+    DELETE_MENU_ITEM_FAILURE,
 } from '../actions/actions'
 
 const initialState = {
@@ -85,6 +88,19 @@ const menuReducer = (state = initialState, action) => {
                 ...state,
                 fetchingMenu: false,
                 error: "FAILED to add Menu Item to server",
+            }
+        case DELETE_MENU_ITEM_START:
+            return{
+              ...state
+            }
+        case DELETE_MENU_ITEM_SUCCESS:
+            return{
+              ...state,
+
+            }
+        case DELETE_MENU_ITEM_FAILURE:
+            return{
+              ...state,
             }
         case SET_PREV_PAGE:
               return {

@@ -21,6 +21,7 @@ const Helpers = use('Helpers');
 Route.group(() => {
   Route.get('/getMenu', 'ApiController.getMenu')
   Route.post('/createMenuItem', 'ApiController.createMenuItem')
+  Route.post('/deleteMenuItem', 'ApiController.deleteMenuItem')
 }).prefix('api/');
 
 Route.any('*', ({ response }) => {
