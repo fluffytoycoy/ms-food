@@ -18,10 +18,9 @@ function MenuItemForm(props){
 
   const initialValues = () => {
     let menuItem = {};
-    if(props.selectedMenuItem){
+    if(props.edit && props.selectedMenuItem){
       const {name, category_id, type_id, price, served, subType, ingredients} = props.selectedMenuItem;
       menuItem = {name: name ? name : '', category: category_id, type: type_id, price: price ? price : '', served: served ? served : '', subtype: subType ? subType : '' ,ingredients: ingredients ? ingredients : ''}
-      console.log(menuItem)
       return menuItem
     }else{
       return {name: '', category_id: '', type_id: '', price: '', served: '', subtype: '',ingredients: ''}

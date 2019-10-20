@@ -109,7 +109,9 @@ class EditMenuPage extends Component{
             {
               this.props.selectedMenuItem ?
               <>
-                <MenuItemForm submit={this.submit} formChange={this.formChange} history={this.props.history}/>
+                <MenuItemForm submit={this.submit} formChange={this.formChange}
+                edit
+                history={this.props.history}/>
                 <MenuItemDisplay menuItemDisplay={this.state.menuItemDisplay}/>
               </>
               :
