@@ -4,7 +4,7 @@ export const MenuBuilder = {
       //returns a new Display Menu
       let newMenu = menu;
       let menuList = menu[item.category][item.type];
-      newMenu[item.category][item.type] = this.addItem(menuList, item);
+      newMenu[item.category][item.type] = this.addMenuItem(menuList, item);
 
       return newMenu;
   },
@@ -41,14 +41,13 @@ export const MenuBuilder = {
 
   removeAtIndex: function(itemList, index){
       const newItemList =  [...itemList.slice(0, index), ...itemList.slice(index + 1)];
-      console.log(newItemList);
       return newItemList;
   },
 
   addMenuItem: function(itemList, item){
       let newItemList = itemList;
-      console.log(newItemList);
-      return newItemList.push(item);
+      newItemList.push(item)
+      return newItemList;
   },
 
   findIndexById: function(itemList, id){

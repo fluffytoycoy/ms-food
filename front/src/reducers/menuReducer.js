@@ -78,14 +78,13 @@ const menuReducer = (state = initialState, action) => {
                 error: "starting",
             }
         case ADD_MENU_ITEM_SUCCESS:
-            return {
-                ...state,
-                fetchingMenu: false,
-                menu: MenuBuilder.addToDisplayMenu(state.menu, action.payload),
-                filteredDashboardMenu: MenuBuilder.addMenuItem(state.filteredDashboardMenu, action.payload),
-                dashboardMenu: MenuBuilder.addMenuItem(state.dashboardMenu, action.payload),
-                error: "it worked",
-            }
+          return {
+            ...state,
+            fetchingMenu: false,
+            menu: MenuBuilder.addToDisplayMenu(state.menu, action.menuItem),
+            dashboardMenu: MenuBuilder.addMenuItem(state.dashboardMenu, action.menuItem),
+            error: "it worked",
+          }
         case ADD_MENU_ITEM_FAILURE:
             return {
                 ...state,
@@ -97,12 +96,12 @@ const menuReducer = (state = initialState, action) => {
               ...state
             }
         case DELETE_MENU_ITEM_SUCCESS:
-            return{
-              ...state,
-              menu: MenuBuilder.removeFromDisplayMenu(state.menu, action.menuItem),
-              filteredDashboardMenu: MenuBuilder.removeMenuItem(state.filteredDashboardMenu, action.menuItem),
-              dashboardMenu: MenuBuilder.removeMenuItem(state.dashboardMenu, action.menuItem),
-            }
+          return {
+            ...state,
+            menu: MenuBuilder.removeFromDisplayMenu(state.menu, action.menuItem),
+            filteredDashboardMenu: MenuBuilder.removeMenuItem(state.filteredDashboardMenu, action.menuItem),
+            dashboardMenu: MenuBuilder.removeMenuItem(state.dashboardMenu, action.menuItem),
+          }
         case DELETE_MENU_ITEM_FAILURE:
             return{
               ...state,

@@ -7,7 +7,7 @@ class FilterForm extends React.Component {
     super(props);
     this.state = {
       textValue: '',
-      selectValue: 'price'
+      selectValue: 'name'
   };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -36,7 +36,7 @@ class FilterForm extends React.Component {
         <div className="dashboard-search-bar">
         <input type="text" value={this.state.textValue} onChange={this.handleTextChange} />
           <select value={this.state.value} onChange={this.handleSelectChange}>
-            <option value="name">Name</option>
+            <option selected value="name">Name</option>
             <option value="category">Category</option>
             <option value="price">Price</option>
             <option value="type">Type</option>

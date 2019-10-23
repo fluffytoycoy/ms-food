@@ -63,13 +63,15 @@ export const addMenuItem = (menuItem) => dispatch => {
         }
       })
       .then(res =>{
-          console.log(res)
+          const newMenuItem = {...res.data,  type: menuItem.type, category: menuItem.category};
+          console.log(newMenuItem)
           dispatch({
             type: ADD_MENU_ITEM_SUCCESS,
-            payload: res.data
+            menuItem: newMenuItem
           })
       })
       .catch(err => {
+        console.log(err)
         dispatch({type: ADD_MENU_ITEM_FAILURE, payload: err})
       })
 }
