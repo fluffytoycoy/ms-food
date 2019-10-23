@@ -28,7 +28,7 @@ export const MenuBuilder = {
   editMenuItem: function(itemList, item){
     const index = this.findIndexById(itemList, item.id);
     let newMenu = this.removeAtIndex(itemList, index);
-    return this.addItem(newMenu, item);
+    return this.addMenuItem(newMenu, item);
   },
 
   removeMenuItem: function(itemList, item){
@@ -45,8 +45,9 @@ export const MenuBuilder = {
       return newItemList;
   },
 
-  addItem: function(itemList, item){
+  addMenuItem: function(itemList, item){
       let newItemList = itemList;
+      console.log(newItemList);
       return newItemList.push(item);
   },
 

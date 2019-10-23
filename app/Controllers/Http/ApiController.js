@@ -35,12 +35,12 @@ class ApiController {
 
   async deleteMenuItem({request, response, auth}){
       try{
-        // const { id } = request.all()
-        // const gameConsole = await MenuItem.find(id)
-        // if(gameConsole){
-        //     await gameConsole.delete()
-        //     return response.status(200).send()
-        // }
+        const { id } = request.all()
+        const gameConsole = await MenuItem.find(id)
+        if(gameConsole){
+            await gameConsole.delete()
+            return response.status(200).send()
+        }
         console.log('worked')
       }catch(e){
         console.log(e)

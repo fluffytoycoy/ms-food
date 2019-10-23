@@ -78,11 +78,12 @@ const menuReducer = (state = initialState, action) => {
                 error: "starting",
             }
         case ADD_MENU_ITEM_SUCCESS:
-        state.dashboardMenu.push(action.payload);
             return {
                 ...state,
                 fetchingMenu: false,
-                dashboardMenu: state.dashboardMenu,
+                menu: MenuBuilder.addToDisplayMenu(state.menu, action.payload),
+                filteredDashboardMenu: MenuBuilder.addMenuItem(state.filteredDashboardMenu, action.payload),
+                dashboardMenu: MenuBuilder.addMenuItem(state.dashboardMenu, action.payload),
                 error: "it worked",
             }
         case ADD_MENU_ITEM_FAILURE:
@@ -99,9 +100,8 @@ const menuReducer = (state = initialState, action) => {
             return{
               ...state,
               menu: MenuBuilder.removeFromDisplayMenu(state.menu, action.menuItem),
-              filteredDashboardMenu: MenuBuilder.removeMenuItem(state.dashboardMenu, action.menuItem),
+              filteredDashboardMenu: MenuBuilder.removeMenuItem(state.filteredDashboardMenu, action.menuItem),
               dashboardMenu: MenuBuilder.removeMenuItem(state.dashboardMenu, action.menuItem),
-
             }
         case DELETE_MENU_ITEM_FAILURE:
             return{

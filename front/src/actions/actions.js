@@ -77,7 +77,7 @@ export const addMenuItem = (menuItem) => dispatch => {
 export const deleteMenuItem = (item) => dispatch => {
   dispatch({type: DELETE_MENU_ITEM_START})
   axios
-    .post('/api/deleteMenuItem', item.id, {
+    .post('/api/deleteMenuItem', {id: item.id}, {
         headers: {
           "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
         }
