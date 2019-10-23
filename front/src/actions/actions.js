@@ -76,6 +76,25 @@ export const addMenuItem = (menuItem) => dispatch => {
       })
 }
 
+export const updateMenuItem = (menuItem) => dispatch => {
+  dispatch({type: UPDATE_MENU_ITEM_START})
+  axios
+    .post('/api/updateMenuItem', menuItem, {
+        headers: {
+          "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
+        }
+      })
+      .then(res =>{
+        console.log(menuItem, 'to update')
+        dispatch({ type: UPDATE_MENU_ITEM_SUCCESS, menuItem: menuItem})
+
+      })
+      .catch(err => {
+        console.log(err)
+        dispatch({type: UPDATE_MENU_ITEM_FAILURE, payload: err})
+      })
+}
+
 export const deleteMenuItem = (item) => dispatch => {
   dispatch({type: DELETE_MENU_ITEM_START})
   axios
@@ -85,7 +104,6 @@ export const deleteMenuItem = (item) => dispatch => {
         }
       })
     .then(res =>{
-        console.log(item)
         dispatch({
           type: DELETE_MENU_ITEM_SUCCESS,
           menuItem: item
@@ -96,34 +114,18 @@ export const deleteMenuItem = (item) => dispatch => {
     })
 }
 
-export const setDashboardMenu = (menu) => dispatch => {
-  dispatch({type: SET_DASHBOARD_MENU, payload:menu})
-}
-
-export const setSelectedMenuItem = (menuItem) => dispatch => {
-  dispatch({type: SET_SELECTED_MENUITEM, payload: menuItem})
-}
-
-export const updateMenuItem = (menuItem) => dispatch => {
-  dispatch({type: UPDATE_MENU_ITEM_START})
-  axios
-    .post('/api/updateMenuItem', menuItem, {
-        headers: {
-          "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
-        }
-      })
-      .then(res =>{
-        dispatch({ type: UPDATE_MENU_ITEM_SUCCESS, payload: res.data})
-      })
-      .catch(err => {
-        dispatch({type: UPDATE_MENU_ITEM_FAILURE, payload: err})
-      })
-}
-
 export const setLoading = (bool) => dispatch =>{
     dispatch({type: SET_LOADING_SCREEN, payload: bool});
   }
 
 export const setPreviousPage = (string) => dispatch => {
     dispatch({type: SET_PREV_PAGE, payload: string});
+}
+
+export const setDashboardMenu = (menu) => dispatch => {
+  dispatch({type: SET_DASHBOARD_MENU, payload:menu})
+}
+
+export const setSelectedMenuItem = (menuItem) => dispatch => {
+  dispatch({type: SET_SELECTED_MENUITEM, payload: menuItem})
 }

@@ -71,6 +71,15 @@ class AddMenuPage extends Component{
       type: getStringifiedKeyFromValue(this.props.types, event.type),
     }
     this.props.addMenuItem(newMenuItem)
+    this.goBack();
+  }
+
+  goBack(){
+    if(this.props.prevPage){
+      this.props.history.goBack();
+    }else{
+      this.props.history.push('/Dashboard')
+    }
   }
 
   componentDidUpdate(){

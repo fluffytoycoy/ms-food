@@ -3,6 +3,7 @@ import MenuItemForm from './Form/MenuItemForm'
 import MenuItemPageHOC from './MenuItemPageHoc'
 import MenuItemDisplay from './MenuItemDisplay'
 import {setSelectedMenuItem} from '../../../actions/actions'
+import { updateMenuItem } from '../../../actions/actions'
 import { connect } from 'react-redux'
 import { getStringifiedKeyFromValue } from '../../Utils/MapFunctions/MapFunctions'
 
@@ -91,13 +92,26 @@ class EditMenuPage extends Component{
 
   submit(event){
     const newMenuItem = {
+      id: this.props.selectedMenuItem.id,
       name: event.name,
       category_id: event.category,
       type_id: event.type,
       price: event.price,
       served: event.served,
       subtype: event.subtype,
-      ingredients: event.ingredients
+      ingredients: event.ingredients,
+      category: getStringifiedKeyFromValue(this.props.categories, event.category),
+      type: getStringifiedKeyFromValue(this.props.types, event.type),
+    }
+    this.props.updateMenuItem(newMenuItem);
+    this.goBack();
+  }
+
+  goBack(){
+    if(this.props.prevPage){
+      this.props.history.goBack();
+    }else{
+      this.props.history.push('/Dashboard')
     }
   }
 
@@ -110,8 +124,7 @@ class EditMenuPage extends Component{
               this.props.selectedMenuItem ?
               <>
                 <MenuItemForm submit={this.submit} formChange={this.formChange}
-                edit
-                history={this.props.history}/>
+                edit history={this.props.history}/>
                 <MenuItemDisplay menuItemDisplay={this.state.menuItemDisplay}/>
               </>
               :
@@ -132,5 +145,5 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setSelectedMenuItem}
+    {setSelectedMenuItem, updateMenuItem}
   )(MenuItemPageHOC(EditMenuPage))

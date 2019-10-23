@@ -93,7 +93,7 @@ function EnhancedTableBody(props) {
     return pageNumber -1;
 
     function getMaxPages(){
-      console.log(menu.length)
+      console.log(menu.length, 'menu length should stay the same')
       return Math.ceil(menu.length / rowsPerPage);
     }
   }

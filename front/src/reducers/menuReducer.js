@@ -9,6 +9,9 @@ import {
     ADD_MENU_ITEM_SUCCESS,
     ADD_MENU_ITEM_FAILURE,
     SET_PREV_PAGE,
+    UPDATE_MENU_ITEM_START,
+    UPDATE_MENU_ITEM_SUCCESS,
+    UPDATE_MENU_ITEM_FAILURE,
     DELETE_MENU_ITEM_START,
     DELETE_MENU_ITEM_SUCCESS,
     DELETE_MENU_ITEM_FAILURE,
@@ -74,16 +77,14 @@ const menuReducer = (state = initialState, action) => {
         case ADD_MENU_ITEM_START:
             return {
                 ...state,
-                fetchingMenu: true,
-                error: "starting",
+                error: "",
             }
         case ADD_MENU_ITEM_SUCCESS:
           return {
             ...state,
-            fetchingMenu: false,
             menu: MenuBuilder.addToDisplayMenu(state.menu, action.menuItem),
             dashboardMenu: MenuBuilder.addMenuItem(state.dashboardMenu, action.menuItem),
-            error: "it worked",
+            error: "",
           }
         case ADD_MENU_ITEM_FAILURE:
             return {
@@ -91,6 +92,21 @@ const menuReducer = (state = initialState, action) => {
                 fetchingMenu: false,
                 error: "FAILED to add Menu Item to server",
             }
+        case UPDATE_MENU_ITEM_START:
+          return{
+            ...state
+          }
+        case UPDATE_MENU_ITEM_SUCCESS:
+          return{
+            ...state,
+            menu: MenuBuilder.updateDisplayMenu(state.menu, action.menuItem),
+            dashboardMenu: MenuBuilder.updateMenuItem(state.dashboardMenu, action.menuItem),
+            filteredDashboardMenu: MenuBuilder.updateMenuItem(state.filteredDashboardMenu, action.menuItem),
+          }
+        case UPDATE_MENU_ITEM_FAILURE:
+          return{
+            ...state
+          }
         case DELETE_MENU_ITEM_START:
             return{
               ...state

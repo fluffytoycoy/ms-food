@@ -9,7 +9,7 @@ export const MenuBuilder = {
       return newMenu;
   },
 
-  editDisplayMenuItem: function(menu, item){
+  updateDisplayMenu: function(menu, item){
       //returns a new Display Menu
       let newMenu = this.removeFromDisplayMenu(menu, item);
       return this.addToDisplayMenu(newMenu, item);
@@ -25,7 +25,7 @@ export const MenuBuilder = {
       return newMenu;
   },
 
-  editMenuItem: function(itemList, item){
+  updateMenuItem: function(itemList, item){
     const index = this.findIndexById(itemList, item.id);
     let newMenu = this.removeAtIndex(itemList, index);
     return this.addMenuItem(newMenu, item);
