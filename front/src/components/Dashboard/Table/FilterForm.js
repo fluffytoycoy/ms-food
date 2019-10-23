@@ -24,7 +24,19 @@ class FilterForm extends React.Component {
   }
 
   handleSelectChange(event){
-     this.setState({selectValue: event.target.value});
+     this.setState({selectValue: event.target.value},
+     ()=>{
+       this.updateFilterList();
+     });
+
+  }
+
+  updateFilterList(){
+    const menu = this.props.dashboardMenu.filter((menuItem)=>{
+      var inputRegex = new RegExp(this.state.textValue, 'i');
+      return inputRegex.test(menuItem[this.state.selectValue])
+    })
+    this.props.setDashboardMenu(menu)
   }
 
   handleSubmit(event) {
@@ -36,7 +48,7 @@ class FilterForm extends React.Component {
         <div className="dashboard-search-bar">
         <input type="text" value={this.state.textValue} onChange={this.handleTextChange} />
           <select value={this.state.value} onChange={this.handleSelectChange}>
-            <option selected value="name">Name</option>
+            <option value="name">Name</option>
             <option value="category">Category</option>
             <option value="price">Price</option>
             <option value="type">Type</option>
