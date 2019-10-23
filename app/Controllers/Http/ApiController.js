@@ -4,7 +4,6 @@ const MealType = use('App/Models/MealType');
 const MenuItem = use('App/Models/MenuItem');
 const MenuCategory = use('App/Models/MenuCategory');
 const formatMenu = require('../../Utils/MenuFormater');
-const formatMenuItem = require('../../Utils/MenuItemFormater');
 
 class ApiController {
   async getMenu(){
@@ -36,12 +35,13 @@ class ApiController {
 
   async deleteMenuItem({request, response, auth}){
       try{
-        const { id } = request.all()
-          const gameConsole = await MenuItem.find(id)
-          if(gameConsole){
-            await gameConsole.delete()
-            return response.status(200).send()
-          }
+        // const { id } = request.all()
+        // const gameConsole = await MenuItem.find(id)
+        // if(gameConsole){
+        //     await gameConsole.delete()
+        //     return response.status(200).send()
+        // }
+        console.log('worked')
       }catch(e){
         console.log(e)
         return response.status(500).send()

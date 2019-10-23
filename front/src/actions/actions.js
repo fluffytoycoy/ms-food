@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {parseMenu} from './Util/MenuParser';
 import {parseMenuItem} from './Util/MenuItemParser';
+import {DashboardMenuBuilder} from './Util/MenuBuilder';
 //Actions for getting menu from database
 export const GET_MENU_START = "GET_MENU_START"
 export const GET_MENU_SUCCESS = "GET_MENU_SUCCESS"
@@ -80,7 +81,7 @@ export const deleteMenuItem = (id) => dispatch => {
         }
       })
       .then(res =>{
-          console.log(res)
+          console.log(id)
 
           dispatch({
             type: DELETE_MENU_ITEM_SUCCESS,

@@ -12,6 +12,7 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import {setSelectedMenuItem} from '../../../actions/actions';
 import {setPreviousPage} from '../../../actions/actions';
+import {deleteMenuItem} from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -118,38 +119,42 @@ function EnhancedTableBody(props) {
     props.history.push(`/Dashboard/Edit/${menuItem.id}`)
   }
 
-  function deleteMenuItem(row){
-    const index = findIndexById(props.dashboardMenu, row.id);
-    let test = 1;
-    let test2 = test;
-    test2 = 3;
-    console.log(test)
+  function deleteMenuItem(item){
+    props.deleteMenuItem(item.id);
+
 
     function addToDisplayMenu(menu, item){
-      let test = 1;
-      let test2 = test;
-      test2 = 3;
-      console.log(test2)
-      let menuList = menu[item.category][item.type];
-      const newMenuList = addItem(menuList, item);
+        //returns a new Display Menu
+        let newMenu = menu;
+        let menuList = menu[item.category][item.type];
+        newMenu[item.category][item.type] = addItem(menuList, item);
 
-
+        return newMenu;
     }
 
     function editDisplayMenuItem(menu, item){
-
+        //returns a new Display Menu
+        let newMenu = removeFromDisplayMenu(menu, item);
+        return addToDisplayMenu(newMenu, item);
     }
 
     function removeFromDisplayMenu(menu, item){
-      let menuList = menu[item.category][item.type];
-    }
+        //returns a new Display Menu
+        let newMenu = menu;
+        let menuList = newMenu[item.category][item.type];
+        const index = findIndexById(menuList, item.id);
+        newMenu[item.category][item.type] = removeAtIndex(menuList, index);
 
-    function parseDisplayMenu(menu, item){
-
+        return newMenu;
     }
 
     function findIndexById(itemList, id){
         return itemList.findIndex(item => item.id === id)
+    }
+
+    function editMenuItem(itemList, item){
+      let newMenu = removeAtIndex(itemList, item.id);
+      return addItem(newMenu, item);
     }
 
     function removeAtIndex(itemList, index){
@@ -157,7 +162,8 @@ function EnhancedTableBody(props) {
     }
 
     function addItem(itemList, item){
-        return Object.assign({}, itemList[index], item)
+        let newItemList = itemList;
+        return newItemList.push(item);
     }
   }
 
@@ -222,5 +228,5 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setPreviousPage, setSelectedMenuItem}
+    {setPreviousPage, setSelectedMenuItem, deleteMenuItem}
 )(EnhancedTableBody)
