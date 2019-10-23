@@ -120,51 +120,7 @@ function EnhancedTableBody(props) {
   }
 
   function deleteMenuItem(item){
-    props.deleteMenuItem(item.id);
-
-
-    function addToDisplayMenu(menu, item){
-        //returns a new Display Menu
-        let newMenu = menu;
-        let menuList = menu[item.category][item.type];
-        newMenu[item.category][item.type] = addItem(menuList, item);
-
-        return newMenu;
-    }
-
-    function editDisplayMenuItem(menu, item){
-        //returns a new Display Menu
-        let newMenu = removeFromDisplayMenu(menu, item);
-        return addToDisplayMenu(newMenu, item);
-    }
-
-    function removeFromDisplayMenu(menu, item){
-        //returns a new Display Menu
-        let newMenu = menu;
-        let menuList = newMenu[item.category][item.type];
-        const index = findIndexById(menuList, item.id);
-        newMenu[item.category][item.type] = removeAtIndex(menuList, index);
-
-        return newMenu;
-    }
-
-    function findIndexById(itemList, id){
-        return itemList.findIndex(item => item.id === id)
-    }
-
-    function editMenuItem(itemList, item){
-      let newMenu = removeAtIndex(itemList, item.id);
-      return addItem(newMenu, item);
-    }
-
-    function removeAtIndex(itemList, index){
-        return [...itemList.slice(0, index), ...itemList.slice(index + 1)]
-    }
-
-    function addItem(itemList, item){
-        let newItemList = itemList;
-        return newItemList.push(item);
-    }
+    props.deleteMenuItem(item);
   }
 
   return (

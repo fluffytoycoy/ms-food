@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {parseMenu} from './Util/MenuParser';
 import {parseMenuItem} from './Util/MenuItemParser';
-import {DashboardMenuBuilder} from './Util/MenuBuilder';
+
 //Actions for getting menu from database
 export const GET_MENU_START = "GET_MENU_START"
 export const GET_MENU_SUCCESS = "GET_MENU_SUCCESS"
@@ -21,9 +21,9 @@ export const UPDATE_MENU_ITEM_SUCCESS = "UPDATE_MENU_ITEM_SUCCESS"
 export const UPDATE_MENU_ITEM_FAILURE = "UPDATE_MENU_ITEM_FAILURE"
 
 //Actions for deleting a Menu Item
-export const DELETE_MENU_ITEM_START = "ADD_MENU_ITEM_START"
-export const DELETE_MENU_ITEM_SUCCESS = "ADD_MENU_ITEM_SUCCESS"
-export const DELETE_MENU_ITEM_FAILURE = "ADD_MENU_ITEM_FAILURE"
+export const DELETE_MENU_ITEM_START = "DELETE_MENU_ITEM_START"
+export const DELETE_MENU_ITEM_SUCCESS = "DELETE_MENU_ITEM_SUCCESS"
+export const DELETE_MENU_ITEM_FAILURE = "DELETE_MENU_ITEM_FAILURE"
 
 //Util Actions
 export const SET_DASHBOARD_MENU = "SET_DASHBOARD_MENU"
@@ -32,10 +32,12 @@ export const SET_SELECTED_MENUITEM = "SET_SELECTED_MENUITEM"
 
 export const SET_PREV_PAGE = "SET_PREV_PAGE"
 
+
+
+
+
 export const getMenu = () => dispatch => {
-    dispatch({
-      type: GET_MENU_START
-    })
+    dispatch({ type: GET_MENU_START })
     axios
       .get('/api/getMenu')
       .then(res => {
@@ -72,25 +74,24 @@ export const addMenuItem = (menuItem) => dispatch => {
       })
 }
 
-export const deleteMenuItem = (id) => dispatch => {
+export const deleteMenuItem = (item) => dispatch => {
   dispatch({type: DELETE_MENU_ITEM_START})
   axios
-    .post('/api/deleteMenuItem', id, {
+    .post('/api/deleteMenuItem', item.id, {
         headers: {
           "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
         }
       })
-      .then(res =>{
-          console.log(id)
-
-          dispatch({
-            type: DELETE_MENU_ITEM_SUCCESS,
-            payload: res.data
-          })
-      })
-      .catch(err => {
+    .then(res =>{
+        console.log(item)
+        dispatch({
+          type: DELETE_MENU_ITEM_SUCCESS,
+          menuItem: item
+        })
+    })
+    .catch(err => {
         dispatch({type: DELETE_MENU_ITEM_FAILURE, payload: err})
-      })
+    })
 }
 
 export const setDashboardMenu = (menu) => dispatch => {

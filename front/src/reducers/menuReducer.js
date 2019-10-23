@@ -14,6 +14,8 @@ import {
     DELETE_MENU_ITEM_FAILURE,
 } from '../actions/actions'
 
+import {MenuBuilder} from './Utils/MenuBuilder';
+
 const initialState = {
     error: '',
     fetchingMenu: false,
@@ -96,6 +98,9 @@ const menuReducer = (state = initialState, action) => {
         case DELETE_MENU_ITEM_SUCCESS:
             return{
               ...state,
+              menu: MenuBuilder.removeFromDisplayMenu(state.menu, action.menuItem),
+              filteredDashboardMenu: MenuBuilder.removeMenuItem(state.dashboardMenu, action.menuItem),
+              dashboardMenu: MenuBuilder.removeMenuItem(state.dashboardMenu, action.menuItem),
 
             }
         case DELETE_MENU_ITEM_FAILURE:

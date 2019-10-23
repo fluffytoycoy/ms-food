@@ -25,21 +25,32 @@ export const MenuBuilder = {
       return newMenu;
   },
 
-  findIndexById: function(itemList, id){
-      return itemList.findIndex(item => item.id === id)
-  },
-
   editMenuItem: function(itemList, item){
-    let newMenu = this.removeAtIndex(itemList, item.id);
+    const index = this.findIndexById(itemList, item.id);
+    let newMenu = this.removeAtIndex(itemList, index);
     return this.addItem(newMenu, item);
   },
 
+  removeMenuItem: function(itemList, item){
+    const index = this.findIndexById(itemList, item.id);
+    if(index >= 0){
+      return this.removeAtIndex(itemList, index);
+    }
+    return itemList;
+  },
+
   removeAtIndex: function(itemList, index){
-      return [...itemList.slice(0, index), ...itemList.slice(index + 1)]
+      const newItemList =  [...itemList.slice(0, index), ...itemList.slice(index + 1)];
+      console.log(newItemList);
+      return newItemList;
   },
 
   addItem: function(itemList, item){
       let newItemList = itemList;
       return newItemList.push(item);
-  }
+  },
+
+  findIndexById: function(itemList, id){
+      return itemList.findIndex(item => item.id === id)
+  },
 }
