@@ -2,6 +2,7 @@ import React from 'react';
 //import PropTypes from "prop-types";
 import EnhancedTableHead from './EnhancedTableHead';
 import EnhancedToolbar from './EnhancedToolbar';
+import DeleteDialog from '.././DeleteDialog/DeleteDialog';
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,7 +13,6 @@ import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import {setSelectedMenuItem} from '../../../actions/actions';
 import {setPreviousPage} from '../../../actions/actions';
-import {deleteMenuItem} from '../../../actions/actions';
 import { connect } from 'react-redux';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -75,6 +75,9 @@ function EnhancedTableBody(props) {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("name");
   const [rowsPerPage, setRowsPerPage] = React.useState(15);
+  const [menuItem, setMenuItem] = React.useState();
+  const [menuOpen, toggleMenuOpen] = React.useState(false);
+
   let menu = props.filteredDashboardMenu;
   const page = getSelectedPage(props.match.params.pageNumber);
 
@@ -120,12 +123,13 @@ function EnhancedTableBody(props) {
   }
 
   function deleteMenuItem(item){
-    props.deleteMenuItem(item);
+    setMenuItem(item);
+    toggleMenuOpen(true);
   }
 
   return (
     <div className={classes.root}>
-        <EnhancedToolbar {...props} setModalOpen={props.toggleMenu}/>
+        <EnhancedToolbar {...props} />
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
@@ -174,6 +178,7 @@ function EnhancedTableBody(props) {
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
+        <DeleteDialog menuItem={menuItem} open={menuOpen} toggleMenuOpen={toggleMenuOpen}/>
     </div>
   );
 }
@@ -184,5 +189,5 @@ const mapStateToProps = state =>{
 
 export default connect(
     mapStateToProps,
-    {setPreviousPage, setSelectedMenuItem, deleteMenuItem}
+    {setPreviousPage, setSelectedMenuItem}
 )(EnhancedTableBody)

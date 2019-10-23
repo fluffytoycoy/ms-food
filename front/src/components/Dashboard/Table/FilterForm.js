@@ -15,12 +15,10 @@ class FilterForm extends React.Component {
   }
 
   handleTextChange(event) {
-    this.setState({textValue: event.target.value});
-    const menu = this.props.dashboardMenu.filter((menuItem)=>{
-      var inputRegex = new RegExp(event.target.value, 'i');
-      return inputRegex.test(menuItem[this.state.selectValue])
-    })
-    this.props.setDashboardMenu(menu)
+    this.setState({textValue: event.target.value},
+    ()=>{
+      this.updateFilterList();
+    });
   }
 
   handleSelectChange(event){

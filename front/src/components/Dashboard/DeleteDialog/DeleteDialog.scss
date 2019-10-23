@@ -1,0 +1,23 @@
+.delete-dialog{
+  .MuiDialog-paperWidthSm{
+    width: 100%;
+    h2{
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+  .btn-delete{
+    background: #ad103a;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    &:hover{
+      background: #d83863 !important;
+    }
+  }
+  .btn-cancel{
+    background: #e0e0e0;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+}
