@@ -6,6 +6,7 @@ const MenuCategory = use('App/Models/MenuCategory');
 const formatMenu = require('../../Utils/MenuFormater');
 
 class ApiController {
+
   async getMenu(){
     try{
       const menu = await Database
@@ -33,20 +34,36 @@ class ApiController {
       }
   }
 
-  async deleteMenuItem({request, response, auth}){
+  async updateMenuItem({request, response, auth}){
       try{
-        const { id } = request.all()
-        const gameConsole = await MenuItem.find(id)
-        if(gameConsole){
-            await gameConsole.delete()
-            return response.status(200).send()
-        }
-        console.log('worked')
+        const menuItem = request.all()
+        console.log(request.all())
+        // await MenuItem
+        //   .query()
+        //   .where('id', menuItem.id)
+        //   .update({menuItem})
       }catch(e){
         console.log(e)
         return response.status(500).send()
       }
   }
+
+  async deleteMenuItem({request, response, auth}){
+      try {
+        const {
+          id
+        } = request.all()
+        const gameConsole = await MenuItem.find(id)
+        if (gameConsole) {
+          await gameConsole.delete()
+          return response.status(200).send()
+        }
+        console.log('worked')
+      } catch (e) {
+        console.log(e)
+        return response.status(500).send()
+      }
+    }
 }
 
 module.exports = ApiController;

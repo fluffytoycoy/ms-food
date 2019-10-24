@@ -22,6 +22,7 @@ Route.group(() => {
   Route.get('/getMenu', 'ApiController.getMenu')
   Route.post('/createMenuItem', 'ApiController.createMenuItem')
   Route.post('/deleteMenuItem', 'ApiController.deleteMenuItem')
+  Route.post('/updateMenuItem', 'ApiController.updateMenuItem')
 }).prefix('api/');
 
 Route.any('*', ({ response }) => {

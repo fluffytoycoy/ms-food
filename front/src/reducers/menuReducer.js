@@ -59,21 +59,7 @@ const menuReducer = (state = initialState, action) => {
                 menuExists: false,
                 error: "FAILED to get Menu from server",
             }
-        case SET_DASHBOARD_MENU:
-          return{
-            ...state,
-            filteredDashboardMenu: action.payload
-          }
-        case SET_SELECTED_MENUITEM:
-          return{
-            ...state,
-            selectedMenuItem: action.payload
-          }
-        case SET_LOADING_SCREEN:
-          return{
-            ...state,
-            loadingFinished: action.payload
-          }
+
         case ADD_MENU_ITEM_START:
             return {
                 ...state,
@@ -84,14 +70,17 @@ const menuReducer = (state = initialState, action) => {
             ...state,
             menu: MenuBuilder.addToDisplayMenu(state.menu, action.menuItem),
             dashboardMenu: MenuBuilder.addMenuItem(state.dashboardMenu, action.menuItem),
+            filteredDashboardMenu: MenuBuilder.addMenuItem(state.filteredDashboardMenu, action.menuItem),
             error: "",
           }
         case ADD_MENU_ITEM_FAILURE:
+        console.log('fail')
             return {
                 ...state,
                 fetchingMenu: false,
                 error: "FAILED to add Menu Item to server",
             }
+
         case UPDATE_MENU_ITEM_START:
           return{
             ...state
@@ -107,6 +96,7 @@ const menuReducer = (state = initialState, action) => {
           return{
             ...state
           }
+
         case DELETE_MENU_ITEM_START:
             return{
               ...state
@@ -122,11 +112,33 @@ const menuReducer = (state = initialState, action) => {
             return{
               ...state,
             }
+
+
+
+        case SET_DASHBOARD_MENU:
+          return{
+            ...state,
+            filteredDashboardMenu: action.payload
+          }
+
+        case SET_SELECTED_MENUITEM:
+          return{
+            ...state,
+            selectedMenuItem: action.payload
+          }
+
+        case SET_LOADING_SCREEN:
+          return{
+            ...state,
+            loadingFinished: action.payload
+          }
+
         case SET_PREV_PAGE:
               return {
                   ...state,
                   prevPage: action.payload,
             }
+
         default:
             return state
     }
