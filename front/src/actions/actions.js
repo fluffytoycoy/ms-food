@@ -79,13 +79,12 @@ export const addMenuItem = (menuItem) => dispatch => {
 export const updateMenuItem = (menuItem) => dispatch => {
   dispatch({type: UPDATE_MENU_ITEM_START})
   axios
-    .post('/api/updateMenuItem', menuItem, {
+    .post('/api/updateMenuItem', parseMenuItem(menuItem), {
         headers: {
           "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
         }
       })
       .then(res =>{
-        console.log(menuItem, 'to update')
         dispatch({ type: UPDATE_MENU_ITEM_SUCCESS, menuItem: menuItem})
 
       })

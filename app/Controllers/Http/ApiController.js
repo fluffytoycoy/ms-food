@@ -38,10 +38,10 @@ class ApiController {
       try{
         const menuItem = request.all()
         console.log(request.all())
-        // await MenuItem
-        //   .query()
-        //   .where('id', menuItem.id)
-        //   .update({menuItem})
+        await MenuItem
+          .query()
+          .where('id', menuItem.id)
+          .update({...menuItem})
       }catch(e){
         console.log(e)
         return response.status(500).send()
