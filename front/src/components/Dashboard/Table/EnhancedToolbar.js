@@ -5,7 +5,6 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import {setDashboardMenu} from '../../../actions/actions'
-import { FormContainer, Form, Field} from 'ui-form-field';
 import { connect } from 'react-redux'
 import {setPreviousPage} from '../../../actions/actions';
 import FilterForm from './FilterForm';

@@ -10,9 +10,6 @@ import { connect } from 'react-redux';
 import './DeleteDialog.scss';
 
 function DeleteDialog(props) {
-  const openDialog = () => {
-    props.toggleMenuOpen(true);
-  };
 
   const closeDialog = () => {
     props.toggleMenuOpen(false)

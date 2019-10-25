@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { FormContainer, Form, Field} from 'ui-form-field';
 import Button from "@material-ui/core/Button";
 import './MenuItemForm.scss'
@@ -10,9 +10,9 @@ function MenuItemForm(props){
   const getSelectOptions = (property) => {
     const keys = Object.entries(props[property]);
     let options = [];
-    for (const [name, id] of keys) {
-      options.push({value: id, label: name})
-    }
+    keys.forEach(key=>{
+      options.push({value: key[1], label: key[0]})
+    })
     return options;
   }
 

@@ -9,7 +9,6 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import {setSelectedMenuItem} from '../../../actions/actions';
 import {setPreviousPage} from '../../../actions/actions';

@@ -43,6 +43,7 @@ import './Menu.scss';
       }
       return null;
     }
+    return null;
 
     function isNotValidSection(category) {
       const index = prevState.avalibleCategories.findIndex(section => (
