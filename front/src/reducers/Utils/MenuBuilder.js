@@ -1,12 +1,9 @@
 //Returns a New based on functions used
 export const MenuBuilder = {
   addToDisplayMenu: function(menu, item){
-      console.log(menu)
-      console.log(item)
       //returns a new Display Menu
       let newMenu = menu;
       let menuList = menu[item.category][item.type] ? menu[item.category][item.type] : [];
-      console.log(menuList)
       newMenu[item.category][item.type] = this.addMenuItem(menuList, item);
 
       return newMenu;
@@ -22,7 +19,6 @@ export const MenuBuilder = {
       //returns a new Display Menu
       let test = {test: {}, };
       test['test']['test'] = 'yes';
-      console.log(test.test.test)
       let newMenu = menu;
       let menuList = menu[item.category][item.type];
       if(menuList){

@@ -64,7 +64,6 @@ export const addMenuItem = (menuItem) => dispatch => {
       })
       .then(res =>{
           const newMenuItem = {...res.data,  type: menuItem.type, category: menuItem.category};
-          console.log(newMenuItem)
           dispatch({
             type: ADD_MENU_ITEM_SUCCESS,
             menuItem: newMenuItem
