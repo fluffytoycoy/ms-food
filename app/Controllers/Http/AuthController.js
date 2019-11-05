@@ -9,11 +9,10 @@ class AuthController {
 
     try{
       console.log(username, password)
-      let token = await auth.attempt(username, password);
+      let token = await auth.withRefreshToken().attempt(username, password);
       let user = await User.findBy('username', username)
-
-      Object.assign(user, token);
-      return response.json(user);
+      console.log(token)
+      return response.json(token);
 
     } catch (error){
       console.log(error)
@@ -21,8 +20,9 @@ class AuthController {
     }
   }
 
-  async test({response, auth, request}){
+  async isLoggedIn({response, auth, request}){
     console.log('test')
+    return response.json(request.headers().authorization);
   }
 }
 
