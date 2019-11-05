@@ -25,6 +25,11 @@ Route.group(() => {
   Route.post('/updateMenuItem', 'ApiController.updateMenuItem')
 }).prefix('api/');
 
+Route.group(() => {
+  Route.get('/test', 'AuthController.test')
+  Route.post('/login', 'AuthController.login')
+}).prefix('auth/');
+
 Route.any('*', ({ response }) => {
   response.download(Helpers.publicPath('react/app.html'));
 });

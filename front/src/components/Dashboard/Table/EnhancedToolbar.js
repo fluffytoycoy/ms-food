@@ -24,7 +24,7 @@ const EnhancedToolbar = (props) => {
           <div className="toolbar">
             <Tooltip title="Add New Menu Item">
                 <IconButton onClick={addMenuItem} aria-label="filter list">
-                    <i className="fas fa-plus"></i>
+                    <i className="fas fa-plus" samesite="None" secure></i>
                   </IconButton>
             </Tooltip>
             <FilterForm/>

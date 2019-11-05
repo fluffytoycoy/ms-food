@@ -35,14 +35,14 @@ class ApiController {
   }
 
   async updateMenuItem({request, response, auth}){
-      try{
+      try {
         const menuItem = request.all()
         console.log(request.all())
         await MenuItem
           .query()
           .where('id', menuItem.id)
           .update({...menuItem})
-      }catch(e){
+      } catch (e) {
         console.log(e)
         return response.status(500).send()
       }
@@ -50,12 +50,10 @@ class ApiController {
 
   async deleteMenuItem({request, response, auth}){
       try {
-        const {
-          id
-        } = request.all()
-        const gameConsole = await MenuItem.find(id)
-        if (gameConsole) {
-          await gameConsole.delete()
+        const { id } = request.all()
+        const menuItem = await MenuItem.find(id)
+        if (menuItem) {
+          await menuItem.delete()
           return response.status(200).send()
         }
         console.log('worked')
