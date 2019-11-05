@@ -3,14 +3,12 @@ const Database = use('Database')
 const User = use('App/Models/User');
 
 class AuthController {
+
   async login({response, auth, request}){
-
     const {username, password} = request.all();
-
     try{
       console.log(username, password)
       let token = await auth.withRefreshToken().attempt(username, password);
-      let user = await User.findBy('username', username)
       console.log(token)
       return response.json(token);
 
@@ -21,8 +19,8 @@ class AuthController {
   }
 
   async isLoggedIn({response, auth, request}){
-    console.log('test')
-    return response.json(request.headers().authorization);
+    const requestedData = {requestedData: 'true'};
+    return response.json(requestedData);
   }
 }
 

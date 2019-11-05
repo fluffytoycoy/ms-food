@@ -4,23 +4,20 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 class JwtAuth {
-  /**
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Function} next
-   */
+
   async handle ({ request, response, auth}, next) {
     try{
         await auth.check()
     } catch (e) {
       if(e.name === 'ExpiredJwtToken'){
         const refreshToken = request.headers().refreshtoken
-        request.headers().authorization = await auth.generateForRefreshToken(refreshToken)
+        const newToken = await auth.generateForRefreshToken(refreshToken)
+        response.header('NewToken', newToken.token);
       } else {
         return response.status(401).send()
       }
     }
-    await next()
+    await next(response)
   }
 }
 

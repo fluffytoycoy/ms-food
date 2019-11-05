@@ -17,8 +17,6 @@ export const MenuBuilder = {
 
   removeFromDisplayMenu: function(menu, item){
       //returns a new Display Menu
-      let test = {test: {}, };
-      test['test']['test'] = 'yes';
       let newMenu = menu;
       let menuList = menu[item.category][item.type];
       if(menuList){

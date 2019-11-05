@@ -3,13 +3,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware  } from 'redux'
+import { createStore, applyMiddleware, combineReducers  } from 'redux'
 import menuReducer from './reducers/menuReducer'
+import authReducer from './reducers/authReducer'
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk'
 
+const reducers = combineReducers({
+  menuReducer: menuReducer,
+  authReducer: authReducer,
+})
+
 const store = createStore(
-    menuReducer,
+    reducers,
     applyMiddleware(thunk)
 )
 

@@ -58,7 +58,7 @@ function DeleteDialog(props) {
 }
 
 const mapStateToProps = state =>{
-  return state;
+  return state.menuReducer;
 }
 
 export default connect(

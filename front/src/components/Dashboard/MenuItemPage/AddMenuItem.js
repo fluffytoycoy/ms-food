@@ -104,7 +104,7 @@ class AddMenuPage extends Component{
 
 
 const mapStateToProps = state =>{
-  return state;
+  return state.menuReducer;
 }
 
 export default connect(

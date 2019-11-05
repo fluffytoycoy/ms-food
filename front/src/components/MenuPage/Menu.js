@@ -15,6 +15,9 @@ import './Menu.scss';
       }
     }
 
+    componentDidMount(){
+      console.log(this.state, this.props)
+    }
 
   static getDerivedStateFromProps(nextProps, prevState){
     //same as code in Menu page should make a comp and inherit from that
@@ -118,7 +121,7 @@ import './Menu.scss';
 }
 
 const mapStateToProps = state =>{
-  return state;
+  return {...state.menuReducer, ...state.authReducer}
 }
 export default connect(
     mapStateToProps
