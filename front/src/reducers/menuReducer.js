@@ -31,6 +31,12 @@ const initialState = {
     selectedMenuItem: undefined,
 }
 
+const setNewToken = (token) => {
+  if(token){
+    localStorage.setItem('accessToken', token)
+  }
+}
+
 const menuReducer = (state = initialState, action) => {
     switch(action.type) {
         // Get Menu
@@ -41,17 +47,17 @@ const menuReducer = (state = initialState, action) => {
                 error: "",
             }
         case GET_MENU_SUCCESS:
-            return {
-                ...state,
-                fetchingMenu: false,
-                menu: action.payload.rawMenu,
-                menuExists: true,
-                filteredDashboardMenu: action.payload.menu,
-                dashboardMenu: action.payload.menu,
-                categories: action.payload.categories,
-                types: action.payload.types,
-                error: "",
-            }
+          return {
+            ...state,
+            fetchingMenu: false,
+            menu: action.payload.rawMenu,
+            menuExists: true,
+            filteredDashboardMenu: action.payload.menu,
+            dashboardMenu: action.payload.menu,
+            categories: action.payload.categories,
+            types: action.payload.types,
+            error: "",
+          }
         case GET_MENU_FAILURE:
             return {
                 ...state,
@@ -66,6 +72,7 @@ const menuReducer = (state = initialState, action) => {
                 error: "",
             }
         case ADD_MENU_ITEM_SUCCESS:
+          setNewToken(action.headers.newtoken);
           return {
             ...state,
             menu: MenuBuilder.addToDisplayMenu(state.menu, action.menuItem),
@@ -86,6 +93,7 @@ const menuReducer = (state = initialState, action) => {
             ...state
           }
         case UPDATE_MENU_ITEM_SUCCESS:
+          setNewToken(action.headers.newtoken);
           return{
             ...state,
             menu: MenuBuilder.updateDisplayMenu(state.menu, action.menuItem),
@@ -102,6 +110,7 @@ const menuReducer = (state = initialState, action) => {
               ...state
             }
         case DELETE_MENU_ITEM_SUCCESS:
+          setNewToken(action.headers.newtoken);
           return {
             ...state,
             menu: MenuBuilder.removeFromDisplayMenu(state.menu, action.menuItem),

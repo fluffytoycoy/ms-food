@@ -40,9 +40,8 @@ export const SET_PREV_PAGE = "SET_PREV_PAGE"
 export const getMenu = () => dispatch => {
     dispatch({ type: GET_MENU_START })
     axios
-      .get('/api/getMenu', authHeaders)
+      .get('/api/getMenu')
       .then(res => {
-        console.log(res)
         dispatch({
           type: GET_MENU_SUCCESS,
           payload: parseMenu(res.data)
@@ -59,16 +58,13 @@ export const getMenu = () => dispatch => {
 export const addMenuItem = (menuItem) => dispatch => {
   dispatch({type: ADD_MENU_ITEM_START})
   axios
-    .post('/api/createMenuItem', parseMenuItem(menuItem), {
-        headers: {
-          "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
-        }
-      })
+    .post('/api/createMenuItem', parseMenuItem(menuItem), authHeaders)
       .then(res =>{
           const newMenuItem = {...res.data,  type: menuItem.type, category: menuItem.category};
           dispatch({
             type: ADD_MENU_ITEM_SUCCESS,
-            menuItem: newMenuItem
+            menuItem: newMenuItem,
+            headers: res.headers
           })
       })
       .catch(err => {
@@ -79,38 +75,43 @@ export const addMenuItem = (menuItem) => dispatch => {
 
 export const updateMenuItem = (menuItem) => dispatch => {
   dispatch({type: UPDATE_MENU_ITEM_START})
+  console.log(authHeaders)
   axios
-    .post('/api/updateMenuItem', parseMenuItem(menuItem), {
-        headers: {
-          "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
-        }
-      })
+    .post('/api/updateMenuItem', parseMenuItem(menuItem), authHeaders)
       .then(res =>{
-        dispatch({ type: UPDATE_MENU_ITEM_SUCCESS, menuItem: menuItem})
+                console.log(res)
+        dispatch({
+          type: UPDATE_MENU_ITEM_SUCCESS,
+          menuItem: menuItem,
+          headers: res.headers
+        })
 
       })
       .catch(err => {
         console.log(err)
-        dispatch({type: UPDATE_MENU_ITEM_FAILURE, payload: err})
+        dispatch({
+          type: UPDATE_MENU_ITEM_FAILURE,
+          payload: err
+        })
       })
 }
 
 export const deleteMenuItem = (item) => dispatch => {
   dispatch({type: DELETE_MENU_ITEM_START})
   axios
-    .post('/api/deleteMenuItem', {id: item.id}, {
-        headers: {
-          "Authorization" : `Bearer ${localStorage.getItem('jwtToken')}`,
-        }
-      })
+    .post('/api/deleteMenuItem', {id: item.id}, authHeaders)
     .then(res =>{
         dispatch({
           type: DELETE_MENU_ITEM_SUCCESS,
-          menuItem: item
+          menuItem: item,
+          headers: res.headers
         })
     })
     .catch(err => {
-        dispatch({type: DELETE_MENU_ITEM_FAILURE, payload: err})
+        dispatch({
+          type: DELETE_MENU_ITEM_FAILURE,
+          payload: err
+        })
     })
 }
 

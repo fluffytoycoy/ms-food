@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 const PrivateRoute = ({ component: Component,  ...rest }) => {
 
     function isLoggedIn(){
-      console.log(rest)
       return rest.isLoggedIn;
     }
 
