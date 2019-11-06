@@ -20,14 +20,15 @@ const Helpers = use('Helpers');
 
 Route.group(() => {
   Route.get('/getMenu', 'ApiController.getMenu')
-  Route.post('/createMenuItem', 'ApiController.createMenuItem')
-  Route.post('/deleteMenuItem', 'ApiController.deleteMenuItem')
-  Route.post('/updateMenuItem', 'ApiController.updateMenuItem')
+  Route.post('/createMenuItem', 'ApiController.createMenuItem').middleware('jwtAuth')
+  Route.post('/deleteMenuItem', 'ApiController.deleteMenuItem').middleware('jwtAuth')
+  Route.post('/updateMenuItem', 'ApiController.updateMenuItem').middleware('jwtAuth')
 }).prefix('api/');
 
 Route.group(() => {
   Route.get('/test', 'AuthController.test')
   Route.post('/login', 'AuthController.login')
+  Route.post('/logout', 'AuthController.logout')
   Route.get('/isLoggedIn', 'AuthController.isLoggedIn').middleware('jwtAuth')
 }).prefix('auth/');
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { FormContainer, Form, Field, Button } from "ui-form-field";
+import { FormContainer, Form, Field} from "ui-form-field";
 import { Redirect } from 'react-router-dom';
+import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
 import axios from 'axios';
 import { connect } from 'react-redux'
@@ -30,15 +31,16 @@ class Login extends Component{
   }
 
   onSubmit = (values) => {
+    console.log(this.props.authReducer.isLoggedIn)
     this.props.login(values);
   };
 
   renderForm = (props) => {
     return(
         <Form >
-          <Field name="username" placeholder="Username" />
+          <Field type="text" name="username" placeholder="Username" />
           <Field type="password" name="password" placeholder="Email"/>
-          <Button type="submit" disabled={this.state.isSubmitting} />
+          <Button type="submit" disabled={this.state.isSubmitting} >submit</Button>
         </Form>
     );
   }
@@ -48,22 +50,20 @@ class Login extends Component{
       <>
         <h2>Log in</h2>
           <FormContainer validationSchema={schema} onSubmit={this.onSubmit} render={this.renderForm} initialValues={{username: '', password: ''}}/>
-          <div className={`error ${this.state.submitFailure ? 'show' : ''}`}><p >Failure Submiting Contact Info</p><span>x</span></div>
+          <div className={`error ${this.props.authReducer.loginFailed  ? 'show' : ''}`}><p >Invaild UserName or password</p></div>
       </>
     )
   }
 
   render(){
     return (
-      this.props.isLoggedIn ?
+      this.props.authReducer.isLoggedIn ?
       <Redirect to="/Dashboard"/>
       :
       <section className="body" id="form-page">
-        <div className="login">
           <div className={`form-card ${this.state.submitFailure ? '' : 'no-flex'}`}>
             {this.state.submitSuccess ? <Redirect to="/dashboard"/> : this.form()}
           </div>
-        </div>
       </section>
     );
   }

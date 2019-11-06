@@ -9,7 +9,6 @@ class AuthController {
     try{
       console.log(username, password)
       let token = await auth.withRefreshToken().attempt(username, password);
-      console.log(token)
       return response.json(token);
 
     } catch (error){
@@ -21,6 +20,11 @@ class AuthController {
   async isLoggedIn({response, auth, request}){
     const requestedData = {requestedData: 'true'};
     return response.json(requestedData);
+  }
+
+  async logout({response, auth, request}){
+    console.log('logout')
+    return response.status(200).send();
   }
 }
 

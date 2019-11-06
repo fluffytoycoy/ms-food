@@ -1,8 +1,9 @@
 import axios from 'axios'
 import {parseMenu} from './Util/MenuParser';
 import {parseMenuItem} from './Util/MenuItemParser';
-
+import {authHeaders} from './Util/AuthHeaders';
 //Actions for getting menu from database
+
 export const GET_MENU_START = "GET_MENU_START"
 export const GET_MENU_SUCCESS = "GET_MENU_SUCCESS"
 export const GET_MENU_FAILURE = "GET_MENU_FAILURE"
@@ -39,8 +40,9 @@ export const SET_PREV_PAGE = "SET_PREV_PAGE"
 export const getMenu = () => dispatch => {
     dispatch({ type: GET_MENU_START })
     axios
-      .get('/api/getMenu')
+      .get('/api/getMenu', authHeaders)
       .then(res => {
+        console.log(res)
         dispatch({
           type: GET_MENU_SUCCESS,
           payload: parseMenu(res.data)

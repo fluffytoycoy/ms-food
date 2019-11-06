@@ -17,6 +17,7 @@ import EditMenuItem from './components/Dashboard/MenuItemPage/EditMenuItem'
 import AddMenuItem from './components/Dashboard/MenuItemPage/AddMenuItem'
 import PrivateRoute from './components/Utils/RouteHocs/PrivateRoute'
 import Login from './components/Auth/Login'
+import Logout from './components/Auth/Logout'
 
 import { getMenu } from './actions/actions';
 import { connect } from 'react-redux'
@@ -60,6 +61,7 @@ class App extends Component {
             <Route exact path="/Dashboard/Edit/:id" render={props => <EditMenuItem {...props}/>}/>
             <Route exact path="/Dashboard/Create/" render={props => <AddMenuItem {...props}/>}/>
             <Route exact path="/Login" render={props => <Login {...props}/>}/>
+            <Route exact path="/Logout" render={props => <Logout {...props}/>}/>
             <Route component={NotFound}/>
 				  </Switch>
         <Route render={props => <Footer {...props}/>}/>
