@@ -11,7 +11,7 @@ function Phone(props){
     function shouldRender(){
       //if location is dashboard dont render phone
       const pathname = props.location.pathname;
-      const serviceRegex = '(d|D)ashboard';
+      const serviceRegex = '(d|D)ashboard||(L|l)ogin';
       return !pathname.match(serviceRegex);
     }
 

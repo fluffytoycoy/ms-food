@@ -15,6 +15,7 @@ import Phone from './components/Phone/Phone'
 import Dashboard from './components/Dashboard/Dashboard'
 import EditMenuItem from './components/Dashboard/MenuItemPage/EditMenuItem'
 import AddMenuItem from './components/Dashboard/MenuItemPage/AddMenuItem'
+import PrivateRoute from './components/Utils/RouteHocs/PrivateRoute'
 import Login from './components/Auth/Login'
 
 import { getMenu } from './actions/actions';
@@ -54,7 +55,7 @@ class App extends Component {
             <Route exact path="/About-Us/" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/About-Us/:category" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/Gallery" render={props => <ImgGallery {...props}/>}/>
-            <Route exact path="/Dashboard" render={props => <Dashboard {...props}/>}/>
+            <PrivateRoute exact path="/Dashboard" component={Dashboard} />
             <Route exact path="/Dashboard/Page/:pageNumber" render={props => <Dashboard {...props}/>}/>
             <Route exact path="/Dashboard/Edit/:id" render={props => <EditMenuItem {...props}/>}/>
             <Route exact path="/Dashboard/Create/" render={props => <AddMenuItem {...props}/>}/>

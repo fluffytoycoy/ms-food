@@ -4,7 +4,8 @@ import { Redirect } from 'react-router-dom';
 import * as Yup from "yup";
 import axios from 'axios';
 import { connect } from 'react-redux'
-
+import { login } from '../../actions/actionsAuth'
+import './Login.scss'
 
 
 const schema = Yup.object().shape({
@@ -29,7 +30,7 @@ class Login extends Component{
   }
 
   onSubmit = (values) => {
-    console.log(values)
+    this.props.login(values);
   };
 
   renderForm = (props) => {
@@ -57,13 +58,13 @@ class Login extends Component{
       this.props.isLoggedIn ?
       <Redirect to="/Dashboard"/>
       :
-      <div id="home">
+      <section className="body" id="form-page">
         <div className="login">
           <div className={`form-card ${this.state.submitFailure ? '' : 'no-flex'}`}>
             {this.state.submitSuccess ? <Redirect to="/dashboard"/> : this.form()}
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 
@@ -73,5 +74,6 @@ const mapStateToProps = state =>{
   return state;
 }
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    {login}
 )(Login)

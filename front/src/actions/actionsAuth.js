@@ -2,11 +2,13 @@ import axios from 'axios'
 
 export const LOG_IN = "LOG_IN";
 
-export const login = () => dispatch => {
-  //  dispatch({ type: GET_MENU_START })
+export const login = (user) => dispatch => {
+  console.log(user)
     axios
-      .get('/auth/login')
+      .post('/auth/login', user)
       .then(res => {
+        console.log('hjere')
+        console.log(res)
         dispatch({
           type: LOG_IN,
           payload: res.data

@@ -32,7 +32,7 @@ class Dashboard extends React.Component{
 
 
 const mapStateToProps = state =>{
-  return state.menuReducer;
+  return {...state.menuReducer, ...state.authReducer};
 }
 
 export default connect(
