@@ -23,7 +23,9 @@ class AuthController {
   }
 
   async logout({response, auth, request}){
-    console.log('logout')
+    const token = auth.getAuthHeader()
+    console.log(token)
+     await auth.revokeTokens([token], true);
     return response.status(200).send();
   }
 }

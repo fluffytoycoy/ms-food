@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) => {
     switch(action.type) {
         // Get Menu
         case LOG_IN_SUCCESS:
-            localStorage.setItem('accessToken', `bearer ${action.payload.token}`)
+            localStorage.setItem('accessToken', `${action.payload.token}`)
             localStorage.setItem('refreshToken', action.payload.refreshToken)
             return {
                 ...state,
