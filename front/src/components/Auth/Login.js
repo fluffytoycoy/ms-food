@@ -3,7 +3,6 @@ import { FormContainer, Form, Field} from "ui-form-field";
 import { Redirect } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
-import axios from 'axios';
 import { connect } from 'react-redux'
 import { login } from '../../actions/actionsAuth'
 import './Login.scss'
@@ -31,7 +30,6 @@ class Login extends Component{
   }
 
   onSubmit = (values) => {
-    console.log(this.props.authReducer.isLoggedIn)
     this.props.login(values);
   };
 

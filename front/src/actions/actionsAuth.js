@@ -8,11 +8,9 @@ export const LOG_OUT_SUCCESS = "LOG_OUT_SUCCESS";
 export const LOG_OUT_FAIL = "LOG_OUT_FAIL";
 
 export const login = (user) => dispatch => {
-  console.log(user)
     axios
       .post('/auth/login', user)
       .then(res => {
-        console.log(res)
         dispatch({
           type: LOG_IN_SUCCESS,
           payload: res.data
@@ -27,7 +25,6 @@ export const login = (user) => dispatch => {
 }
 
 export const logout = (user) => dispatch => {
-  console.log(authHeaders)
   axios
     .post('./auth/logout', {logout: 'user'},authHeaders)
     .then(res => {
