@@ -37,7 +37,6 @@ class ApiController {
   async updateMenuItem({request, response, auth}){
       try {
         const menuItem = request.all()
-        console.log(request.all())
         await MenuItem
           .query()
           .where('id', menuItem.id)
@@ -56,7 +55,6 @@ class ApiController {
           await menuItem.delete()
           return response.status(200).send()
         }
-        console.log('worked')
       } catch (e) {
         console.log(e)
         return response.status(500).send()

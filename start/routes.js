@@ -29,7 +29,6 @@ Route.group(() => {
   Route.get('/test', 'AuthController.test')
   Route.post('/login', 'AuthController.login')
   Route.post('/logout', 'AuthController.logout')
-  Route.get('/isLoggedIn', 'AuthController.isLoggedIn').middleware('jwtAuth')
 }).prefix('auth/');
 
 Route.any('*', ({ response }) => {
