@@ -1,5 +1,6 @@
 //Returns a New based on functions used
 export const MenuBuilder = {
+
   addToDisplayMenu: function(menu, item){
       //returns a new Display Menu
       let newMenu = menu;
@@ -26,7 +27,7 @@ export const MenuBuilder = {
       return newMenu;
   },
 
-  updateMenuItem: function(itemList, item){
+  updateMenuItem: function(itemList, item) {
     const index = this.findIndexById(itemList, item.id);
     let newMenu = this.removeAtIndex(itemList, index);
     return this.addMenuItem(newMenu, item);

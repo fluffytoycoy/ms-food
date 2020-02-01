@@ -14,11 +14,6 @@ class AuthController {
     }
   }
 
-  async isLoggedIn({response, auth, request}){
-    const requestedData = {requestedData: 'true'};
-    return response.json(requestedData);
-  }
-
   async logout({response, auth, request}){
     const token = auth.getAuthHeader()
      await auth.revokeTokens([token], true);
