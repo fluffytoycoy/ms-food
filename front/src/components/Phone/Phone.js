@@ -3,6 +3,7 @@ import './Phone.scss';
 
 function Phone(props){
   const[iconOpen, toggleIcon] = React.useState(false)
+  // const[isVisable, toggleVisable] = React.useState(shouldRender())
 
     function handleMenuClick(){
       toggleIcon(!iconOpen)
@@ -11,8 +12,9 @@ function Phone(props){
     function shouldRender(){
       //if location is dashboard dont render phone
       const pathname = props.location.pathname;
-      const serviceRegex = '(d|D)ashboard||(L|l)ogin';
-      return !pathname.match(serviceRegex);
+      const serviceRegex = new RegExp('(D|d)ashboard|(L|l)ogin');
+      console.log(serviceRegex.test(pathname));
+      return !serviceRegex.test(pathname);
     }
 
     return (

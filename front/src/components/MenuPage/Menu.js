@@ -42,7 +42,7 @@ import './Menu.scss';
         }
         return newState;
       } else {
-        nextProps.history.push('/404')
+        
       }
       return null;
     }
