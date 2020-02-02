@@ -57,6 +57,9 @@
           &:first-child {
             border-top: #f1f1f1 solid 2px;
           }
+          &.hidden{
+            display: none;
+          }
         }
 
         li {

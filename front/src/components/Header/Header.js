@@ -1,14 +1,17 @@
 import React from 'react';
 import LinkDuo from '../Utils/LinkDuo/LinkDuo';
+import PrivateLink from './PrivateLink';
+import AdminNav from './AdminNav';
+import { connect } from 'react-redux';
 import './Header.scss';
 
 function Header(props){
-  const[menuOpen, toggleNavMenu] = React.useState(false)
-  const[servicesOpen, toggleServicesMenu] = React.useState(false)
-  const[cultureOpen, toggleCultureMenu] = React.useState(false)
-  const menuArray = [toggleServicesMenu, toggleCultureMenu];
+    const[menuOpen, toggleNavMenu] = React.useState(false)
+    const[servicesOpen, toggleServicesMenu] = React.useState(false)
+    const[cultureOpen, toggleCultureMenu] = React.useState(false)
+    const menuArray = [toggleServicesMenu, toggleCultureMenu];
 
-  function closeAllMenusExcept(menu){
+    function closeAllMenusExcept(menu){
     if(window.innerWidth <= 768){
       menuArray.forEach(func=>{
         if(func !== menu){
@@ -19,14 +22,14 @@ function Header(props){
     }
   }
 
-  function handleServiceClick() {
+    function handleServiceClick() {
     if(window.innerWidth <= 768){
       closeAllMenusExcept(toggleServicesMenu);
       toggleServicesMenu(!servicesOpen)
     }
   }
 
-  function handleCultureClick() {
+    function handleCultureClick() {
     if(window.innerWidth <= 768){
       closeAllMenusExcept(toggleCultureMenu);
       toggleCultureMenu(!cultureOpen)
@@ -41,6 +44,7 @@ function Header(props){
       closeAllMenusExcept()
       toggleNavMenu(false)
     }
+
     return (
       <section id="header">
       <div>
@@ -92,6 +96,7 @@ function Header(props){
                 </LinkDuo>
               </div>
             </li>
+            <PrivateLink closeNav={closeNav} component={AdminNav}/>
           </ul>
         </div>
         </div>
@@ -99,5 +104,6 @@ function Header(props){
 
     );
 }
+
 
 export default Header;
