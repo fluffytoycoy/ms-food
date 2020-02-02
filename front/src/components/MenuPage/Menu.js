@@ -16,7 +16,7 @@ import './Menu.scss';
     }
 
     componentDidMount(){
-      console.log(this.state, this.props)
+      
     }
 
   static getDerivedStateFromProps(nextProps, prevState){
@@ -42,7 +42,7 @@ import './Menu.scss';
         }
         return newState;
       } else {
-        
+
       }
       return null;
     }
