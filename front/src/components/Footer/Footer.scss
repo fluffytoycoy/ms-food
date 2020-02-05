@@ -19,6 +19,9 @@
         background: #191919;
         box-shadow: inset black 0 0 4px;
         order:1;
+        img{
+          max-width: 320px;
+        }
       }
       table{
         border-spacing: 2rem 1rem;

@@ -48,7 +48,7 @@ function Footer(){
           </div>
         </div>
         <div className="copy">
-          <p>©{new Date().getFullYear()} Retro Roulette & CoyCoding | All Rights Reserved</p>
+          <p>©{new Date().getFullYear()} CoyCoding | All Rights Reserved</p>
         </div>
      </section>
     );
