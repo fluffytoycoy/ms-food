@@ -1,54 +1,129 @@
 #info {
-  background: linear-gradient(rgba(11, 11, 11, 0.9),rgba(11, 11, 11, 0.9)), url(/img/Backgrounds/info_bg.jpg);
-  background-repeat: no-repeat;
+  background: linear-gradient(rgba(25, 25, 25, 0.99), rgba(25, 25, 25, 0.99)), url(/img/Backgrounds/diamond.png);
   background-position: center;
-  background-size: cover;
   border-top: #cd1041 solid;
   overflow: hidden;
-  .info-wrapper{
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
+  text-shadow: black 0px 4px 7px, black 0px 0px 10px;
+  .info-wrapper {
     color: white;
-    flex-direction: column;
-    align-items: center;
-    .animated{
-      max-width: 500px;
-      width: 100%;
-      padding: 50px 30px;
-      border-bottom: #af103a solid;
-      border-top: #af103a solid;
-      min-height: 366px;
-      background: rgba(11, 11, 11, 0.7);
-      margin: 0 25px;
-      box-shadow: inset black 0 0 4px;
-      &:first-child{
-        margin-bottom: 50px;
+
+    h2 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #cd1242;
+      margin: 20px 20px 0;
+      -webkit-text-stroke: #ffffff 1px;
+      text-align: center;
+    }
+    .info-body{
+      display: flex;
+      margin: 40px;
+      flex-direction: column;
+      align-items: center;
+      .info-animate{
+        width: 100%;
+
       }
-      h2{
-        font-size: 3rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: #cd1041;
+    }
+    .animated {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:first-child {}
+
+      .times {
+        width: 100%;
+        max-width: 500px;
         margin-bottom: 20px;
-        -webkit-text-stroke: white 2px;
-        text-align: center;
-      }
-      .times{
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      .featured-meals{
-            text-align: center;
+        padding-bottom: 20px;
+        border-bottom: solid #ad103a;
         p{
-          display: grid;
-          span{
-            color: #cd1041;
-            font-size: .6rem;
-            margin-top: 5px;
-          }
-          &:not(:last-child){
+            font-size: 1.8rem;
+            font-weight: 100;
             margin-bottom: 10px;
+        }
+        .happy-hour-numbers{
+          font-size: 3rem;
+          font-weight: 100;
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          .dash{
+            font-weight: 700;
+            margin: 0 10px;
+          }
+          .pm{
+            align-self: flex-end;
+          }
+          .pm, .dash{
+            font-size: 1.5rem;
+            color: #cd1242;
+          }
+        }
+      }
+
+      .featured-meals {
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-top: 20px;
+        font-weight: 100;
+        p{
+          text-align: center;
+          &:not(:last-child) {
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 769px) {
+  #info {
+    text-shadow: black 0px 4px 7px, black 0px 0px 10px;
+    .info-wrapper {
+      h2 {
+
+      }
+      .info-body{
+
+        .info-animate{
+
+        }
+      }
+      .animated {
+
+        &:first-child {}
+
+        .times {
+
+          p{
+
+          }
+          .happy-hour-numbers{
+
+            .dash{
+
+            }
+            .pm{
+
+            }
+            .pm, .dash{
+
+            }
+          }
+        }
+
+        .featured-meals {
+
+          p{
+            &:not(:last-child) {
+            }
           }
         }
       }
@@ -56,35 +131,75 @@
   }
 }
 
-@media only screen and (min-width: 769px) {
-  #home {
-    #info {
-      .info-wrapper{
-        padding: 100px 0;
+@media only screen and (min-width: 1200px) {
+  #info {
+    text-shadow: black 0px 4px 7px, black 0px 0px 10px;
+    .info-wrapper {
+      h2 {
+        font-size: 4rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #cd1242;
+        margin: 46px 20px 0;
+        -webkit-text-stroke: #ffffff 2px;
+        text-align: center;
+      }
+      .info-body{
+        display: flex;
+        margin: 46px;
         flex-direction: row;
-        align-items: unset;
-        .animated{
-          max-width: 500px;
+        align-items: center;
+        .info-animate{
+          width: 50%;
+          align-self: stretch;
+        }
+      }
+      .animated {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:first-child {}
+
+        .times {
           width: 100%;
-          padding: 30px 30px;
-          border: #af103a solid;
-          &:first-child{
-            margin-bottom: unset;
+          max-width: 500px;
+          margin-bottom: 0px;
+          padding-bottom: 0px;
+          border: 0px;
+          p{
+              font-size: 2rem;
+              margin: 0px;
           }
-          h2{
-            margin-bottom: 20px;
+          .happy-hour-numbers{
+            font-size: 4rem;
+            font-weight: 100;
+            margin-bottom: 0px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .dash{
+              font-weight: 700;
+              margin: 0 10px;
+            }
+            .pm{
+              align-self: flex-end;
+            }
+            .pm, .dash{
+              font-size: 2rem;
+              color: #cd1242;
+            }
           }
-          .times{
+        }
+
+        .featured-meals {
+          width: auto;
+          font-size: 2rem;
+          margin-top: 0px;
+          p{
             text-align: center;
-            margin-bottom: 40px;
-          }
-          .featured-meals{
-                text-align: center;
-            p{
-              span{
-              }
-              &:not(:last-child){
-              }
+            &:not(:last-child) {
+              margin-bottom: 16px;
             }
           }
         }
