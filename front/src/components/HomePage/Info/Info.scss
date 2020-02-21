@@ -6,19 +6,18 @@
   text-shadow: black 0px 4px 7px, black 0px 0px 10px;
   .info-wrapper {
     color: white;
-
+    margin: 80px 20px;
     h2 {
       font-size: 3rem;
       text-transform: uppercase;
       font-weight: 700;
       color: #cd1242;
-      margin: 20px 20px 0;
       -webkit-text-stroke: #ffffff 1px;
       text-align: center;
     }
     .info-body{
       display: flex;
-      margin: 40px;
+      margin: 40px 0px;
       flex-direction: column;
       align-items: center;
       .info-animate{
