@@ -6,7 +6,13 @@ function Info(){
   return(
     <section id="info">
       <div className="info-wrapper">
-        <h2>Happy Hour</h2>
+          <div className="happy-hour">
+            <h2>Happy</h2>
+            <ScrollAnimation className="baseball-wrapper" animateOnce animateIn="zoomIn">
+              <img src="/img/Logos/baseball.png" alt="baseball"/>
+            </ScrollAnimation>
+            <h2>Hour</h2>
+          </div>
           <div className="info-body">
             <ScrollAnimation className="info-animate" animateOnce animateIn="fadeInLeft">
               <div className="times">
