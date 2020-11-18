@@ -1,17 +1,11 @@
 import axios from 'axios'
+import authHeaders from './Util/AuthHeaders';
 
 export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
 export const LOG_IN_FAIL = "LOG_IN_FAIL";
 
 export const LOG_OUT_SUCCESS = "LOG_OUT_SUCCESS";
 export const LOG_OUT_FAIL = "LOG_OUT_FAIL";
-
-const authHeaders = {
-    headers: {
-        "Authorization" : `Bearer ${localStorage.getItem('accessToken')}`,
-        "refreshToken" : localStorage.getItem('refreshToken')
-    }
-}
 
 export const login = (user) => dispatch => {
     axios
@@ -32,7 +26,7 @@ export const login = (user) => dispatch => {
 
 export const logout = (user) => dispatch => {
   axios
-    .post('./auth/logout', {logout: 'user'},authHeaders)
+    .post('./auth/logout', {logout: 'user'}, authHeaders())
     .then(res => {
       dispatch({
         type: LOG_OUT_SUCCESS,

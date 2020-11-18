@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {parseMenu} from './Util/MenuParser';
 import {parseMenuItem} from './Util/MenuItemParser';
+import authHeaders from './Util/AuthHeaders';
 //Actions for getting menu from database
 
 export const GET_MENU_START = "GET_MENU_START"
@@ -32,13 +33,6 @@ export const SET_SELECTED_MENUITEM = "SET_SELECTED_MENUITEM"
 
 export const SET_PREV_PAGE = "SET_PREV_PAGE"
 
-const authHeaders = {
-    headers: {
-        "Authorization" : `Bearer ${localStorage.getItem('accessToken')}`,
-        "refreshToken" : localStorage.getItem('refreshToken')
-    }
-}
-
 export const getMenu = () => dispatch => {
     dispatch({ type: GET_MENU_START })
     axios
@@ -60,7 +54,7 @@ export const getMenu = () => dispatch => {
 export const addMenuItem = (menuItem) => dispatch => {
   dispatch({type: ADD_MENU_ITEM_START})
   axios
-    .post('/api/createMenuItem', parseMenuItem(menuItem), authHeaders)
+    .post('/api/createMenuItem', parseMenuItem(menuItem), authHeaders())
       .then(res =>{
           const newMenuItem = {...res.data,  type: menuItem.type, category: menuItem.category};
           dispatch({
@@ -77,9 +71,9 @@ export const addMenuItem = (menuItem) => dispatch => {
 
 export const updateMenuItem = (menuItem) => dispatch => {
   dispatch({type: UPDATE_MENU_ITEM_START})
-  console.log(authHeaders)
+  console.log(authHeaders())
   axios
-    .post('/api/updateMenuItem', parseMenuItem(menuItem), authHeaders)
+    .post('/api/updateMenuItem', parseMenuItem(menuItem), authHeaders())
       .then(res =>{
                 console.log(res)
         dispatch({
@@ -101,7 +95,7 @@ export const updateMenuItem = (menuItem) => dispatch => {
 export const deleteMenuItem = (item) => dispatch => {
   dispatch({type: DELETE_MENU_ITEM_START})
   axios
-    .post('/api/deleteMenuItem', {id: item.id}, authHeaders)
+    .post('/api/deleteMenuItem', {id: item.id}, authHeaders())
     .then(res =>{
         dispatch({
           type: DELETE_MENU_ITEM_SUCCESS,
