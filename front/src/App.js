@@ -77,6 +77,7 @@ class App extends Component {
 const mapStateToProps = state =>{
   return state.menuReducer;
 }
+
 export default connect(
     mapStateToProps,
     { getMenu }
