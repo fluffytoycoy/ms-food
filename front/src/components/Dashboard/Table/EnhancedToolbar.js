@@ -13,7 +13,7 @@ const EnhancedToolbar = (props) => {
 
   function addMenuItem(){
     props.setPreviousPage(props.history.location.pathname);
-    props.history.push('/Dashboard/Create')
+    props.history.push('/Dashboard/Create');
   }
 
   return (
