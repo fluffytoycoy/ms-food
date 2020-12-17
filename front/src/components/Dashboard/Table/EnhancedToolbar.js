@@ -11,7 +11,7 @@ import FilterForm from './FilterForm';
 
 const EnhancedToolbar = (props) => {
 
-  function addMenuItem(){
+  function addMenuItem() {
     props.setPreviousPage(props.history.location.pathname);
     props.history.push('/Dashboard/Create');
   }
