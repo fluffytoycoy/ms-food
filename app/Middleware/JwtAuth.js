@@ -7,7 +7,6 @@ class JwtAuth {
 
   async handle ({ request, response, auth}, next) {
     try{
-      console.log(request)
         await auth.check()
     } catch (e) {
       if(e.name === 'ExpiredJwtToken'){
