@@ -57,9 +57,9 @@ class App extends Component {
             <Route exact path="/About-Us/:category" render={props => <AboutUs {...props}/>}/>
             <Route exact path="/Gallery" render={props => <ImgGallery {...props}/>}/>
             <PrivateRoute exact path="/Dashboard" component={Dashboard} />
-            <Route exact path="/Dashboard/Page/:pageNumber" render={props => <Dashboard {...props}/>}/>
-            <Route exact path="/Dashboard/Edit/:id" render={props => <EditMenuItem {...props}/>}/>
-            <Route exact path="/Dashboard/Create/" render={props => <AddMenuItem {...props}/>}/>
+            <PrivateRoute exact path="/Dashboard/Page/:pageNumber" render={props => <Dashboard {...props}/>}/>
+            <PrivateRoute exact path="/Dashboard/Edit/:id" render={props => <EditMenuItem {...props}/>}/>
+            <PrivateRoute exact path="/Dashboard/Create/" render={props => <AddMenuItem {...props}/>}/>
             <Route exact path="/Login" render={props => <Login {...props}/>}/>
             <Route exact path="/Logout" render={props => <Logout {...props}/>}/>
             <Route component={NotFound}/>
